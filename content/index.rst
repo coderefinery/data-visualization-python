@@ -25,7 +25,7 @@ should be relevant for anyone working in the field of science.
   Preparations for your computer:
 
   - Computer with network access
-  - `Anaconda installation <https://www.anaconda.com/products/individual>`__ (more detailed installation instructions will be provided)
+  - Anaconda installation (:doc:`installation`)
   - Optional: `GitHub account <https://github.com/join>`__
     with `SSH keys <https://docs.github.com/en/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account>`__
     set up
@@ -90,6 +90,7 @@ data processing and visualization pipelines for our actual research projects.
    :maxdepth: 1
    :caption: Reference
 
+   installation.md
    guide.md
 
 
