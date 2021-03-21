@@ -90,7 +90,7 @@ data processing and visualization pipelines for our actual research projects.
    :maxdepth: 1
    :caption: Reference
 
-   guide
+   guide.md
 
 
 Credit
