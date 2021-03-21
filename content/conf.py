@@ -17,9 +17,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'LESSON NAME'
-copyright = '2020, The contributors'
-author = 'The contributors'
+project = 'Data visualization using Python'
+copyright = '2020, Radovan Bast'
+author = 'Radovan Bast'
 github_user = 'coderefinery'
 github_repo_name = ''  # auto-detected from dirname if blank
 github_version = 'master'
