@@ -61,8 +61,8 @@ data processing and visualization pipelines for our actual research projects.
    :delim: ;
 
    35 min ; :doc:`jupyter`
-   25 min ; :doc:`python-basics`
-   50 min ; :doc:`pandas`
+   35 min ; :doc:`python-basics`
+   30 min ; :doc:`pandas`
    25 min ; :doc:`first-plot`
    25 min ; :doc:`tidy-data`
    50 min ; :doc:`statistics`
@@ -91,3 +91,13 @@ data processing and visualization pipelines for our actual research projects.
    :caption: Reference
 
    guide
+
+
+Credit
+------
+
+When preparing this lesson, I have used these resources as inspiration for outline and examples:
+
+- https://aaltoscicomp.github.io/python-for-scicomp/
+- https://datacarpentry.org/python-ecology-lesson/
+- https://swcarpentry.github.io/python-novice-inflammation/
