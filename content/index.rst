@@ -60,12 +60,28 @@ data processing and visualization pipelines for our actual research projects.
    :widths: auto
    :delim: ;
 
-   20 min ; :doc:`filename`
+   25 min ; :doc:`jupyter`
+   25 min ; :doc:`python-basics`
+   50 min ; :doc:`pandas`
+   25 min ; :doc:`first-plot`
+   25 min ; :doc:`tidy-data`
+   50 min ; :doc:`statistics`
+   50 min ; :doc:`customizing-plots`
+   50 min ; :doc:`binder`
 
 
 .. toctree::
    :maxdepth: 1
-   :caption: The lesson
+   :caption: Episodes
+
+   jupyter.md
+   python-basics.md
+   pandas.md
+   first-plot.md
+   tidy-data.md
+   statistics.md
+   customizing-plots.md
+   binder.md
 
 
 .. toctree::

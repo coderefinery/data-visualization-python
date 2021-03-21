@@ -1,0 +1,3 @@
+# Generating our first plot
+
+Write me ...

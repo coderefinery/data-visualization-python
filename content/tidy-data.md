@@ -1,0 +1,3 @@
+# Tidy data format
+
+Write me ...
