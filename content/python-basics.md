@@ -29,8 +29,47 @@ int, float, string, bool
 
 ## Functions
 
-- Together we write a function which sums all elements in a list
+Functions are like reusable recipes. They receive ingredients (input arguments),
+then inside the function we do/compute something with these arguments,
+and they return a result.
+
+```python
+def add(a, b):
+    result = a + b
+    return result
+```
+
+- Together we write a function which sums all elements in a list:
+
+```python
+def add_all_elements(sequence):
+    s = 0.0
+    for element in sequence:
+        s += element
+    return s
+
+
+measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+print(add_all_elements(measurements))
+```
+
 - We reuse this function to write a function which computes the mean
+
+```python
+def arithmetic_mean(sequence):
+    # we are reusing add_all_elements written above
+    s = add_all_elements(sequence)
+    n = len(sequence)
+    return s / n
+
+
+measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+mean = arithmetic_mean(measurements)
+
+print(mean)
+```
 
 
 ## Reading error messages
