@@ -65,9 +65,9 @@ data processing and visualization pipelines for our actual research projects.
    30 min ; :doc:`pandas`
    25 min ; :doc:`first-plot`
    25 min ; :doc:`tidy-data`
-   50 min ; :doc:`statistics`
-   50 min ; :doc:`customizing-plots`
-   20 min ; :doc:`organizing-projects`
+   50 min ; :doc:`trends`
+   30 min ; :doc:`customizing-plots`
+   30 min ; :doc:`organizing-projects`
    30 min ; :doc:`binder`
 
 
@@ -80,7 +80,7 @@ data processing and visualization pipelines for our actual research projects.
    pandas.md
    first-plot.md
    tidy-data.md
-   statistics.md
+   trends.md
    customizing-plots.md
    organizing-projects.md
    binder.md
