@@ -36,22 +36,22 @@ should be relevant for anyone working in the field of science.
 About the course
 ----------------
 
-We will work in `Jupyter notebooks <https://jupyter.org/>`__ and start with Python
-basics, to be able to read data from Excel sheets and comma-separated values
+We will work in `Jupyter notebooks <https://jupyter.org/>`__ and start with **Python
+basics**, to be able to read data from Excel sheets and comma-separated values
 (CSV) files. We will introduce the `pandas <https://pandas.pydata.org/>`__ library
 for "data wrangling" (reading, writing, sorting, and filtering of data).
 
-We will learn how to process data and compute simple statistics, error bars,
+We will learn how to **process data** and compute simple statistics, error bars,
 and regression approximations with Python and the help of its libraries.
 
-And finally we will learn how to produce reproducible plots using the libraries
+And finally we will learn how to produce **reproducible plots** using the libraries
 `Matplotlib <https://matplotlib.org/>`__, `Seaborn <https://seaborn.pydata.org/>`__,
 and `Altair <https://altair-viz.github.io/>`__ (you can then choose your favorite
 one).  We will practice how to share these visualization pipelines using
 `Binder <https://mybinder.org/>`__ via `GitHub <https://github.com>`__.
 
 This is a 3 day workshop where the majority of the learning will take place
-over the first two half-days.  After that we will work on our own projects and
+over the first two half-days.  After that we will **work on our own projects** and
 meet up again on April for a mentoring session where we will together improve
 data processing and visualization pipelines for our actual research projects.
 
