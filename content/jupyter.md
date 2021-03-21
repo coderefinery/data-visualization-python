@@ -10,7 +10,7 @@
 
 [20 min talking/type-along; there will be more text and screenshots]
 
-## Motivation
+## Motivation for Jupyter notebooks
 
 ## Where we want to get at the end
 
@@ -24,7 +24,7 @@
 
 ## Exercises
 
-```{challenge} Exercise 1: create a notebook (15 minutes)
+```{challenge} Exercise: create a notebook (15 min)
 - Open a new notebook, rename it
 - Create a markdown cell with a section title and a short text
 - Create a code cell adapting a provided simple Python example
@@ -36,3 +36,8 @@
 ## Use cases for notebooks
 
 Know when to use a Jupyter notebook for a Python project and when perhaps not to ...
+
+
+## Good practices
+
+Run all cells before sharing/saving.
