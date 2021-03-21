@@ -1,5 +1,5 @@
-LESSON NAME
-===========
+Data visualization using Python
+===============================
 
 Intro
 
