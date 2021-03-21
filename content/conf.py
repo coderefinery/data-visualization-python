@@ -22,8 +22,8 @@ copyright = '2020, Radovan Bast'
 author = 'Radovan Bast'
 github_user = 'coderefinery'
 github_repo_name = ''  # auto-detected from dirname if blank
-github_version = 'master'
-conf_py_path = '/content/' # with leading and trailing slash
+github_version = 'main'
+conf_py_path = '/data-visualization-python/' # with leading and trailing slash
 
 # -- General configuration ---------------------------------------------------
 
