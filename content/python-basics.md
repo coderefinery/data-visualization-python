@@ -71,6 +71,9 @@ mean = arithmetic_mean(measurements)
 print(mean)
 ```
 
+- Functions can call other functions. Functions can also get other functions as
+  input arguments.
+
 
 ## Reading error messages
 
@@ -80,10 +83,27 @@ Here we introduce a mistake and we together try to make sense of the traceback.
 ## Exercises
 
 ````{challenge} Exercise: create a function that computes the standard deviation (15 min)
-- This is an adaptation of the "function which computes the mean".
 - Arithmetic mean: $\bar{x} = \frac{1}{N} \sum_{i=1}^N x_i$
 - Standard deviation: $\sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2 }$
 - In other words the computation is similar but we need to sum over squares of differences and at the end take a square root.
+- Take this as a starting point:
+  ```python
+  # we have written this one together previously
+  def arithmetic_mean(sequence):
+      s = 0.0
+      for element in sequence:
+          s += element
+      n = len(sequence)
+      return s / n
+
+
+  def standard_deviation(sequence):
+      # here we need to do some work:
+      # mean = ?
+      # s = ?
+      n = len(sequence)
+      return (s / n) ** 0.5
+  ```
 - If this is the input list:
   ```python
   measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
