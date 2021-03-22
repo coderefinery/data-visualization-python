@@ -11,7 +11,7 @@ In this course we will need **Python 3** and the following Python libraries/pack
 - matplotlib
 - seaborn
 
-This one is optional (it will be demonstrated and if you can install
+This one is optional (it will be demonstrated and you can install
 it if you want to try it out):
 - altair
 
@@ -38,9 +38,11 @@ $ conda install -c conda-forge altair vega_datasets
 
 ## How to verify your installation
 
-1. Open the [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/)
+1. Open the [Anaconda Navigator](https://docs.anaconda.com/anaconda/navigator/).
 
 2. Find the **JupyterLab** tile and "launch" it.
+
+If you are on Linux or macOS, you can open JupyterLab from the terminal by typing `jupyter-lab`.
 
 It will hopefully open up your browser and look like this:
 
