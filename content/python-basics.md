@@ -283,6 +283,8 @@ We will later learn how to create own modules to collect own functions for reuse
 
 ## Optional exercises
 
+These exercises use [if statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements)
+which we didn't mention above.
 
 ````{challenge} Optional exercise/ homework: removing duplicates
 - This list contains duplicates:
@@ -297,6 +299,11 @@ We will later learn how to create own modules to collect own functions for reuse
 ````
 
 ````{solution} Solution 1 (longer but hopefully easier to understand)
+The function `sorted` sorts a sequence but it creates a new sequence.
+This is useful if you need a sorted result without changing the original sequence.
+
+We could have achieved the same result with `new_sequence.sort()`.
+
 ```python
 def remove_duplicates_and_sort(sequence):
     new_sequence = []
