@@ -57,7 +57,6 @@ print(1.0 - some_fraction)
 
 ## Data structures for collections: lists, dictionaries, sets, and tuples
 
-
 ```python
 # lists are good when order is important
 scores = [13, 5, 2, 3, 4, 3]
@@ -93,6 +92,34 @@ You can put:
 - lists inside lists
 - ...
 
+
+## Iterating over collections
+
+Often we wish to iterate over collections.
+
+Iterating over a list:
+```python
+scores = [13, 5, 2, 3, 4, 3]
+
+for score in scores:
+    print(score)
+
+# example with f-strings
+for score in scores:
+    print(f"the score is {score}")
+```
+
+Iterating over a dictionary:
+```python
+experiment = {"location": "Svalbard", "date": "2021-03-23", "num_measurements": 23}
+
+for key in experiment:
+    print(experiment[key])
+
+# another way to iterate
+for (key, value) in experiment.items():
+    print(key, value)
+```
 
 ## Functions
 
