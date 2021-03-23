@@ -97,8 +97,9 @@ data processing and visualization pipelines for our actual research projects.
 Credit
 ------
 
-When preparing this lesson, I have used these resources as inspiration for outline and examples:
+When preparing this lesson, I have reused these resources:
 
 - https://aaltoscicomp.github.io/python-for-scicomp/
 - https://datacarpentry.org/python-ecology-lesson/
 - https://swcarpentry.github.io/python-novice-inflammation/
+- https://coderefinery.github.io/jupyter/
