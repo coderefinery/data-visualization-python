@@ -90,6 +90,7 @@ You can put:
 - lists inside dictionaries
 - dictionaries inside dictionaries
 - lists inside lists
+- tuples inside ...
 - ...
 
 
