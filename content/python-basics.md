@@ -9,27 +9,94 @@
 - Being able to "read" an error
 ```
 
-[20 min talking/type-along; there will be more text and screenshots]
+````{discussion} Instructor notes
+- 20 min talking/type-along
+- 15 min exercise
+- there are optional exercises for later/ homework
+````
+
 
 ## Motivation for Python
 
-free, ecosystem, also mention R and Matlab and Julia
+- **Free**
+- Huge **ecosystem of examples, libraries, and tools**
+- Relatively easy to read and understand
+- Similar in scope and use cases to R, Julia, and Matlab
 
 
 ## Basic types
 
-int, float, string, bool
+```python
+# int
+num_measurements = 13
+
+# float
+some_fraction = 0.25
+
+# string
+name = "Bruce Wayne"
+
+# bool
+value_is_missing = False
+skip_verification = True
+
+# we can print values
+print(name)
+
+# and we can do arithmetics with ints and floats
+print(5 * num_measurements)
+print(1.0 - some_fraction)
+```
+
+- Python is **dynamically typed**:
+  We do not have to define that an integer is an `int`, we can use it this way
+  and Python will infer it
+- However, one can use type annotations in function definitions
+- Now you also know that we can add `# comments` to our code
 
 
-## Data structures for collections: lists, tuples, dictionaries, and sets
+## Data structures for collections: lists, dictionaries, sets, and tuples
 
 
-## Looping over collections
+```python
+# lists are good when order is important
+scores = [13, 5, 2, 3, 4, 3]
+
+# first element
+print(scores[0])
+
+# we can add items to lists
+scores.append(4)
+
+# lists can be sorted
+scores.sort()
+print(scores)
+
+# dictionaries are useful if you want to look up
+# elements in a collection by something else than position
+experiment = {"location": "Svalbard", "date": "2021-03-23", "num_measurements": 23}
+
+print(experiment["date"])
+
+# we can add items to dictionaries
+experiment["instrument"] = "a particular brand"
+print(experiment)
+```
+
+- **Sets** are useful for unordered collections where you want to make sure that there are no repetitions.
+- There are also **tuples** that are similar to lists but their items cannot be modified.
+
+You can put:
+- dictionaries inside lists
+- lists inside dictionaries
+- dictionaries inside dictionaries
+- lists inside lists
+- ...
 
 
 ## Functions
 
-Functions are like reusable recipes. They receive ingredients (input arguments),
+Functions are like **reusable recipes**. They receive ingredients (input arguments),
 then inside the function we do/compute something with these arguments,
 and they return a result.
 
@@ -74,10 +141,19 @@ print(mean)
 - Functions can call other functions. Functions can also get other functions as
   input arguments.
 
+**Why functions?** Less repetition but also simplify reading and understanding code.
+
 
 ## Reading error messages
 
-Here we introduce a mistake and we together try to make sense of the traceback.
+Here we introduce a mistake and we together try to make sense of the traceback:
+
+```{figure} img/python/error.png
+:alt: Example error traceback
+:width: 100%
+
+Example error traceback. Can you explain the error?
+```
 
 
 ## Exercises
@@ -150,7 +226,31 @@ def standard_deviation(sequence):
 
 ## Libraries
 
-Example: numpy.std.
+We can look at libraries as collections of functions. We can import the libraries/modules
+and then reuse the functions defined inside these libraries.
+
+Try this:
+```python
+import numpy
+
+measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+result = numpy.std(measurements)
+
+print(result)
+```
+
+This means `numpy` contains a function called `std` which apparently computes the standard deviation
+(check also its [documentation](https://numpy.org/doc/stable/reference/generated/numpy.std.html)).
+
+Often you see this in tutorials (the module is imported and renamed to a shortcut):
+```python
+import numpy as np
+
+result = np.std([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+```
+
+We will later learn how to create own modules to collect own functions for reuse.
 
 
 ## Optional exercises

@@ -69,15 +69,16 @@ Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupy
 - Most important shortcut: **Shift + Enter**, to run current cell and create a new one below
 - We create a function to compute the mean (we will make sense of the Python code later)
   ```python
-  def mean(sequence):
+  def arithmetic_mean(sequence):
       s = 0.0
       for element in sequence:
           s += element
-      return s/len(sequence)
+      n = len(sequence)
+      return s / n
   ```
 - In a different cell we call the function
   ```python
-  mean([1, 2, 3, 4, 5])
+  arithmetic_mean([1, 2, 3, 4, 5])
   ```
 - Save the notebook
 
@@ -94,7 +95,7 @@ Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupy
 
   ![Jupyter logo](https://jupyter.org/assets/main-logo.svg)
   ```
-- Create a **code cell** where you define and call the `mean` function (above)
+- Create a **code cell** where you define and call the `arithmetic_mean` function (above)
 - Run all cells
 ````
 
