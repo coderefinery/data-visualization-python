@@ -49,7 +49,7 @@ print(1.0 - some_fraction)
 ```
 
 - Python is **dynamically typed**:
-  We do not have to define that an integer is an `int`, we can use it this way
+  We do not have to define that an integer is an {py:class}`int`, we can use it this way
   and Python will infer it
 - However, one can use type annotations in function definitions
 - Now you also know that we can add `# comments` to our code
@@ -81,9 +81,11 @@ print(experiment["date"])
 experiment["instrument"] = "a particular brand"
 print(experiment)
 ```
-
-- **Sets** are useful for unordered collections where you want to make sure that there are no repetitions.
-- There are also **tuples** that are similar to lists but their items cannot be modified.
+- {py:class}`Lists <list>` are good when order is important, and it
+  needs to be changed
+- {py:class}`Dictionaries <dict>` are mappings key→value.
+- {py:class}`Sets <set>` are useful for unordered collections where you want to make sure that there are no repetitions.
+- There are also {py:class}`tuples <tuple>` that are similar to lists but their items cannot be modified.
 
 You can put:
 - dictionaries inside lists
@@ -302,7 +304,7 @@ which we didn't mention above.
 The function `sorted` sorts a sequence but it creates a new sequence.
 This is useful if you need a sorted result without changing the original sequence.
 
-We could have achieved the same result with `new_sequence.sort()`.
+We could have achieved the same result with {py:meth}`list.sort`.
 
 ```python
 def remove_duplicates_and_sort(sequence):

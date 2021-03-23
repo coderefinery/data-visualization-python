@@ -84,7 +84,13 @@ html_context = {'display_github': True,
 # :py:mod:`multiprocessing` to link straight to the Python docs of that module.
 # List all available references:
 #   python -msphinx.ext.intersphinx https://docs.python.org/3/objects.inv
-#intersphinx_mapping = {
-#    #'python': ('https://docs.python.org/3', None),
+extensions.append('sphinx.ext.intersphinx')
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3', None),
 #    #'sphinx': ('https://www.sphinx-doc.org/', None),
-#    }
+#    #'numpy': ('https://numpy.org/doc/stable/', None),
+#    #'scipy': ('https://docs.scipy.org/doc/scipy/reference/', None),
+#    #'pandas': ('https://pandas.pydata.org/docs/', None),
+#    #'matplotlib': ('https://matplotlib.org/', None),
+#    #'seaborn': ('https://seaborn.pydata.org/', None),
+}
