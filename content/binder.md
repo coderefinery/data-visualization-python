@@ -1,9 +1,22 @@
 # Sharing reproducible data science pipelines using Binder
 
-[15 min discussion + 15 min demo]
+```{objectives}
+- Have a recipe to share a dynamic and reproducible visualization pipeline
+```
+
+````{discussion} Instructor notes
+- 15 min discussion/demonstration
+- 15 min exercise
+````
+
+## Sharing dynamic notebooks using [Binder](https://mybinder.org/)
+
+- TODO:
+  - prepare a template repository
+  - we will take one full visualization pipeline from previous episodes and share it on Binder
 
 - Demonstrate Binder
-- Also discuss/show how to get a DOI
+- Also discuss/show how to get a DOI via Zenodo
 
 
 ## Exercises
@@ -14,3 +27,7 @@
 - Create a Binder badge
 - Launch the Binder
 ```
+
+## Discussion
+
+- Discuss the use case and limitations
