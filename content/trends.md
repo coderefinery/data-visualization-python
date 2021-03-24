@@ -9,6 +9,8 @@
 
 [20 min presentation/demo + 30 min exercise]
 
+- Anscombe quartett
+
 
 ## Exercises
 

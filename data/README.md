@@ -1,0 +1,4 @@
+- https://seklima.met.no/observations/
+- https://corgis-edu.github.io/corgis/csv/
+- https://vincentarelbundock.github.io/Rdatasets/datasets.html
+- https://matplotlib.org/stable/gallery/statistics/boxplot_vs_violin.html#sphx-glr-gallery-statistics-boxplot-vs-violin-py
