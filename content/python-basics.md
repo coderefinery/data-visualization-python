@@ -51,7 +51,8 @@ print(1.0 - some_fraction)
 - Python is **dynamically typed**:
   We do not have to define that an integer is an {py:class}`int`, we can use it this way
   and Python will infer it
-- However, one can use type annotations in function definitions
+- However, one can use [type annotations](https://docs.python.org/3/library/typing.html) in Python
+  (see also [mypy](http://mypy-lang.org/))
 - Now you also know that we can add `# comments` to our code
 
 
