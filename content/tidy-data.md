@@ -1,6 +1,19 @@
 # Tidy data format
 
-[10 min discussion + 15 min exercise]
+```{objectives}
+- Knowing about different storage formats
+- Knowing about the tidy data format
+- Be able to reformat tabular data into the tidy data format
+```
+
+````{discussion} Instructor notes
+- 10 min motivation/discussion
+- 15 min exercise
+````
+
+## Motivation
+
+[Hadley Wickham: Tidy Data](http://vita.had.co.nz/papers/tidy-data.pdf)
 
 Explain what it is and motivate why it can be a useful format.
 
