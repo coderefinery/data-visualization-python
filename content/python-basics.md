@@ -81,6 +81,11 @@ print(experiment["date"])
 # we can add items to dictionaries
 experiment["instrument"] = "a particular brand"
 print(experiment)
+
+if "instrument" in experiment:
+    print("yes, the dictionary 'experiment' contains the key 'instrument'")
+else:
+    print("no, it doesn't")
 ```
 - {py:class}`Lists <list>` are good when order is important, and it
   needs to be changed
@@ -113,6 +118,15 @@ for score in scores:
     print(f"the score is {score}")
 ```
 
+We don't have to call the variable inside the for-loop "score". This is up to us.
+We can do this instead:
+```python
+scores = [13, 5, 2, 3, 4, 3]
+
+for x in scores:
+    print(x)
+```
+
 Iterating over a dictionary:
 ```python
 experiment = {"location": "Svalbard", "date": "2021-03-23", "num_measurements": 23}
@@ -127,47 +141,48 @@ for (key, value) in experiment.items():
 
 ## Functions
 
-Functions are like **reusable recipes**. They receive ingredients (input arguments),
-then inside the function we do/compute something with these arguments,
-and they return a result.
-
-```python
-def add(a, b):
-    result = a + b
-    return result
-```
+- Functions are like **reusable recipes**. They receive ingredients (input arguments),
+  then inside the function we do/compute something with these arguments,
+  and they return a result.
+  ```python
+  def add(a, b):
+      result = a + b
+      return result
+  ```
 
 - Together we write a function which sums all elements in a list:
+  ```python
+  def add_all_elements(sequence):
+      """
+      This function adds all elements.
+      This here is a docstring, a documentation string for a function.
+      """
+      s = 0.0
+      for element in sequence:
+          s += element
+      return s
 
-```python
-def add_all_elements(sequence):
-    s = 0.0
-    for element in sequence:
-        s += element
-    return s
 
+  measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-print(add_all_elements(measurements))
-```
+  print(add_all_elements(measurements))
+  ```
 
 - We reuse this function to write a function which computes the mean
+  ```python
+  def arithmetic_mean(sequence):
+      # we are reusing add_all_elements written above
+      s = add_all_elements(sequence)
+      n = len(sequence)
+      return s / n
 
-```python
-def arithmetic_mean(sequence):
-    # we are reusing add_all_elements written above
-    s = add_all_elements(sequence)
-    n = len(sequence)
-    return s / n
 
+  measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
-measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  mean = arithmetic_mean(measurements)
 
-mean = arithmetic_mean(measurements)
-
-print(mean)
-```
+  print(mean)
+  ```
 
 - Functions can call other functions. Functions can also get other functions as
   input arguments.
@@ -189,7 +204,13 @@ Example error traceback. Can you explain the error?
 
 ## Exercises
 
-````{challenge} Exercise: create a function that computes the standard deviation (15 min)
+Choose one of these two:
+- **Python-1A**: compute standard deviation
+- **Python-1B**: working with a dictionary
+
+All other exercises are optional and for later.
+
+````{challenge} Exercise Python-1A: create a function that computes the standard deviation (15 min)
 - Arithmetic mean: $\bar{x} = \frac{1}{N} \sum_{i=1}^N x_i$
 - Standard deviation: $\sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2 }$
 - In other words the computation is similar but we need to sum over squares of differences and at the end take a square root.
@@ -254,6 +275,67 @@ def standard_deviation(sequence):
 ```
 ````
 
+````{challenge} Exercise Python-1B: working with a dictionary
+- We have this dictionary as a starting point:
+  ```python
+  grades = {"Alice": 80, "Bob": 95}
+  ```
+- Add the grades of few more (fictious) persons to this dictionary.
+- Print the entire dictionary.
+- What happens when you add a name which already exists (with a different grade)?
+- Print the grade for one particular person only.
+- What happens when you try to print the result for a person that wasn't there?
+- Try also these:
+  ```python
+  print(grades.keys())
+  print(grades.values())
+  print(grades.items())
+  ```
+````
+
+````{solution} Solution
+We can add more people like this:
+```python
+grades["Craig"] = 56
+grades["Dave"] = 28
+grades["Eve"] = 75
+```
+
+Print the entire dictionary with:
+```python
+print(grades)
+```
+
+We get:
+```
+{'Alice': 80, 'Bob': 95, 'Craig': 56, 'Dave': 28, 'Eve': 75}
+```
+
+Adding an entry which already exists updates the entry (please try it).
+
+Printing the result for one particular person:
+```
+print(grades["Eve"])
+```
+
+Printing the result for a person which does not exists, gives a `KeyError`.
+
+The outputs of these three:
+```python
+print(grades.keys())
+print(grades.values())
+print(grades.items())
+```
+
+... are either the only the keys or only the values, or in the case of `items()`,
+key-value pairs (tuples):
+```
+dict_keys(['Alice', 'Bob', 'Craig', 'Dave', 'Eve'])
+dict_values([80, 95, 56, 28, 75])
+dict_items([('Alice', 80), ('Bob', 95), ('Craig', 56), ('Dave', 28), ('Eve', 75)])
+```
+````
+
 
 ## Libraries
 
@@ -286,8 +368,8 @@ We will later learn how to create own modules to collect own functions for reuse
 
 ## Optional exercises
 
-These exercises use [if statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements)
-which we didn't mention above.
+These exercises use
+[if-statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements).
 
 ````{challenge} Optional exercise/ homework: removing duplicates
 - This list contains duplicates:

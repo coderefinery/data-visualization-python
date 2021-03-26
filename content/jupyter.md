@@ -85,7 +85,7 @@ Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupy
 
 ## Exercises
 
-````{challenge} Exercise: create a notebook (15 min)
+````{challenge} Exercise Jupyter-1: create a notebook (15 min)
 - Open a new notebook, rename it
 - Create a **markdown cell** with a section title, a short text and an image
   ```
@@ -129,3 +129,5 @@ Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupy
 
 Run all cells before sharing/saving to verify that the results you see on your
 computer were not due to cells being run out of order.
+
+We will demonstrate why this is important after we have discussed a bit of Python (next episode).
