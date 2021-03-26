@@ -87,13 +87,15 @@ Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupy
 
 ````{challenge} Exercise Jupyter-1: create a notebook (15 min)
 - Open a new notebook, rename it
-- Create a **markdown cell** with a section title, a short text and an image
+- Create a **markdown cell** with a section title, a short text, an image, and an equation
   ```
   # Title of my notebook
 
   Some text.
 
   ![Jupyter logo](https://jupyter.org/assets/main-logo.svg)
+
+  $E = mc^2$
   ```
 - Create a **code cell** where you define and call the `arithmetic_mean` function (above)
 - Run all cells
