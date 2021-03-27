@@ -19,9 +19,3 @@
 - Read it using pandas
 - Extract two columns from this data
 ```
-
-```{challenge} Optional exercise: read data from an Excel file
-- Create and save an Excel file
-- Read it using pandas
-- Extract two columns from this data
-```
