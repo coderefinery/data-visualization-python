@@ -51,6 +51,31 @@ one).  We will practice how to share these visualization pipelines using
 `Binder <https://mybinder.org/>`__ via `GitHub <https://github.com>`__.
 
 
+Typical audience
+----------------
+
+- Somebody starting with Python or curious about Python.
+- Somebody who needs
+  to read, process, and plot data for their work or studies and would like to
+  try it out with Python.
+- Persons who already use Python for this but want to learn about libraries
+  to simplify common tasks and about how to share their workflow in a reproducible way.
+
+
+What is not taught?
+-------------------
+
+- Version control. Although super useful it is outside of this workshop.
+- Python outside a Jupyter notebook.
+- Python sets and tuples are only mentioned.
+- File input/output is only used via libraries and doing "own" file-I/O is only part
+  of optional material.
+- How to choose the right visualization format for the data at hand.
+- Python object oriented design.
+- Python packaging.
+- NumPy arrays.
+
+
 Progression
 -----------
 
