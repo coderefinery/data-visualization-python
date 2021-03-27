@@ -7,7 +7,7 @@
 - Know that other tools exist
 ```
 
-```{discussion} Instructor notes
+```{instructor-note}
 - 20 min talking/type-along
 - 15 min exercise
 ```

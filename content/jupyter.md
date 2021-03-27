@@ -8,7 +8,7 @@
 - Know when to use a Jupyter notebook for a Python project and when perhaps not to
 ```
 
-```{discussion} Instructor notes
+```{instructor-note}
 - 15 min discussion/demo
 - 15 min exercise
 - 5 min summary
