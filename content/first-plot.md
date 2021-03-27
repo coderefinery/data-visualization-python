@@ -39,6 +39,8 @@ From [Claus O. Wilke: "Fundamentals of Data Visualization"](https://clauswilke.c
     interactive graphs
   - [Bokeh](https://demo.bokeh.org/):
     also here good for interactivity
+  - [plotnine](https://plotnine.readthedocs.io/):
+    implementation of a grammar of graphics in Python, it is based on [ggplot2](https://ggplot2.tidyverse.org/)
   - [ggplot](https://yhat.github.io/ggpy/):
     R users will be more at home
   - [PyNGL](https://www.pyngl.ucar.edu/Examples/gallery.shtml):
