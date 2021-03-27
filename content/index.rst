@@ -62,7 +62,7 @@ data processing and visualization pipelines for our actual research projects.
 
    35 min ; :doc:`jupyter`
    35 min ; :doc:`python-basics`
-   25 min ; :doc:`first-plot`
+   35 min ; :doc:`first-plot`
    30 min ; :doc:`pandas`
    25 min ; :doc:`tidy-data`
    50 min ; :doc:`trends`
