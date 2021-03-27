@@ -1,4 +1,4 @@
-# Tidy data format
+# Tidy data and dealing with messy data
 
 ```{objectives}
 - Knowing about different storage formats
