@@ -168,7 +168,7 @@ for (key, value) in experiment.items():
   print(add_all_elements(measurements))
   ```
 
-- We reuse this function to write a function which computes the mean
+- We reuse this function to write a function which computes the mean:
   ```python
   def arithmetic_mean(sequence):
       # we are reusing add_all_elements written above
@@ -186,6 +186,21 @@ for (key, value) in experiment.items():
 
 - Functions can call other functions. Functions can also get other functions as
   input arguments.
+
+- Functions can return more than one thing:
+  ```python
+  def uppercase_and_lowercase(text):
+      u = text.upper()
+      l = text.lower()
+      return u, l
+
+
+  some_text = "SequenceOfCharacters"
+  uppercased_text, lowercased_text = uppercase_and_lowercase(some_text)
+
+  print(uppercased_text)
+  print(lowercased_text)
+  ```
 
 **Why functions?** Less repetition but also simplify reading and understanding code.
 
