@@ -187,7 +187,7 @@ The same data as above, this time side by side.
 
 ```{code-block} python
 ---
-emphasize-lines: 2
+emphasize-lines: 2, 5
 ---
 plot = sns.relplot(x="date",
                    y="snow depth",
