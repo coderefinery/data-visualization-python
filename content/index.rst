@@ -13,6 +13,15 @@ the result, and all of this in a reproducible way. This is something that many
 of us need to do in our research.  The content of this course is general and
 should be relevant for anyone working in the field of science.
 
+**Typical audience**:
+
+- Somebody starting with Python or curious about Python.
+- Somebody who needs
+  to read, process, and plot data for their work or studies and would like to
+  try it out with Python.
+- Persons who already use Python for this but want to learn about libraries
+  to simplify common tasks and about how to share their workflow in a reproducible way.
+
 
 .. prereq::
 
@@ -49,17 +58,6 @@ And finally we will learn how to produce **reproducible plots** using the librar
 and `Altair <https://altair-viz.github.io/>`__ (you can then choose your favorite
 one).  We will practice how to share these visualization pipelines using
 `Binder <https://mybinder.org/>`__ via `GitHub <https://github.com>`__.
-
-
-Typical audience
-----------------
-
-- Somebody starting with Python or curious about Python.
-- Somebody who needs
-  to read, process, and plot data for their work or studies and would like to
-  try it out with Python.
-- Persons who already use Python for this but want to learn about libraries
-  to simplify common tasks and about how to share their workflow in a reproducible way.
 
 
 What is not taught?
