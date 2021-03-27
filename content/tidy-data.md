@@ -223,7 +223,7 @@ to **describe in words** what the code should do to extract the numbers.
 ```
 
 Below you find possible solutions for these two examples. These are designed to
-be understandable (which does not mean that the code is trivial) and are not as
+be somehow understandable (which does not mean that the code is trivial) and are not as
 short and as elegant as they could be. One way to make them more elegant would
 be to use [regular expressions](https://docs.python.org/3/howto/regex.html).
 
