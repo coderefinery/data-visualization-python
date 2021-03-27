@@ -72,6 +72,7 @@ What is not taught?
 - Python object oriented design.
 - Python packaging.
 - NumPy arrays.
+- Managing environments and installing Python packages.
 
 
 Progression
