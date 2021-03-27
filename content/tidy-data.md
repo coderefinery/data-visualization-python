@@ -150,7 +150,8 @@ Oct 10 2020,UiT Norges arktiske universitet,15
 2020-12-12,UiT The Arctic University of Norway,-
 ```
 
-Data cleaning is a bit outside the scope of this course but still good to know:
+Data cleaning is a bit outside the scope of this course
+(although we have done some of this in the pandas episode) but still good to know:
 - There are tools to clean and merge inconsistent data sets (e.g. [OpenRefine](https://openrefine.org/), see also
   [this Data Carpentry lesson](https://datacarpentry.org/OpenRefine-ecology-lesson/))
 - This does not have to be done manually
