@@ -240,7 +240,10 @@ All other exercises are optional and for later.
 ````
 
 ````{solution} Solution 1 (longer but hopefully easier to understand)
-```python
+```{code-block} python
+---
+emphasize-lines: 12-15
+---
 # we have written this one together previously
 def arithmetic_mean(sequence):
     s = 0.0
@@ -262,7 +265,10 @@ def standard_deviation(sequence):
 ````
 
 ````{solution} Solution 2 (more compact)
-```python
+```{code-block} python
+---
+emphasize-lines: 6-7
+---
 def arithmetic_mean(sequence):
     return sum(sequence) / len(sequence)
 
