@@ -6,6 +6,14 @@
 }
 
 
+.rst-content .prereq {
+    background: #fee0d2;
+}
+.rst-content .prereq > .admonition-title {
+    background: #fc9272;
+}
+
+
 .rst-content .instructor-note {
     background: #f0f0f0;
 }
