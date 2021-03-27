@@ -84,7 +84,7 @@ Attempt 2: Not great - adding observation sites forces us add columns and adapt 
 
 ```{figure} img/tidy-data/svalbard-transposed.png
 :alt: Example data transposed
-:width: 70%
+:width: 60%
 
 Attempt 3: Not great - adding species forces us add columns and adapt scripts.
 ```
