@@ -12,6 +12,8 @@
 - 15 min exercise
 ```
 
+[this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/>]
+
 
 ## Repeatability/reproducibility
 
@@ -122,8 +124,6 @@ This is the result of our first plot.
 - At the end it should look like this one:
    ```{figure} img/first-plot/exercise.png
    :alt: Result of the exercise
-
-   This is the result of our exercise plot.
    ```
 ````
 

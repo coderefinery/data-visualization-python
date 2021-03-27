@@ -50,11 +50,22 @@ and `Altair <https://altair-viz.github.io/>`__ (you can then choose your favorit
 one).  We will practice how to share these visualization pipelines using
 `Binder <https://mybinder.org/>`__ via `GitHub <https://github.com>`__.
 
-This is a 3 day workshop where the majority of the learning will take place
-over the first two half-days.  After that we will **work on our own projects** and
-meet up again on April for a mentoring session where we will together improve
-data processing and visualization pipelines for our actual research projects.
 
+Progression
+-----------
+
+- Getting used to the Jupyter environment
+- Getting started with Python
+- Producing a first plot
+- Reading data from file and web
+- Dealing with "messy" data
+- Improving the plots
+- Organizing projects as they grow
+- Sharing reproducible plots
+
+
+Timing
+------
 
 .. csv-table::
    :widths: auto
