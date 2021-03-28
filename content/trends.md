@@ -12,7 +12,11 @@
 - 15 min exercise
 ```
 
+This is under construction. Ideas:
 - Anscombe quartett
+- Box plots and violin plots
+- Plotting regression
+- Computing regression
 
 
 ## Exercises
