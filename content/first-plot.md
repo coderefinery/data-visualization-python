@@ -105,7 +105,7 @@ This is the result of our first plot.
 
 ## Exercises
 
-````{challenge} Exercise: extend the previous example (15 min)
+````{challenge} Exercise Matplotlib-1: extend the previous example (15 min)
 - Extend the previous plot by also plotting this set of values but this time
   using a different color (`#56B4E9`):
   ```python

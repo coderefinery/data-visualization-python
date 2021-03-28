@@ -98,7 +98,7 @@ Timing
    35 min ; :doc:`jupyter`
    35 min ; :doc:`python-basics`
    35 min ; :doc:`first-plot`
-   30 min ; :doc:`pandas`
+   35 min ; :doc:`pandas`
    25 min ; :doc:`tidy-data`
    50 min ; :doc:`trends`
    30 min ; :doc:`customizing-plots`

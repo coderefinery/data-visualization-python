@@ -392,7 +392,7 @@ We will later learn how to create own modules to collect own functions for reuse
 These exercises use
 [if-statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements).
 
-````{challenge} Optional exercise/ homework: removing duplicates
+````{challenge} Optional exercise/ homework Python-2: removing duplicates
 - This list contains duplicates:
   ```python
   measurements = [2, 2, 1, 17, 3, 3, 2, 1, 13, 14, 17, 14, 4]
@@ -431,7 +431,7 @@ def remove_duplicates_and_sort(sequence):
 ```
 ````
 
-````{challenge} Optional exercise/ homework: counting how often an item appears
+````{challenge} Optional exercise/ homework Python-3: counting how often an item appears
 - Back to our list with duplicates:
   ```python
   measurements = [2, 2, 1, 17, 3, 3, 2, 1, 13, 14, 17, 14, 4]

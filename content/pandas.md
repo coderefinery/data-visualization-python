@@ -8,7 +8,7 @@
 ```
 
 ```{instructor-note}
-- 15 min talking/demo
+- 20 min talking/demo
 - 15 min exercise
 ```
 
@@ -145,9 +145,42 @@ data['snow depth'] = pd.to_numeric(data['snow depth'], errors='coerce')
 
 ## Plotting the data
 
-```{danger}
-TODO: add some meta-text
+Let's plot the data. We will start out
+in [Matplotlib](https://matplotlib.org/gallery.html)
+but later also test out
+[Seaborn](https://seaborn.pydata.org/examples/index.html)
+which is built around Matplotlib and pandas dataframes.
+
+```python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots()
+
+# make sure the date axis is in the right format
+# we fixed it above for data but not for data_tromso
+data_tromso["date"] = pd.to_datetime(data_tromso["date"], format="%d.%m.%Y")
+
+ax.plot(data_tromso["date"], data_tromso["max temperature"])
+
+ax.set_xlabel("we should label the x axis")
+ax.set_ylabel("we should label the y axis")
+ax.set_title("some title")
+
+# uncomment the next line if you would like to save the figure to disk
+# fig.savefig("temperatures-tromso.png")
 ```
+
+```{figure} img/pandas/temperatures-tromso.png
+:alt: Max daily temperatures in Tromsø over a year
+
+Max daily temperatures in Tromsø over a year.
+```
+
+Graph looks OK, a litte rough, in a later episode we will discuss how to beautify
+plots but this is good enough now for a quick data exploration.
+
+Let's try this in [Seaborn](https://seaborn.pydata.org/examples/index.html)!
+We will see that this is more compact:
 
 ```python
 import seaborn as sns
@@ -185,6 +218,7 @@ plot = sns.relplot(x="date",
 The same data as above, this time side by side.
 ```
 
+Note how by changing two lines we can change the style and the data plotted:
 ```{code-block} python
 ---
 emphasize-lines: 2, 5
@@ -223,15 +257,118 @@ resources to explore more:
 
 ## Exercises
 
-```{danger}
-TODO: exercise description to be added
+Save the following CSV file, then choose one of these two:
+- **Pandas-1A**: read a CSV file from disk and plot using Seaborn
+- **Pandas-1B**: read a CSV file from disk and plot using Matplotlib
+
+Save this as `example.csv` (this is the [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)):
+```text
+dataset,x,y
+I,10.0,8.04
+I,8.0,6.95
+I,13.0,7.58
+I,9.0,8.81
+I,11.0,8.33
+I,14.0,9.96
+I,6.0,7.24
+I,4.0,4.26
+I,12.0,10.84
+I,7.0,4.82
+I,5.0,5.68
+II,10.0,9.14
+II,8.0,8.14
+II,13.0,8.74
+II,9.0,8.77
+II,11.0,9.26
+II,14.0,8.1
+II,6.0,6.13
+II,4.0,3.1
+II,12.0,9.13
+II,7.0,7.26
+II,5.0,4.74
+III,10.0,7.46
+III,8.0,6.77
+III,13.0,12.74
+III,9.0,7.11
+III,11.0,7.81
+III,14.0,8.84
+III,6.0,6.08
+III,4.0,5.39
+III,12.0,8.15
+III,7.0,6.42
+III,5.0,5.73
+IV,8.0,6.58
+IV,8.0,5.76
+IV,8.0,7.71
+IV,8.0,8.84
+IV,8.0,8.47
+IV,8.0,7.04
+IV,8.0,5.25
+IV,19.0,12.5
+IV,8.0,5.56
+IV,8.0,7.91
+IV,8.0,6.89
 ```
 
-```{challenge} Exercise: read a csv file from disk
-- Create and save a csv file
-- Read it using pandas
-- Plot the data using Seaborn
-```
+````{challenge} Exercise Pandas-1A: read a CSV file from disk and plot using Seaborn (15 min)
+- Save the above CSV file to disk as `example.csv` in the same folder where you run JupyterLab.
+- Then try this:
+  ```python
+  import pandas as pd
+  import seaborn as sns
+
+  data = pd.read_csv("example.csv")
+
+  # try to change "talk" to "poster"
+  # try also to outcomment the following line
+  sns.set_context("talk")
+
+  plot = sns.relplot(x="x", y="y", hue="dataset",
+                     col="dataset", col_wrap=2,  # try to outcomment this line
+                     data=data)
+
+  # uncomment next line to save the figure
+  # plot.savefig("example.png")
+  ```
+- If you have time, try to customize the plot.
+````
+
+````{challenge} Exercise Pandas-1B: read a CSV file from disk and plot using Matplotlib (15 min)
+- Save the above CSV file to disk as `example.csv` in the same folder where you run JupyterLab.
+- Then try this:
+  ```python
+  # this line tells Jupyter to display matplotlib figures in the notebook
+  %matplotlib inline
+
+  import pandas as pd
+  import matplotlib.pyplot as plt
+
+  data = pd.read_csv("example.csv")
+
+  # for matplotlib we need to split the dataset up
+  # not sure this is the most elegant way
+  data1 = data[data["dataset"] == "I"]
+  data2 = data[data["dataset"] == "II"]
+  data3 = data[data["dataset"] == "III"]
+  data4 = data[data["dataset"] == "IV"]
+
+  fig, ax = plt.subplots()
+
+  ax.scatter(x=data1["x"], y=data1["y"], c="blue", label='I')
+  ax.scatter(x=data2["x"], y=data2["y"], c="orange", label='II')
+  ax.scatter(x=data3["x"], y=data3["y"], c="green", label='III')
+  ax.scatter(x=data4["x"], y=data4["y"], c="purple", label='IV')
+
+  ax.set_xlabel("we should label the x axis")
+  ax.set_ylabel("we should label the y axis")
+  ax.set_title("some title")
+  ax.legend()
+
+  # uncomment next line to save the figure
+  # fig.savefig("example.png")
+  ```
+- If you have time, try to customize the plot.
+````
 
 ```{keypoints}
 - Pandas dataframes are a good data structure for tabular data
