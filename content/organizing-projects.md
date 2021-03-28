@@ -17,7 +17,7 @@ notebooks grow?
 
 ## Avoiding repetitive code
 
-Let's imagine we wrote this function `fancy_plot` for a fancy plot hexagonal 2D histogram plot
+Let's imagine we wrote this function `fancy_plot` for a hexagonal 2D histogram plot
 (please try it in your notebook):
 ```{code-block} python
 ---
