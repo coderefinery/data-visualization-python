@@ -6,9 +6,9 @@
 - Be able to reformat tabular data into the tidy data format
 ```
 
-````{instructor-note}
+```{instructor-note}
 - 25 min motivation/discussion/demo
-````
+```
 
 In the previous episode we read data from nicely formatted "plain" text files.
 But sometimes the data is in a spreadsheet or in less nicely formatted text files.
@@ -42,12 +42,12 @@ data = pd.read_excel('experiment.xls', sheet_name="Sheet2")
 data
 ```
 
-````{discussion}
+```{discussion}
 - We can import data from spreadsheets!
   ([more documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html))
 - "Side notes" in spreadsheets can be annoying in this context
 - Also encoding data in cell colors is a problem now
-````
+```
 
 
 ## Tidy data
@@ -96,7 +96,7 @@ Attempt 3: Not great - adding species forces us add columns and adapt scripts.
 Tidy data format: Columns are variables, rows are observations/measurements. Easy to add new species and sites.
 ```
 
-````{keypoints} Tidy data format
+```{keypoints} Tidy data format
 - [Hadley Wickham: Tidy Data](http://vita.had.co.nz/papers/tidy-data.pdf)
 - Columns are variables
 - Rows are observations/measurements
@@ -106,7 +106,7 @@ Tidy data format: Columns are variables, rows are observations/measurements. Eas
   without modifying the scripts
 - **Structure for storing data** - this does not mean that this is ideal
   for tables in presentations or publications
-````
+```
 
 
 ## Standard formats

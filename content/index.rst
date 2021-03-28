@@ -102,7 +102,7 @@ Timing
    25 min ; :doc:`tidy-data`
    50 min ; :doc:`customizing-plots`
    35 min ; :doc:`trends`
-   30 min ; :doc:`organizing-projects`
+   20 min ; :doc:`organizing-projects`
    30 min ; :doc:`binder`
 
 

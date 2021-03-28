@@ -4,10 +4,10 @@
 - Have a recipe to share a dynamic and reproducible visualization pipeline
 ```
 
-````{discussion} Instructor notes
+```{discussion} Instructor notes
 - 15 min discussion/demonstration
 - 15 min exercise
-````
+```
 
 ## Sharing dynamic notebooks using [Binder](https://mybinder.org/)
 
