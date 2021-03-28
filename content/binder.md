@@ -48,7 +48,7 @@ We will now first share it via [GitHub](https://github.com/) "statically",
 then using [Binder](https://mybinder.org/).
 
 ````{challenge} Exercise/demo: Making your notebooks reproducible by anyone (15 min)
-Instructor:
+Instructor demonstrates this:
 - Creates a GitHub repository
 - Uploads the notebook file
 - Then we look at the statically rendered version of the notebook on GitHub
