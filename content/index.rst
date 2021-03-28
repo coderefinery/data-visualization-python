@@ -100,7 +100,7 @@ Timing
    35 min ; :doc:`first-plot`
    35 min ; :doc:`pandas`
    25 min ; :doc:`tidy-data`
-   50 min ; :doc:`trends`
+   35 min ; :doc:`trends`
    30 min ; :doc:`customizing-plots`
    30 min ; :doc:`organizing-projects`
    30 min ; :doc:`binder`

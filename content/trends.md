@@ -2,12 +2,15 @@
 
 ```{objectives}
 - Know about various ways to visualize trends and uncertainty
-- Being able to compute error bars
-- Being able to compute linear regression
+- Being able to plot and compute linear and nonlinear regression
+- Know how to plot boxplots and violine plots
 - Being able to visualize trends
 ```
 
-[20 min presentation/demo + 30 min exercise]
+```{instructor-note}
+- 20 min presentation/demo
+- 15 min exercise
+```
 
 - Anscombe quartett
 
