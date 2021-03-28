@@ -478,3 +478,10 @@ def how_often_alternative2(sequence):
     return dict(counts)
 ```
 ````
+
+
+## Great resources to learn more
+
+- [Real Python Tutorials](https://realpython.com/) (great for beginners)
+- [The Python Tutorial](https://docs.python.org/3/tutorial/index.html) (great for beginners)
+- [The Hitchhiker’s Guide to Python!](https://docs.python-guide.org/) (intermediate level)
