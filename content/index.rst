@@ -103,7 +103,7 @@ Timing
    50 min ; :doc:`customizing-plots`
    35 min ; :doc:`trends`
    20 min ; :doc:`organizing-projects`
-   30 min ; :doc:`binder`
+   20 min ; :doc:`binder`
 
 
 .. toctree::

@@ -77,14 +77,14 @@ In this exercise we will learn how to use log scales.
   ```
 
   This is the result but we realize that a linear scale is not ideal here:
-   ```{figure} img/customizing/gapminder-linear.png
-   :alt: Gapminder data plotted using a linear scale
-   ```
+  ```{figure} img/customizing/gapminder-linear.png
+  :alt: Gapminder data plotted using a linear scale
+  ```
 
   - Your task is to switch to a log scale and arrive at this result:
-   ```{figure} img/customizing/gapminder-log.png
-   :alt: Gapminder data plotted using log scale
-   ```
+  ```{figure} img/customizing/gapminder-log.png
+  :alt: Gapminder data plotted using log scale
+  ```
 
   - What does ``alpha=0.5`` do?
 ````
