@@ -13,6 +13,9 @@
 - 10 min discussion, Q&A
 ```
 
+[this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/>]
+
+
 ## Prefer scripting over manual customization
 
 - **Do not customize "manually"** using a graphical program (not easily repeatable/reproducible).
