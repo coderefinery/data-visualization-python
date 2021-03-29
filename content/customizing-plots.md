@@ -211,7 +211,7 @@ Example "solution" for such an exploration below.
    ... many more lines ...
    [12.45950762  4.32352988  6.56724895  3.42215312  0.34419915  0.46123886 -1.56953795  0.95292133]]
   ```
-- Now let's try this:
+- Now let's try with a much simplified two-dimensional list:
   ```{code-block} python
   ---
   emphasize-lines: 12, 13
@@ -227,8 +227,8 @@ Example "solution" for such an exploration below.
   # d = rs.normal(0, 2, (n, p))
   # d += np.log(np.arange(1, p + 1)) * -5 + 10
 
-  d = [[1, 2, 2, 3, 3, 3],
-       [1, 1, 1, 2, 2, 3]]
+  d = [[1.0, 2.0, 2.0, 3.0, 3.0, 3.0],
+       [1.0, 1.0, 1.0, 2.0, 2.0, 3.0]]
 
   # Show each distribution with both violins and points
   sns.violinplot(data=d, palette="light:g", inner="points", orient="h")
@@ -239,8 +239,8 @@ Example "solution" for such an exploration below.
   import seaborn as sns
 
   # l1 and l2 are note great names but they will do for a quick test
-  l1 = [1, 2, 2, 3, 3, 3]
-  l2 = [1, 1, 1, 2, 2, 3]
+  l1 = [1.0, 2.0, 2.0, 3.0, 3.0, 3.0]
+  l2 = [1.0, 1.0, 1.0, 2.0, 2.0, 3.0]
 
   sns.violinplot(data=[l1, l2], palette="light:g", inner="points", orient="h")
   ```
