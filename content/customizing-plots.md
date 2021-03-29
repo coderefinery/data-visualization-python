@@ -169,9 +169,86 @@ ax.tick_params(labelsize=15)
 - Browse the various example galleries (links above).
 - Select one example that is close to your recent visualization project or simply interests you.
 - First try to reproduce this example in the Jupyter notebook.
-- Then try to print out the data that is used in this example to learn about its structure.
+- Then try to print out the data that is used in this example just before the call of the plotting function
+  to learn about its structure. Is it a pandas dataframe? Is it a NumPy array? Is it a dictionary? A list?
+  a list of lists?
 - Then try to modify the data a bit.
-- If you have time, try to feed it different data. This will be key for adapting the examples to your projects.
+- If you have time, try to feed it different, simplified data.
+  This will be key for adapting the examples to your projects.
+
+Example "solution" for such an exploration below.
+````
+
+````{solution} An example exploration
+- Let us imagine we were browsing <https://seaborn.pydata.org/examples/index.html>
+- And this example plot caught our eye: <https://seaborn.pydata.org/examples/simple_violinplots.html>
+- Try to run it in the notebook.
+- The `d` seems to be the data. Right before the call to `sns.violinplot`, add a `print(d)`:
+  ```{code-block} python
+  ---
+  emphasize-lines: 12
+  ---
+  import numpy as np
+  import seaborn as sns
+
+  sns.set_theme()
+
+  # Create a random dataset across several variables
+  rs = np.random.default_rng(0)
+  n, p = 40, 8
+  d = rs.normal(0, 2, (n, p))
+  d += np.log(np.arange(1, p + 1)) * -5 + 10
+
+  print(d)
+
+  # Show each distribution with both violins and points
+  sns.violinplot(data=d, palette="light:g", inner="points", orient="h")
+  ```
+- The print reveals that `d` is a NumPy array and looks like a two-dimensional list:
+  ```text
+  [[10.25146044  6.27005437  5.78778386  3.27832843  0.88147169  1.76439276
+   2.87844934  1.49695422]
+   [ 8.59252953  4.00342116  3.26038963  3.15118015 -2.69725111  0.60361933
+    -2.22137264 -1.86174242]
+   ... many more lines ...
+   [12.45950762  4.32352988  6.56724895  3.42215312  0.34419915  0.46123886
+    -1.56953795  0.95292133]]
+  ```
+- Now let's try this:
+  ```{code-block} python
+  ---
+  emphasize-lines: 12, 13
+  ---
+  # import numpy as np
+  import seaborn as sns
+
+  sns.set_theme()
+
+  # # Create a random dataset across several variables
+  # rs = np.random.default_rng(0)
+  # n, p = 40, 8
+  # d = rs.normal(0, 2, (n, p))
+  # d += np.log(np.arange(1, p + 1)) * -5 + 10
+
+  d = [[1, 2, 2, 3, 3, 3],
+       [1, 1, 1, 2, 2, 3]]
+
+  # Show each distribution with both violins and points
+  sns.violinplot(data=d, palette="light:g", inner="points", orient="h")
+  ```
+- Seems to work! And finally we arrive at a working example with our own data with all
+  the "clutter" removed:
+  ```python
+  import seaborn as sns
+
+  # l1 and l2 are note great names but they will do for a quick test
+  l1 = [1, 2, 2, 3, 3, 3]
+  l2 = [1, 1, 1, 2, 2, 3]
+
+  sns.violinplot(data=[l1, l2], palette="light:g", inner="points", orient="h")
+  ```
+- And now we can focus the rest of our work to read our real data.
+- Finally we can customize the plot.
 ````
 
 ---
