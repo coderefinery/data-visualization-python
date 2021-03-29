@@ -1,0 +1,425 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Organizing projects &mdash; Data visualization using Python  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_lesson.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/minipres.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Sharing reproducible data science pipelines using Binder" href="../binder/" />
+    <link rel="prev" title="Linear and non-linear regression" href="../regression/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../" class="icon icon-home"> Data visualization using Python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-plot/">Generating our first plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/">Reading and writing data with pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regression/">Linear and non-linear regression</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Organizing projects</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#avoiding-repetitive-code">Avoiding repetitive code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-notebooks">Sharing notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#commercial-offers-with-free-plans">Commercial offers with free plans</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#document-dependencies">Document dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recommendations-for-longer-notebooks">Recommendations for longer notebooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-a-table-of-contents-on-top">Create a table of contents on top</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-to-make-it-possible-to-toggle-showing-code">How to make it possible to toggle showing code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../binder/">Sharing reproducible data science pipelines using Binder</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor’s guide</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Organizing projects</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/organizing-projects.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="organizing-projects">
+<h1>Organizing projects<a class="headerlink" href="#organizing-projects" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>How to move common reusable functions to modules and import them</p></li>
+<li><p>Know about good practices for notebooks to make them reusable</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>20 min presentation and discussion</p></li>
+</ul>
+</div>
+<p>[this lesson is adapted from <a class="reference external" href="https://coderefinery.github.io/jupyter/06-sharing/">https://coderefinery.github.io/jupyter/06-sharing/</a>]</p>
+<p><strong>It all started with a short and simple notebook</strong> but how to organize as projects and
+notebooks grow?</p>
+<div class="section" id="avoiding-repetitive-code">
+<h2>Avoiding repetitive code<a class="headerlink" href="#avoiding-repetitive-code" title="Permalink to this headline">¶</a></h2>
+<p>Let’s imagine we wrote this function <code class="docutils literal notranslate"><span class="pre">fancy_plot</span></code> for a hexagonal 2D histogram plot
+(please try it in your notebook):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># to get some random numbers</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">default_rng</span>
+
+
+<span class="hll"><span class="c1"># this one is simple but let us imagine something very lengthy</span>
+</span><span class="hll"><span class="k">def</span> <span class="nf">fancy_plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+</span><span class="hll">    <span class="sd">&quot;&quot;&quot;</span>
+</span><span class="hll"><span class="sd">    Fancy function creating fancy plots.</span>
+</span><span class="hll"><span class="sd">    &quot;&quot;&quot;</span>
+</span><span class="hll">    <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_values</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">default_rng</span><span class="p">()</span>
+
+<span class="n">x_values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">y_values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># call our function</span>
+<span class="n">fancy_plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="s2">&quot;#4cb391&quot;</span><span class="p">)</span>
+
+
+<span class="n">other_x_values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">other_y_values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># call our function again, this time with other data</span>
+<span class="n">fancy_plot</span><span class="p">(</span><span class="n">other_x_values</span><span class="p">,</span> <span class="n">other_y_values</span><span class="p">,</span> <span class="s2">&quot;#fc9272&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we would like to use this function in 5 other notebooks without duplicating
+it over all of the notebooks (imagine the function is very lengthy).</p>
+<p>It can be useful to create a Python file <code class="docutils literal notranslate"><span class="pre">myplotfunctions.py</span></code> in the same
+folder as the notebooks (you can change the name)
+and place this code into <code class="docutils literal notranslate"><span class="pre">myplotfunctions.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+
+<span class="c1"># this one is simple but let us imagine something very lengthy</span>
+<span class="k">def</span> <span class="nf">fancy_plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="n">color</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fancy function creating fancy plots.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">sns</span><span class="o">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y_values</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;hex&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can simplify our notebook:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># to get some random numbers</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">default_rng</span>
+
+<span class="hll"><span class="kn">from</span> <span class="nn">myplotfunctions</span> <span class="kn">import</span> <span class="n">fancy_plot</span>
+</span>
+
+<span class="n">rng</span> <span class="o">=</span> <span class="n">default_rng</span><span class="p">()</span>
+
+<span class="n">x_values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">y_values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># call our function</span>
+<span class="hll"><span class="n">fancy_plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="s2">&quot;#4cb391&quot;</span><span class="p">)</span>
+</span>
+
+<span class="n">other_x_values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+<span class="n">other_y_values</span> <span class="o">=</span> <span class="n">rng</span><span class="o">.</span><span class="n">standard_normal</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="c1"># call our function again, this time with other data</span>
+<span class="hll"><span class="n">fancy_plot</span><span class="p">(</span><span class="n">other_x_values</span><span class="p">,</span> <span class="n">other_y_values</span><span class="p">,</span> <span class="s2">&quot;#fc9272&quot;</span><span class="p">)</span>
+</span></pre></div>
+</div>
+</div>
+<div class="section" id="sharing-notebooks">
+<h2>Sharing notebooks<a class="headerlink" href="#sharing-notebooks" title="Permalink to this headline">¶</a></h2>
+<p>We need to learn how to share notebooks. At the minimum we need
+to share them with our future selves (backup and reproducibility).</p>
+<ul class="simple">
+<li><p>You can enter a URL, GitHub repo or username, or GIST ID in <a class="reference external" href="https://nbviewer.jupyter.org/"><code class="docutils literal notranslate"><span class="pre">nbviewer</span></code></a> and view a rendered Jupyter notebook</p></li>
+<li><p>Read the Docs can render Jupyter Notebooks via the <a class="reference external" href="https://nbsphinx.readthedocs.io/">nbsphinx package</a></p></li>
+<li><p><a class="reference external" href="https://mybinder.org/">Binder</a> creates live notebooks based on a GitHub repository
+(more about this later)</p></li>
+<li><p><a class="reference external" href="https://notebooks.egi.eu">EGI Notebooks</a> (see also <a class="reference external" href="https://egi-notebooks.readthedocs.io">https://egi-notebooks.readthedocs.io</a>)</p></li>
+<li><p><a class="reference external" href="https://github.com/jupyterlab/jupyterlab">JupyterLab</a> supports sharing and collaborative editing of notebooks via Google Drive</p></li>
+<li><p><a class="reference external" href="https://github.com/aaren/notedown">Notedown</a>, <a class="reference external" href="https://github.com/QuantEcon/sphinxcontrib-jupyter">Jupinx</a> and <a class="reference external" href="https://github.com/hplgit/doconce">DocOnce</a> can take Markdown or Sphinx files and generate Jupyter Notebooks</p></li>
+<li><p><a class="reference external" href="https://voila.readthedocs.io/en/stable/">Voilà</a> allows you to convert a Jupyter Notebook into an interactive dashboard</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">nbconvert</span></code> tool can convert a (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) notebook file to:</p>
+<ul>
+<li><p>python code (<code class="docutils literal notranslate"><span class="pre">.py</span></code> file)</p></li>
+<li><p>an HTML file</p></li>
+<li><p>a LaTeX file</p></li>
+<li><p>a PDF file</p></li>
+<li><p>a slide-show in the browser</p></li>
+</ul>
+</li>
+</ul>
+<div class="section" id="commercial-offers-with-free-plans">
+<h3>Commercial offers with free plans<a class="headerlink" href="#commercial-offers-with-free-plans" title="Permalink to this headline">¶</a></h3>
+<p>These platforms can be used free of charge but have paid subscriptions for
+faster access to cloud resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cocalc.com/">CoCalc</a> (formerly SageMathCloud) allows collaborative editing of notebooks in the cloud</p></li>
+<li><p>Google’s <a class="reference external" href="https://colab.research.google.com/">colaboratory</a> lets you work on notebooks in the cloud, and you can <a class="reference external" href="https://colab.research.google.com/notebooks/io.ipynb">read and write to notebook files on Drive</a></p></li>
+<li><p><a class="reference external" href="https://notebooks.azure.com/">Microsoft Azure Notebooks</a> also offers free notebooks in the cloud</p></li>
+<li><p><a class="reference external" href="https://deepnote.com/">Deepnote</a> allows real-time collaboration</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="document-dependencies">
+<h2>Document dependencies<a class="headerlink" href="#document-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>If you import libraries into your notebook, note down their versions.</p>
+<p>It is customary to do this either in a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file (example):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pandas==1.2.3
+seaborn==0.11.1
+</pre></div>
+</div>
+<p>… or in an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file (example):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">example-environment</span>
+<span class="nt">channels</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pandas==1.2.3</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">seaborn==0.11.1</span>
+</pre></div>
+</div>
+<p>Place either <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> or <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> in the same folder as the notebook(s).</p>
+<p>This is not only useful for people who will try to rerun this in future, it is also
+understood by some tools (e.g. <a class="reference external" href="https://mybinder.org/">Binder</a>) which we will see later.</p>
+</div>
+<div class="section" id="recommendations-for-longer-notebooks">
+<h2>Recommendations for longer notebooks<a class="headerlink" href="#recommendations-for-longer-notebooks" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="create-a-table-of-contents-on-top">
+<h3>Create a table of contents on top<a class="headerlink" href="#create-a-table-of-contents-on-top" title="Permalink to this headline">¶</a></h3>
+<p>You can do that using Markdown. This produces a nice overview for longer notebooks.
+Example: <a class="reference external" href="https://stackoverflow.com/a/39817243">https://stackoverflow.com/a/39817243</a></p>
+</div>
+<div class="section" id="how-to-make-it-possible-to-toggle-showing-code">
+<h3>How to make it possible to toggle showing code<a class="headerlink" href="#how-to-make-it-possible-to-toggle-showing-code" title="Permalink to this headline">¶</a></h3>
+<p>It is possible to hide all the code and only show the output. This can be nice
+for notebook readers who don’t need/want to see the code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">HTML</span>
+
+<span class="n">HTML</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;&lt;script&gt;</span>
+<span class="s1">code_show=true;</span>
+<span class="s1">function code_toggle() {</span>
+<span class="s1"> if (code_show){</span>
+<span class="s1"> $(&#39;div.input&#39;).hide();</span>
+<span class="s1"> } else {</span>
+<span class="s1"> $(&#39;div.input&#39;).show();</span>
+<span class="s1"> }</span>
+<span class="s1"> code_show = !code_show</span>
+<span class="s1">}</span>
+<span class="s1">$( document ).ready(code_toggle);</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&lt;form action=&quot;javascript:code_toggle()&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Click here to toggle on/off the raw code.&quot;&gt;&lt;/form&gt;&#39;&#39;&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../binder/" class="btn btn-neutral float-right" title="Sharing reproducible data science pipelines using Binder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../regression/" class="btn btn-neutral float-left" title="Linear and non-linear regression" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Radovan Bast.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

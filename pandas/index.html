@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Reading and writing data with pandas &mdash; Data visualization using Python  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_lesson.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/minipres.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Tidy data and dealing with messy data" href="../tidy-data/" />
+    <link rel="prev" title="Generating our first plot" href="../first-plot/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../" class="icon icon-home"> Data visualization using Python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-plot/">Generating our first plot</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reading and writing data with pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#use-case">Use case</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-data-into-a-dataframe">Reading data into a dataframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-in-a-dataframe">What is in a dataframe?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#combining-dataframes">Combining dataframes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-cleaning">Data cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting-the-data">Plotting the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-to-find-more-information-and-help">Where to find more information and help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regression/">Linear and non-linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organizing-projects/">Organizing projects</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../binder/">Sharing reproducible data science pipelines using Binder</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor’s guide</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Reading and writing data with pandas</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/pandas.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="reading-and-writing-data-with-pandas">
+<h1>Reading and writing data with pandas<a class="headerlink" href="#reading-and-writing-data-with-pandas" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Knowing that pandas is a popular library for handling tabular data</p></li>
+<li><p>Learning some basic usage of pandas dataframes</p></li>
+<li><p>Reading data with pandas from disk or a web resource</p></li>
+<li><p>Get a feeling for when pandas is useful and know where to find more information</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>20 min talking/demo</p></li>
+<li><p>15 min exercise</p></li>
+</ul>
+</div>
+<p>[this lesson is adapted from <a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/pandas/">https://aaltoscicomp.github.io/python-for-scicomp/pandas/</a>]</p>
+<div class="section" id="use-case">
+<h2>Use case<a class="headerlink" href="#use-case" title="Permalink to this headline">¶</a></h2>
+<p>Pandas dataframes are a great data structure for <strong>tabular data</strong>. The pandas
+library provides dataframes, and functions for reading data into dataframes and
+for analyzing, filtering, and manipulating data in very compact form.</p>
+<p>The name is derived from the term “panel data”.</p>
+</div>
+<div class="section" id="reading-data-into-a-dataframe">
+<h2>Reading data into a dataframe<a class="headerlink" href="#reading-data-into-a-dataframe" title="Permalink to this headline">¶</a></h2>
+<p>Pandas can read from and write to a large set of formats
+(<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">overview of input/output functions and formats</a>).</p>
+<p>We will experiment with some example weather data
+obtained from
+<a class="reference external" href="https://seklima.met.no/observations/">Norsk KlimaServiceSenter</a>,
+Meteorologisk institutt (MET)
+(CC BY 4.0).</p>
+<p>We will load a CSV file directly from the web. Instead of using a web URL
+we could use a local file name instead.</p>
+<p>Try this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/tromso.csv&quot;</span>
+<span class="n">data_tromso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">data_tromso</span>
+</pre></div>
+</div>
+<div class="admonition-discussion discussion admonition">
+<p class="admonition-title">Discussion</p>
+<p>Does not look quite right. Can you spot two problems?</p>
+</div>
+<p>We can solve the problem with delimiters and avoid a problem later
+down the road by specifying that the decimal is a comma:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/tromso.csv&quot;</span>
+<span class="n">data_tromso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-is-in-a-dataframe">
+<h2>What is in a dataframe?<a class="headerlink" href="#what-is-in-a-dataframe" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="id1">
+<img alt="A pandas dataframe object is composed of rows and columns" src="../_images/dataframe.svg" /><p class="caption"><span class="caption-text">A pandas dataframe object is composed of rows and columns.</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<p>Let us explore these together in the notebook:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># print an overview of the dataset</span>
+<span class="n">data_tromso</span>
+
+<span class="c1"># print the first 5 rows</span>
+<span class="n">data_tromso</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># print the last 5 rows</span>
+<span class="n">data_tromso</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+
+<span class="c1"># print all column titles - no parentheses here</span>
+<span class="n">data_tromso</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># print table dimensions - no parentheses here</span>
+<span class="n">data_tromso</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="c1"># print one column</span>
+<span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span>
+
+<span class="c1"># get some statistics</span>
+<span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+
+<span class="c1"># print all rows where max temperature was above 20</span>
+<span class="n">data_tromso</span><span class="p">[</span><span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">20.0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="combining-dataframes">
+<h2>Combining dataframes<a class="headerlink" href="#combining-dataframes" title="Permalink to this headline">¶</a></h2>
+<p>Using pandas we can <strong>merge, join, concatenate, and compare</strong>
+dataframes, see <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html</a>.</p>
+<p>Let us try to concatenate two dataframes: one for Tromsø weather data (which we
+already loaded into <code class="docutils literal notranslate"><span class="pre">data_tromso</span></code>) and one for Oslo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/oslo.csv&quot;</span>
+<span class="n">data_oslo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Now we can concatenate them:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_tromso</span><span class="p">,</span> <span class="n">data_oslo</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># let us print the result</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>Once combined, we can do interesting queries like this one:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-cleaning">
+<h2>Data cleaning<a class="headerlink" href="#data-cleaning" title="Permalink to this headline">¶</a></h2>
+<p>Before plotting the data, there are two more problems which we may not see yet:</p>
+<ul class="simple">
+<li><p>Dates are not in a standard date format</p></li>
+<li><p>Snow depth sometimes contains “-” which Python may have difficulties interpreting as a number</p></li>
+</ul>
+<p>We can clean up both these problems</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace dd.mm.yyyy to date format</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span>
+
+<span class="c1"># replace &quot;-&quot; by 0</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;snow depth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;snow depth&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="plotting-the-data">
+<h2>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Permalink to this headline">¶</a></h2>
+<p>Let’s plot the data. We will start out
+in <a class="reference external" href="https://matplotlib.org/gallery.html">Matplotlib</a>
+but later also test out
+<a class="reference external" href="https://seaborn.pydata.org/examples/index.html">Seaborn</a>
+which is built around Matplotlib and pandas dataframes.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># make sure the date axis is in the right format</span>
+<span class="c1"># we fixed it above for data but not for data_tromso</span>
+<span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">data_tromso</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">])</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;we should label the x axis&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;we should label the y axis&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;some title&quot;</span><span class="p">)</span>
+
+<span class="c1"># uncomment the next line if you would like to save the figure to disk</span>
+<span class="c1"># fig.savefig(&quot;temperatures-tromso.png&quot;)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id2">
+<img alt="Max daily temperatures in Tromsø over a year" src="../_images/temperatures-tromso.png" />
+<p class="caption"><span class="caption-text">Max daily temperatures in Tromsø over a year.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>Graph looks OK, a litte rough, in a later episode we will discuss how to beautify
+plots but this is good enough now for a quick data exploration.</p>
+<p>Let’s try this in <a class="reference external" href="https://seaborn.pydata.org/examples/index.html">Seaborn</a>!
+We will see that this is more compact:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># https://seaborn.pydata.org/generated/seaborn.set_style.html</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s2">&quot;whitegrid&quot;</span><span class="p">)</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">lineplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;max temperature&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># uncomment next line to save the figure</span>
+<span class="c1"># plot.figure.savefig(&quot;temperatures.png&quot;)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id3">
+<img alt="Max daily temperatures in Tromsø and Oslo over a year" src="../_images/temperatures.png" />
+<p class="caption"><span class="caption-text">Max daily temperatures in Tromsø and Oslo over a year.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                   <span class="n">y</span><span class="o">=</span><span class="s2">&quot;max temperature&quot;</span><span class="p">,</span>
+                   <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">col</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>  <span class="c1"># try commenting this out or changing to &quot;row&quot;</span>
+                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;line&quot;</span><span class="p">,</span>
+                   <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># uncomment next line to save the figure</span>
+<span class="c1"># plot.savefig(&quot;temperatures-side-by-side.png&quot;)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id4">
+<img alt="Max daily temperatures in Tromsø and Oslo over a year side by side" src="../_images/temperatures-side-by-side.png" />
+<p class="caption"><span class="caption-text">The same data as above, this time side by side.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>Note how by changing two lines we can change the style and the data plotted:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+<span class="hll">                   <span class="n">y</span><span class="o">=</span><span class="s2">&quot;snow depth&quot;</span><span class="p">,</span>
+</span>                   <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">col</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>  <span class="c1"># try commenting this out or changing to &quot;row&quot;</span>
+<span class="hll">                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span>
+</span>                   <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># uncomment next line to save the figure</span>
+<span class="c1"># plot.savefig(&quot;snow-depth.png&quot;)</span>
+</pre></div>
+</div>
+<div class="figure align-default" id="id5">
+<img alt="Snow depth side by side" src="../_images/snow-depth.png" />
+<p class="caption"><span class="caption-text">Snow depth side by side.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="where-to-find-more-information-and-help">
+<h2>Where to find more information and help<a class="headerlink" href="#where-to-find-more-information-and-help" title="Permalink to this headline">¶</a></h2>
+<p>Pandas is extremely powerful and there is a lot that can be done and there are great
+resources to explore more:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/getting_started.html">Getting started guide</a>
+(including tutorials and a 10 minute flash intro)</p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">10 minutes to pandas tutorial</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/">Pandas documentation</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">Cheatsheet</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/cookbook.html#cookbook">Cookbook</a></p></li>
+<li><p><a class="reference external" href="https://datacarpentry.org/python-ecology-lesson/">Data Carpentry lesson</a> “Data Analysis and Visualization in Python for Ecologists”
+(useful not only for ecologists)</p></li>
+</ul>
+</div>
+<div class="section" id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Permalink to this headline">¶</a></h2>
+<p>Save the following CSV file, then choose one of these two:</p>
+<ul class="simple">
+<li><p><strong>Pandas-1A</strong>: read a CSV file from disk and plot using Seaborn</p></li>
+<li><p><strong>Pandas-1B</strong>: read a CSV file from disk and plot using Matplotlib</p></li>
+</ul>
+<p>Save this as <code class="docutils literal notranslate"><span class="pre">example.csv</span></code> (this is the <a class="reference external" href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe’s quartet</a>):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dataset,x,y
+I,10.0,8.04
+I,8.0,6.95
+I,13.0,7.58
+I,9.0,8.81
+I,11.0,8.33
+I,14.0,9.96
+I,6.0,7.24
+I,4.0,4.26
+I,12.0,10.84
+I,7.0,4.82
+I,5.0,5.68
+II,10.0,9.14
+II,8.0,8.14
+II,13.0,8.74
+II,9.0,8.77
+II,11.0,9.26
+II,14.0,8.1
+II,6.0,6.13
+II,4.0,3.1
+II,12.0,9.13
+II,7.0,7.26
+II,5.0,4.74
+III,10.0,7.46
+III,8.0,6.77
+III,13.0,12.74
+III,9.0,7.11
+III,11.0,7.81
+III,14.0,8.84
+III,6.0,6.08
+III,4.0,5.39
+III,12.0,8.15
+III,7.0,6.42
+III,5.0,5.73
+IV,8.0,6.58
+IV,8.0,5.76
+IV,8.0,7.71
+IV,8.0,8.84
+IV,8.0,8.47
+IV,8.0,7.04
+IV,8.0,5.25
+IV,19.0,12.5
+IV,8.0,5.56
+IV,8.0,7.91
+IV,8.0,6.89
+</pre></div>
+</div>
+<div class="admonition-exercise-pandas-1a-read-a-csv-file-from-disk-and-plot-using-seaborn-15-min challenge admonition">
+<p class="admonition-title">Exercise Pandas-1A: read a CSV file from disk and plot using Seaborn (15 min)</p>
+<ul>
+<li><p>Save the above CSV file to disk as <code class="docutils literal notranslate"><span class="pre">example.csv</span></code> in the same folder where you run JupyterLab.</p></li>
+<li><p>Then try this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;example.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># try to change &quot;talk&quot; to &quot;poster&quot;</span>
+<span class="c1"># try also to outcomment the following line</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;talk&quot;</span><span class="p">)</span>
+
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+                   <span class="n">col</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span> <span class="n">col_wrap</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>  <span class="c1"># try to outcomment this line</span>
+                   <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+
+<span class="c1"># uncomment next line to save the figure</span>
+<span class="c1"># plot.savefig(&quot;example.png&quot;)</span>
+</pre></div>
+</div>
+</li>
+<li><p>If you have time, try to customize the plot.</p></li>
+</ul>
+</div>
+<div class="admonition-exercise-pandas-1b-read-a-csv-file-from-disk-and-plot-using-matplotlib-15-min challenge admonition">
+<p class="admonition-title">Exercise Pandas-1B: read a CSV file from disk and plot using Matplotlib (15 min)</p>
+<ul>
+<li><p>Save the above CSV file to disk as <code class="docutils literal notranslate"><span class="pre">example.csv</span></code> in the same folder where you run JupyterLab.</p></li>
+<li><p>Then try this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># this line tells Jupyter to display matplotlib figures in the notebook</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;example.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># for matplotlib we need to split the dataset up</span>
+<span class="c1"># not sure this is the most elegant way</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;I&quot;</span><span class="p">]</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;II&quot;</span><span class="p">]</span>
+<span class="n">data3</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;III&quot;</span><span class="p">]</span>
+<span class="n">data4</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;dataset&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;IV&quot;</span><span class="p">]</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data1</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data1</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;I&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data2</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data2</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;orange&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;II&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data3</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data3</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;III&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">data4</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">data4</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="s2">&quot;purple&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;IV&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;we should label the x axis&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;we should label the y axis&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;some title&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="c1"># uncomment next line to save the figure</span>
+<span class="c1"># fig.savefig(&quot;example.png&quot;)</span>
+</pre></div>
+</div>
+</li>
+<li><p>If you have time, try to customize the plot.</p></li>
+</ul>
+</div>
+<div class="admonition-keypoints keypoints admonition">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Pandas dataframes are a good data structure for tabular data</p></li>
+<li><p>Dataframes allow both simple and advanced analysis in very compact form</p></li>
+<li><p>Some visualization libraries interface very nicely with pandas dataframes</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../tidy-data/" class="btn btn-neutral float-right" title="Tidy data and dealing with messy data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../first-plot/" class="btn btn-neutral float-left" title="Generating our first plot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Radovan Bast.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

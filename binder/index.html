@@ -1,0 +1,323 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Sharing reproducible data science pipelines using Binder &mdash; Data visualization using Python  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_lesson.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/minipres.js"></script>
+        <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Software install instructions" href="../installation/" />
+    <link rel="prev" title="Organizing projects" href="../organizing-projects/" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../" class="icon icon-home"> Data visualization using Python
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-plot/">Generating our first plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/">Reading and writing data with pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../regression/">Linear and non-linear regression</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../organizing-projects/">Organizing projects</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sharing reproducible data science pipelines using Binder</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-dynamic-notebooks-using-binder">Sharing dynamic notebooks using Binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-get-a-digital-object-identifier-doi">How to get a digital object identifier (DOI)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guide/">Instructor’s guide</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Sharing reproducible data science pipelines using Binder</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/binder.md" class="fa fa-github"> Edit on GitHub</a>
+            
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sharing-reproducible-data-science-pipelines-using-binder">
+<h1>Sharing reproducible data science pipelines using Binder<a class="headerlink" href="#sharing-reproducible-data-science-pipelines-using-binder" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-objectives objectives admonition">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Have a recipe to share a dynamic and reproducible visualization pipeline</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>20 min presentation and discussion</p></li>
+</ul>
+</div>
+<p>[this lesson is adapted from <a class="reference external" href="https://coderefinery.github.io/jupyter/06-sharing/">https://coderefinery.github.io/jupyter/06-sharing/</a>]</p>
+<div class="section" id="sharing-dynamic-notebooks-using-binder">
+<h2>Sharing dynamic notebooks using <a class="reference external" href="https://mybinder.org/">Binder</a><a class="headerlink" href="#sharing-dynamic-notebooks-using-binder" title="Permalink to this headline">¶</a></h2>
+<p>In an earlier episode we have created this notebook:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="c1"># read dataset 1</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/tromso.csv&quot;</span>
+<span class="n">data_tromso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+<span class="c1"># read dataset 2</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/oslo.csv&quot;</span>
+<span class="n">data_oslo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">&quot;;&quot;</span><span class="p">,</span> <span class="n">decimal</span><span class="o">=</span><span class="s2">&quot;,&quot;</span><span class="p">)</span>
+
+<span class="c1"># combine data</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_tromso</span><span class="p">,</span> <span class="n">data_oslo</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># replace dd.mm.yyyy to date format</span>
+<span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span>
+
+<span class="c1"># replace &quot;-&quot; by 0</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;snow depth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;snow depth&#39;</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+
+<span class="c1"># finally the plot</span>
+<span class="n">plot</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">relplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+                   <span class="n">y</span><span class="o">=</span><span class="s2">&quot;snow depth&quot;</span><span class="p">,</span>
+                   <span class="n">hue</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">col</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+                   <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;scatter&quot;</span><span class="p">,</span>
+                   <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We will now first share it via <a class="reference external" href="https://github.com/">GitHub</a> “statically”,
+then using <a class="reference external" href="https://mybinder.org/">Binder</a>.</p>
+<div class="admonition-exercise-demo-making-your-notebooks-reproducible-by-anyone-15-min challenge admonition">
+<p class="admonition-title">Exercise/demo: Making your notebooks reproducible by anyone (15 min)</p>
+<p>Instructor demonstrates this:</p>
+<ul>
+<li><p>Creates a GitHub repository</p></li>
+<li><p>Uploads the notebook file</p></li>
+<li><p>Then we look at the statically rendered version of the notebook on GitHub</p></li>
+<li><p>Create a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file which contains:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pandas==1.2.3
+seaborn==0.11.1
+</pre></div>
+</div>
+</li>
+<li><p>Commit and push also this file to your notebook repository.</p></li>
+<li><p>Visit <a class="reference external" href="https://mybinder.org">https://mybinder.org</a>:</p>
+<div class="figure align-default">
+<img alt="Screenshot from mybinder.org user interface" src="../_images/binder.jpg" />
+</div>
+</li>
+<li><p>Check that your notebook repository now has a “launch binder”
+badge in your <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file on GitHub.</p></li>
+<li><p>Try clicking the button and see how your repository is launched
+on Binder (can take a minute or two). Your notebooks can now be expored and executed in the cloud.</p></li>
+<li><p>Enjoy being fully reproducible!</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="how-to-get-a-digital-object-identifier-doi">
+<h2>How to get a digital object identifier (DOI)<a class="headerlink" href="#how-to-get-a-digital-object-identifier-doi" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>You can get a DOI for any GitHub “release” using <a class="reference external" href="https://zenodo.org/">Zenodo</a>.</p></li>
+<li><p><a class="reference external" href="https://mybinder.org/">Binder</a> can also run notebooks from Zenodo.</p></li>
+<li><p>It can be a very good idea to place your visualization pipeline on GitHub+Zenodo+Binder
+and in the supporting information of your paper to refer to its DOI.</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../installation/" class="btn btn-neutral float-right" title="Software install instructions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../organizing-projects/" class="btn btn-neutral float-left" title="Organizing projects" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, Radovan Bast.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
