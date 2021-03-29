@@ -86,7 +86,8 @@ Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupy
 ## Exercises
 
 ````{challenge} Exercise Jupyter-1: create a notebook (15 min)
-- Open a new notebook, rename it
+- Open a new notebook (on Windows: open Anaconda Navigator, then launch JupyterLab; on macOS/Linux: you can open JupyterLab from the terminal by typing `jupyter-lab`)
+- Rename the notebook
 - Create a **markdown cell** with a section title, a short text, an image, and an equation
   ```
   # Title of my notebook
