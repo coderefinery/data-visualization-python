@@ -1,31 +1,12 @@
-# Computing and visualizing trends and uncertainty
+# Linear and non-linear regression
 
 ```{objectives}
-- Know about various ways to visualize trends and uncertainty
-- Being able to plot and compute linear and nonlinear regression
-- Know how to plot boxplots and violine plots
-- Being able to visualize trends
+- Being able to compute and plot linear and nonlinear regression
 ```
 
 ```{instructor-note}
-- 20 min presentation/demo
+- 15 min presentation/demo
 ```
-
-
-## Box plots and violin plots
-
-Box plots were invented when figures were still drawn by hand:
-
-```{figure} img/trends/boxplot-problem.gif
-:alt: "Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing"
-
-From [J. Matejka, G. Fitzmaurice, "Same Stats, Different Graphs: Generating Datasets with Varied Appearance and Identical Statistics through Simulated Annealing"](https://www.autodeskresearch.com/publications/samestats).
-```
-
-TODO: here an example with box/violin plot
-
-
-## Computing and plotting linear and nonlinear regression models
 
 Some plotting libraries can compute and plot
 linear and non-linear least-squares regression models
@@ -62,7 +43,7 @@ ax.set_title("some title")
 ax.legend()
 ```
 
-```{figure} img/trends/start.png
+```{figure} img/regression/start.png
 :alt: Starting plot
 
 Our starting plot with data that we want to approximate with a non-linear
@@ -103,7 +84,7 @@ ax.set_title("some title")
 ax.legend()
 ```
 
-```{figure} img/trends/linear-fit.png
+```{figure} img/regression/linear-fit.png
 :alt: Linear least-squares regression fitted to the data using stats.linregress
 
 Linear least-squares regression fitted to the data using stats.linregress.
@@ -157,7 +138,7 @@ ax.set_title("some title")
 ax.legend()
 ```
 
-```{figure} img/trends/nonlinear-fit.png
+```{figure} img/regression/nonlinear-fit.png
 :alt: Non-linear fit
 
 Non-linear least-squares regression fitted to the data.
