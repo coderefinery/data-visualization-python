@@ -145,3 +145,12 @@ Non-linear least-squares regression fitted to the data.
 ```
 
 To understand better what `np.linspace` does, try reducing the `100` to `5`.
+
+---
+
+```{keypoints}
+- [SciPy](https://www.scipy.org/) has a wealth of functionality to make
+  this and similar work easier.
+- It is a good idea to check and browse SciPy and related libraries to check whether
+  what you have in mind does not exist already.
+```
