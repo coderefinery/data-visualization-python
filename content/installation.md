@@ -7,6 +7,7 @@ In this course we will need **Python 3** and the following Python libraries/pack
 - jupyter
 - jupyterlab
 - numpy
+- scipy
 - pandas
 - matplotlib
 - seaborn
@@ -66,6 +67,7 @@ Into that blue "cell" please type the following:
 
 ```python
 import numpy
+import scipy
 import pandas
 import matplotlib
 import seaborn
@@ -74,7 +76,7 @@ print("all good")
 ```
 
 ```{figure} img/installation/testing-jupyter3.png
-:alt: Screenshot where we test to import numpy, pandas, matplotlib, and seaborn
+:alt: Screenshot where we test to import numpy, scipy, pandas, matplotlib, and seaborn
 :width: 100%
 
 Please type these five lines and click on the "play"/"run" icon.
