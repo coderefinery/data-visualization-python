@@ -16,19 +16,16 @@
 [this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/>]
 
 
-## Prefer scripting over manual customization
+## Styling and customizing plots
 
 - **Do not customize "manually"** using a graphical program (not easily repeatable/reproducible).
 - **No manual post-processing**. This will bite you when you need to regenerate 50
   figures one day before submission deadline or regenerate a set of figures
   after the person who created them left the group.
-
-
-## Styling and customizing plots
-
 - Matplotlib and also all the other libraries allow to customize almost every aspect of a plot.
 - It is useful to study [Matplotlib parts of a figure](https://matplotlib.org/faq/usage_faq.html#parts-of-a-figure)
   so that we know what to search for to customize things.
+- Matplotlib cheatsheets: <https://github.com/matplotlib/cheatsheets>
 - You can also select among pre-defined themes/
   [style sheets](https://matplotlib.org/3.1.1/gallery/style_sheets/style_sheets_reference.html), for instance:
   ```python
