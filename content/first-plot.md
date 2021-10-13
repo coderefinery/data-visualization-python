@@ -103,6 +103,16 @@ ax.set_title("some title")
 This is the result of our first plot.
 ```
 
+When running a Matplotlib script on a remote server without a
+"display" (e.g. compute cluster), you may need to add this line:
+
+```python
+import matplotlib.pyplot as plt
+matplotlib.use("Agg")
+
+# ... rest of the script
+```
+
 ## Exercises
 
 ````{challenge} Exercise Matplotlib-1: extend the previous example (15 min)
@@ -168,7 +178,7 @@ ax.legend()
 
 ```{discussion} Why these colors?
 This qualitative color palette is opimized for all color-vision
-deficiencies, see https://clauswilke.com/dataviz/color-pitfalls.html and
+deficiencies, see <https://clauswilke.com/dataviz/color-pitfalls.html> and
 [Okabe, M., and K. Ito. 2008. "Color Universal Design (CUD):
 How to Make Figures and Presentations That Are Friendly to Colorblind People."](http://jfly.iam.u-tokyo.ac.jp/color/).
 ```
