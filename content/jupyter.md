@@ -58,7 +58,7 @@ and presents several options to browse them.
 - How does the Binder instance know which Python packages to load?
 
 For **more examples**, head over to the [Gallery of interesting Jupyter
-Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks).
+Notebooks](https://github.com/jupyter/jupyter/wiki).
 
 ---
 
