@@ -29,7 +29,7 @@ From [Claus O. Wilke: "Fundamentals of Data Visualization"](https://clauswilke.c
   after the person who created them left the group.
 - There is not the one perfect language and **not the one perfect library** for everything.
 - Within Python, many libraries exist:
-  - [Matplotlib](https://matplotlib.org/gallery.html):
+  - [Matplotlib](https://matplotlib.org/stable/gallery/index.html):
     probably the most standard and most widely used
   - [Seaborn](https://seaborn.pydata.org/examples/index.html):
     high-level interface to Matplotlib, statistical functions built in
@@ -45,7 +45,7 @@ From [Claus O. Wilke: "Fundamentals of Data Visualization"](https://clauswilke.c
     R users will be more at home
   - [PyNGL](https://www.pyngl.ucar.edu/Examples/gallery.shtml):
     used in the weather forecast community
-  - [K3D](https://k3d-jupyter.org/showcase/):
+  - [K3D](https://k3d-jupyter.org/gallery/index.html):
     Jupyter notebook extension for 3D visualization
   - ...
 - Two main families of libraries: procedural (e.g. Matplotlib) and declarative

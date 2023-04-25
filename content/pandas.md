@@ -146,7 +146,7 @@ data['snow depth'] = pd.to_numeric(data['snow depth'], errors='coerce')
 ## Plotting the data
 
 Let's plot the data. We will start out
-in [Matplotlib](https://matplotlib.org/gallery.html)
+in [Matplotlib](https://matplotlib.org/stable/gallery/index.html)
 but later also test out
 [Seaborn](https://seaborn.pydata.org/examples/index.html)
 which is built around Matplotlib and pandas dataframes.

@@ -27,7 +27,7 @@
   so that we know what to search for to customize things.
 - Matplotlib cheatsheets: <https://github.com/matplotlib/cheatsheets>
 - You can also select among pre-defined themes/
-  [style sheets](https://matplotlib.org/3.1.1/gallery/style_sheets/style_sheets_reference.html), for instance:
+  [style sheets](https://matplotlib.org/stable/gallery/style_sheets/style_sheets_reference.html), for instance:
   ```python
   plt.style.use('ggplot')
   ```
@@ -147,7 +147,7 @@ ax.tick_params(labelsize=15)
 
 - Your task is to select one visualization library (some need to be installed first - in
   doubt choose Matplotlib or Seaborn since they are part of Anaconda installation):
-  - [Matplotlib](https://matplotlib.org/gallery.html):
+  - [Matplotlib](https://matplotlib.org/stable/gallery/index.html):
     probably the most standard and most widely used
   - [Seaborn](https://seaborn.pydata.org/examples/index.html):
     high-level interface to Matplotlib, statistical functions built in
@@ -163,7 +163,7 @@ ax.tick_params(labelsize=15)
     R users will be more at home
   - [PyNGL](https://www.pyngl.ucar.edu/Examples/gallery.shtml):
     used in the weather forecast community
-  - [K3D](https://k3d-jupyter.org/showcase/):
+  - [K3D](https://k3d-jupyter.org/gallery/index.html):
     Jupyter notebook extension for 3D visualization
 
 - Browse the various example galleries (links above).
