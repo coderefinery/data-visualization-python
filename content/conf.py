@@ -18,7 +18,7 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Data visualization using Python'
-copyright = '2021, Radovan Bast'
+copyright = 'CodeRefinery project'
 author = 'Radovan Bast'
 github_user = 'coderefinery'
 github_repo_name = 'data-visualization-python'  # auto-detected from dirname if blank
