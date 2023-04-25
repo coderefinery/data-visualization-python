@@ -38,6 +38,9 @@
 Here are 3 exercises where we try to adapt existing scripts to either **tweak
 how the plot looks** (exercises 1 and 2) or to **modify the input data** (example 3).
 
+The official [quick start tutorial](https://matplotlib.org/stable/tutorials/introductory/quick_start.html)
+is a very useful reference.
+
 This is very close to real life: there are so many options and possibilities and it is
 almost impossible to remember everything so this strategy is useful to practice:
 - select an example that is close to what you have in mind
