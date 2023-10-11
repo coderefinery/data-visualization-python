@@ -6,23 +6,24 @@
 - Know how to tweak example plots from a gallery for your own purpose
 ```
 
-```{instructor-note}
-- 10 min discussion
-- 15 min exercise where we adapt a Matplotlib script
-- 15 min exercise where we try to adapt a gallery example
-- 10 min discussion, Q&A
-```
-
 [this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/>]
 
 
 ## Styling and customizing plots
 
-- **Do not customize "manually"** using a graphical program (not easily repeatable/reproducible).
-- **No manual post-processing**. This will bite you when you need to regenerate 50
+- Before you customize plots "manually using a graphical program, please
+  consider how this affects reproducibility.
+- **Try to minimize manual post-processing**. This might bite you when you
+  need to regenerate 50
   figures one day before submission deadline or regenerate a set of figures
   after the person who created them left the group.
-- Matplotlib and also all the other libraries allow to customize almost every aspect of a plot.
+- All the plotting libraries in Python allow to customize almost every aspect
+  of a plot.
+
+````{admonition} Customizing Matplotlib plots
+- The official
+  [quick start tutorial](https://matplotlib.org/stable/tutorials/introductory/quick_start.html)
+  is a very useful reference.
 - It is useful to study [Matplotlib parts of a figure](https://matplotlib.org/stable/tutorials/introductory/quick_start.html#parts-of-a-figure).
   so that we know what to search for to customize things.
 - Matplotlib cheatsheets: <https://github.com/matplotlib/cheatsheets>
@@ -31,22 +32,22 @@
   ```python
   plt.style.use('ggplot')
   ```
+````
 
 
 ## Exercises
 
-Here are 3 exercises where we try to adapt existing scripts to either **tweak
-how the plot looks** (exercises 1 and 2) or to **modify the input data** (example 3).
+Here are few exercises where we try to adapt existing scripts to either
+**tweak how the plot looks** or to **modify the input data**.
 
-The official [quick start tutorial](https://matplotlib.org/stable/tutorials/introductory/quick_start.html)
-is a very useful reference.
+This is very close to real life: there are so many options and possibilities
+and it is almost impossible to remember everything so this strategy is useful
+to practice:
+- Select an example that is close to what you have in mind
+- Being able to adapt it to your needs
+- Being able to search for help
+- Being able to understand help request answers (not easy)
 
-This is very close to real life: there are so many options and possibilities and it is
-almost impossible to remember everything so this strategy is useful to practice:
-- select an example that is close to what you have in mind
-- being able to adapt it to your needs
-- being able to search for help
-- being able to understand help request answers (not easy)
 
 ````{challenge} Exercise Customization-1: log scale in Matplotlib (15 min)
 In this exercise we will learn how to use log scales.
@@ -105,7 +106,7 @@ ax.set_ylabel("life expectancy (years)")
 ```
 ````
 
-````{challenge} Exercise Customization-2: preparing a plot for publication (15 min)
+````{challenge} Exercise Customization-2: Preparing a Matplotlib figure for publication (15 min)
 Often we need to create figures for presentation slides and for publications
 but both have different requirements: for presentation slides you have the whole
 screen but for a figure in a publication you may only have few centimeters/inches.
