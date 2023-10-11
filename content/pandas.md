@@ -14,11 +14,15 @@
 
 [this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/pandas/>]
 
+
 ## Use case
 
-Pandas dataframes are a great data structure for **tabular data**. The pandas
-library provides dataframes, and functions for reading data into dataframes and
-for analyzing, filtering, and manipulating data in very compact form.
+Pandas dataframes are a great data structure for **tabular data** and tabular
+data turns out to be a great input format for data visualization libraries.
+
+The [pandas library](https://pandas.pydata.org/) provides dataframes, and
+functions for reading data into dataframes and for analyzing, filtering, and
+manipulating data in very compact form.
 
 The name is derived from the term "panel data".
 
