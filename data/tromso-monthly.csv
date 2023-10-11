@@ -1,4 +1,4 @@
-﻿Navn;Stasjon;Tid(norsk normaltid);Maksimumstemperatur (mnd);Nedbør (mnd);Minimumstemperatur (mnd)
+﻿name;station;date;max temperature;precipitation;min temperature
 Tromsø - Langnes;SN90490;10.2022;10,7;187;-4,2
 Tromsø - Langnes;SN90490;11.2022;8,5;41,5;-7
 Tromsø - Langnes;SN90490;12.2022;5,6;88,8;-11,7
@@ -12,4 +12,3 @@ Tromsø - Langnes;SN90490;07.2023;26,7;14;6
 Tromsø - Langnes;SN90490;08.2023;25,1;43,4;5,4
 Tromsø - Langnes;SN90490;09.2023;19,3;163,7;0,3
 Tromsø - Langnes;SN90490;10.2023;9,8;64,8;-0,6
-Data er gyldig per 09.10.2023 (CC BY 4.0), Meteorologisk institutt (MET);;;;;

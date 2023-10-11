@@ -1,4 +1,4 @@
-﻿Navn;Stasjon;Tid(norsk normaltid);Maksimumstemperatur (døgn);Minimumstemperatur (døgn);Snødybde;Nedbør (døgn)
+﻿name;station;date;max temperature;min temperature;snow depth;precipitation
 Oslo - Blindern;SN18700;09.10.2022;14;3,1;0;0
 Oslo - Blindern;SN18700;10.10.2022;13,6;7,7;0;0
 Oslo - Blindern;SN18700;11.10.2022;13;1,5;0;1,3
@@ -365,4 +365,3 @@ Oslo - Blindern;SN18700;06.10.2023;15;5,7;0;2,3
 Oslo - Blindern;SN18700;07.10.2023;12,4;3;0;4,7
 Oslo - Blindern;SN18700;08.10.2023;11,8;-0,7;0;0
 Oslo - Blindern;SN18700;09.10.2023;9;-0,6;0;0
-Data er gyldig per 09.10.2023 (CC BY 4.0), Meteorologisk institutt (MET);;;;;;

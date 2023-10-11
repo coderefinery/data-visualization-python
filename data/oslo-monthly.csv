@@ -1,4 +1,4 @@
-﻿Navn;Stasjon;Tid(norsk normaltid);Maksimumstemperatur (mnd);Nedbør (mnd);Minimumstemperatur (mnd)
+﻿name;station;date;max temperature;precipitation;min temperature
 Oslo - Blindern;SN18700;10.2022;17,1;82,9;-0,4
 Oslo - Blindern;SN18700;11.2022;15,1;83,4;-2,1
 Oslo - Blindern;SN18700;12.2022;6,5;85,5;-14,6
@@ -12,4 +12,3 @@ Oslo - Blindern;SN18700;07.2023;28,4;146,9;8,6
 Oslo - Blindern;SN18700;08.2023;24,5;259,8;9,8
 Oslo - Blindern;SN18700;09.2023;25,1;105,8;5,3
 Oslo - Blindern;SN18700;10.2023;17,1;7,3;-0,7
-Data er gyldig per 09.10.2023 (CC BY 4.0), Meteorologisk institutt (MET);;;;;
