@@ -31,7 +31,8 @@ one or two cells (some people like to give some meaning to cells using color).
 
 Save the spreadsheet as `experiment.xls`.
 
-Now we will together try to read and inspect both sheets in the Jupyter notebook:
+Now we will together try to read and inspect both sheets in the Jupyter
+Notebook:
 ```python
 import pandas as pd
 
@@ -104,7 +105,7 @@ Tidy data format: Columns are variables, rows are observations/measurements. Eas
 - "Long form"
 - Order does not matter
 - **Easy to extend** with more species and more sites
-  without modifying the scripts
+  without modifying the code
 - **Structure for storing data** - this does not mean that this is ideal
   for tables in presentations or publications
 ```
@@ -136,7 +137,7 @@ seal,C,2
   - [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format)
   - [SQL](https://en.wikipedia.org/wiki/SQL)
   - Many domain-specific formats (such as [NetCDF](https://www.unidata.ucar.edu/software/netcdf/))
-- **Use standard formats, don't invent your own**
+- **Use a format that is standard in your community, don't invent your own**
 
 
 ## Data cleaning
