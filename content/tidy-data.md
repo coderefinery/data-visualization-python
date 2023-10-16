@@ -17,8 +17,8 @@ In this episode we will discuss strategies for how to work with these.
 
 ## Importing data from spreadsheets
 
-We will create a spreadsheet with the following content (content does not matter,
-can be adapted):
+We will create a spreadsheet with the following content (only columns A and B;
+content does not matter, can be adapted):
 ```{figure} img/tidy-data/coffees.png
 :alt: An example spreadsheet with weekdays in one column and number of coffees in the other
 
@@ -43,10 +43,11 @@ data
 ```
 
 ```{discussion}
-- We can import data from spreadsheets!
-  ([more documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html))
-- "Side notes" in spreadsheets can be annoying in this context
-- Also encoding data in cell colors is a problem now
+- We can import data from spreadsheets
+  ([more documentation](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html))!
+- "Side notes" in spreadsheets can be annoying in this context.
+- Also encoding data in cell colors is a problem now. We will avoid those in
+  future.
 ```
 
 
@@ -72,21 +73,21 @@ How should we arrange the data?
 :alt: Example data arranged in a compact representation
 :width: 30%
 
-Attempt 1: Not great since we need to somehow divide at the comma.
+Attempt 1: Not great since we need to somehow divide at the comma. How should we deal with multiple sightings?
 ```
 
 ```{figure} img/tidy-data/svalbard-wide.png
 :alt: Example data arranged in a wide format
 :width: 60%
 
-Attempt 2: Not great - adding observation sites forces us add columns and adapt scripts.
+Attempt 2: Adding observation sites will force us to add columns.
 ```
 
 ```{figure} img/tidy-data/svalbard-transposed.png
 :alt: Example data transposed
 :width: 60%
 
-Attempt 3: Not great - adding species forces us add columns and adapt scripts.
+Attempt 3: Adding species will force us to add columns.
 ```
 
 ```{figure} img/tidy-data/svalbard-tidy.png
