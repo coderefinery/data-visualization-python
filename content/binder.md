@@ -8,8 +8,6 @@
 - 20 min presentation and discussion
 ```
 
-[this lesson is adapted from <https://coderefinery.github.io/jupyter/06-sharing/>]
-
 
 ## Sharing dynamic notebooks using [Binder](https://mybinder.org/)
 
