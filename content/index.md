@@ -81,7 +81,7 @@ one). We will practice how to share these visualization pipelines using
 35 min ; {doc}`jupyter`
 35 min ; {doc}`python-basics`
 35 min ; {doc}`first-plot`
-35 min ; {doc}`pandas`
+45 min ; {doc}`pandas`
 25 min ; {doc}`tidy-data`
 50 min ; {doc}`customizing-plots`
 20 min ; {doc}`regression`

@@ -1,4 +1,4 @@
-# Reading and writing data with pandas
+# Reading and slicing data with pandas
 
 ```{objectives}
 - Knowing that pandas is a popular library for handling tabular data
@@ -8,7 +8,7 @@
 ```
 
 ```{instructor-note}
-- 20 min talking/demo
+- 30 min talking/demo
 - 15 min exercise
 ```
 
@@ -24,81 +24,72 @@ The [pandas library](https://pandas.pydata.org/) provides dataframes, and
 functions for reading data into dataframes and for analyzing, filtering, and
 manipulating data in very compact form.
 
-The name is derived from the term "panel data".
+The name is derived from the term "**pan**el **da**ta".
 
 
 ## Reading data into a dataframe
 
 Pandas can read from and write to a large set of formats
 ([overview of input/output functions and formats](https://pandas.pydata.org/pandas-docs/stable/reference/io.html)).
+We will load a CSV file directly from the web. Instead of using a web URL we
+could use a local file name instead.
 
-We will experiment with some example weather data
-obtained from
-[Norsk KlimaServiceSenter](https://seklima.met.no/observations/),
-Meteorologisk institutt (MET)
-(CC BY 4.0).
+We will experiment with some example weather data obtained from [Norsk
+KlimaServiceSenter](https://seklima.met.no/observations/), Meteorologisk
+institutt (MET) (CC BY 4.0).
 
-We will load a CSV file directly from the web. Instead of using a web URL
-we could use a local file name instead.
-
-Try this:
+We can try this together in a notebook:
 ```python
 import pandas as pd
 
-url = "https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/tromso.csv"
-data_tromso = pd.read_csv(url)
+data = pd.read_csv("data/tromso-daily.csv")
 
-data_tromso
-```
-```{discussion}
-Does not look quite right. Can you spot two problems?
-```
-
-We can solve the problem with delimiters and avoid a problem later
-down the road by specifying that the decimal is a comma:
-```python
-import pandas as pd
-
-url = "https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/tromso.csv"
-data_tromso = pd.read_csv(url, delimiter=";", decimal=",")
+data
 ```
 
 
 ## What is in a dataframe?
 
 ```{figure} img/pandas/dataframe.svg
-:alt: A pandas dataframe object is composed of rows and columns
+:alt: A pandas dataframe object is composed of rows and columns.
 
 A pandas dataframe object is composed of rows and columns.
 ```
 
-Let us explore these together in the notebook:
+Let us explore these together in the notebook (one command per cell):
 ```python
+# import the pandas library
+import pandas as pd
+
+# read the dataset
+data = pd.read_csv("data/tromso-daily.csv")
+
 # print an overview of the dataset
-data_tromso
+data
 
 # print the first 5 rows
-data_tromso.head()
+data.head()
 
 # print the last 5 rows
-data_tromso.tail()
+data.tail()
 
 # print all column titles - no parentheses here
-data_tromso.columns
+data.columns
 
 # print table dimensions - no parentheses here
-data_tromso.shape
+data.shape
 
 # print one column
-data_tromso["max temperature"]
+data["max temperature"]
 
 # get some statistics
-data_tromso["max temperature"].describe()
-data_tromso["max temperature"].max()
-data_tromso["max temperature"].median()
+data["max temperature"].describe()
+
+# what was the maximum temperature?
+data["max temperature"].max()
 
 # print all rows where max temperature was above 20
-data_tromso[data_tromso["max temperature"] > 20.0]
+data[data["max temperature"] > 20.0]
 ```
 
 
@@ -107,165 +98,202 @@ data_tromso[data_tromso["max temperature"] > 20.0]
 Using pandas we can **merge, join, concatenate, and compare**
 dataframes, see <https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html>.
 
-Let us try to concatenate two dataframes: one for Tromsø weather data (which we
-already loaded into `data_tromso`) and one for Oslo:
-```python
+Let us try to **concatenate** two dataframes: one for Tromsø weather data (we
+will now load monthly values) and one for Oslo:
+```{code-block} python
+---
+emphasize-lines: 7
+---
+# we don't need to import again but just in case you started here
 import pandas as pd
 
-url = "https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/oslo.csv"
-data_oslo = pd.read_csv(url, delimiter=";", decimal=",")
-```
+data_tromso = pd.read_csv("data/tromso-monthly.csv")
+data_oslo = pd.read_csv("data/oslo-monthly.csv")
 
-Now we can concatenate them:
-```python
 data = pd.concat([data_tromso, data_oslo], axis=0)
 
-# let us print the result
+# let us print the combined result
 data
-```
-
-Once combined, we can do interesting queries like this one:
-```python
-data.groupby("name").describe()
 ```
 
 
 ## Data cleaning
 
-Before plotting the data, there are two more problems which we may not see yet:
-- Dates are not in a standard date format
-- Snow depth sometimes contains "-" which Python may have difficulties interpreting as a number
-
-We can clean up both these problems
-
+Before plotting the data, there is a problem which we may not see yet: Dates
+are not in a standard date format.  We can clean this up:
 ```python
-# replace dd.mm.yyyy to date format
-data["date"] = pd.to_datetime(data["date"], format="%d.%m.%Y")
-
-# replace "-" by 0
-data['snow depth'] = pd.to_numeric(data['snow depth'], errors='coerce')
+# replace mm.yyyy to date format
+data["date"] = pd.to_datetime(list(data["date"]), format="%m.%Y")
 ```
+
+With pandas it is possible to do a lot more (adjusting missing values, fixing
+inconsistencies, changing format).
 
 
 ## Plotting the data
 
-Let's plot the data. We will start out
-in [Matplotlib](https://matplotlib.org/stable/gallery/index.html)
-but later also test out
-[Seaborn](https://seaborn.pydata.org/examples/index.html)
-which is built around Matplotlib and pandas dataframes.
+Now let's plot the data. We will start with a plot that is not optimal and
+then we will explore and improve a bit as we go:
 
 ```python
-import matplotlib.pyplot as plt
+import altair as alt
 
-fig, ax = plt.subplots()
-
-# make sure the date axis is in the right format
-# we fixed it above for data but not for data_tromso
-data_tromso["date"] = pd.to_datetime(data_tromso["date"], format="%d.%m.%Y")
-
-ax.plot(data_tromso["date"], data_tromso["max temperature"])
-
-ax.set_xlabel("we should label the x axis")
-ax.set_ylabel("we should label the y axis")
-ax.set_title("some title")
-
-# uncomment the next line if you would like to save the figure to disk
-# fig.savefig("temperatures-tromso.png")
+alt.Chart(data).mark_bar().encode(
+    x="date",
+    y="precipitation",
+    color="name",
+    )
 ```
 
-```{figure} img/pandas/temperatures-tromso.png
-:alt: Max daily temperatures in Tromsø over a year
+```{figure} img/pandas/precipitation-on-top.svg
+:alt: Monthly precipitation for the cities Oslo and Tromsø over the course of a year.
 
-Max daily temperatures in Tromsø over a year.
+Monthly precipitation for the cities Oslo and Tromsø over the course of a year.
 ```
 
-Graph looks OK, a litte rough, in a later episode we will discuss how to beautify
-plots but this is good enough now for a quick data exploration.
+Observe how we connect (encode) **visual channels** to data columns:
+- x-coordinate with "date"
+- y-coordinate with "precipitation"
+- color with "name" (name of weather station; city)
 
-Let's try this in [Seaborn](https://seaborn.pydata.org/examples/index.html)!
-We will see that this is more compact:
-
-```python
-import seaborn as sns
-
-# https://seaborn.pydata.org/generated/seaborn.set_style.html
-sns.set_style("whitegrid")
-
-plot = sns.lineplot(x="date", y="max temperature", hue="name", data=data)
-
-# uncomment next line to save the figure
-# plot.figure.savefig("temperatures.png")
-```
-
-```{figure} img/pandas/temperatures.png
-:alt: Max daily temperatures in Tromsø and Oslo over a year
-
-Max daily temperatures in Tromsø and Oslo over a year.
-```
-
-```python
-plot = sns.relplot(x="date",
-                   y="max temperature",
-                   hue="name",
-                   col="name",  # try commenting this out or changing to "row"
-                   kind="line",
-                   data=data)
-
-# uncomment next line to save the figure
-# plot.savefig("temperatures-side-by-side.png")
-```
-
-```{figure} img/pandas/temperatures-side-by-side.png
-:alt: Max daily temperatures in Tromsø and Oslo over a year side by side
-
-The same data as above, this time side by side.
-```
-
-Note how by changing two lines we can change the style and the data plotted:
+Let us improve the plot with a one-line change:
 ```{code-block} python
 ---
-emphasize-lines: 2, 5
+emphasize-lines: 5
 ---
-plot = sns.relplot(x="date",
-                   y="snow depth",
-                   hue="name",
-                   col="name",  # try commenting this out or changing to "row"
-                   kind="scatter",
-                   data=data)
-
-# uncomment next line to save the figure
-# plot.savefig("snow-depth.png")
+alt.Chart(data).mark_bar().encode(
+    x="date",
+    y="precipitation",
+    color="name",
+    column="name",
+    )
 ```
 
-```{figure} img/pandas/snow-depth.png
-:alt: Snow depth side by side
+```{figure} img/pandas/precipitation-side.svg
+:alt: Monthly precipitation for the cities Oslo and Tromsø over the course of a year with with both cities plotted side by side.
 
-Snow depth side by side.
+Monthly precipitation for the cities Oslo and Tromsø over the course of a year with with both cities plotted side by side.
+```
+
+This is not publication-quality yet but a really good start!
+In a later episode we will discuss how to beautify
+plots but this is good enough now for a quick data exploration.
+
+Let us try one more example where we can nicely see how Altair
+is able to map visual channels to data columns:
+```python
+alt.Chart(data).mark_area(opacity=0.5).encode(
+    x="date",
+    y="max temperature",
+    y2="min temperature",
+    color="name",
+    )
+```
+
+```{figure} img/pandas/temperature-ranges.svg
+:alt: Monthly temperature ranges for two cities in Norway.
+
+Monthly temperature ranges for two cities in Norway.
 ```
 
 
-## Where to find more information and help
+## Exercise: Arranging plots in columns and rows
 
-Pandas is extremely powerful and there is a lot that can be done and there are great
-resources to explore more:
-- [Getting started guide](https://pandas.pydata.org/getting_started.html)
-  (including tutorials and a 10 minute flash intro)
-- [10 minutes to pandas tutorial](https://pandas.pydata.org/docs/user_guide/10min.html)
-- [Pandas documentation](https://pandas.pydata.org/docs/)
-- [Cheatsheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
-- [Cookbook](https://pandas.pydata.org/docs/user_guide/cookbook.html#cookbook)
-- [Data Carpentry lesson](https://datacarpentry.org/python-ecology-lesson/) "Data Analysis and Visualization in Python for Ecologists"
-  (useful not only for ecologists)
+```{exercise} Pandas-1: Columns and rows
+1. Instead of plotting the precipitations side by side, try to arrange the two
+   plots one above the other.
+
+2. In the precitipation plot, instead of `column="name"` try `column="date"`
+   and compare the two results.  In this case don't worry too much about the
+   labels and annotations. They can be improved.
+
+3. Modify the temperature range plot to have the two cities side by side,
+   instead of both in one plot.
+```
 
 
-## Exercises
+## Using visual channels
 
-Save the following CSV file, then choose one of these two:
-- **Pandas-1A**: read a CSV file from disk and plot using Seaborn
-- **Pandas-1B**: read a CSV file from disk and plot using Matplotlib
+Now we will try to plot the daily data. We first read and concatenate two
+datasets:
+```python
+data_tromso = pd.read_csv("data/tromso-daily.csv")
+data_oslo = pd.read_csv("data/oslo-daily.csv")
 
-Save this as `example.csv` (this is the [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)):
+data = pd.concat([data_tromso, data_oslo], axis=0)
+```
+
+We adjust the data a bit:
+```python
+# replace dd.mm.yyyy to date format
+data["date"] = pd.to_datetime(list(data["date"]), format="%d.%m.%Y")
+
+# we are here only interested in the range december to may
+data = data[(data["date"] > "2022-12-01") & (data["date"] < "2023-05-01")]
+```
+
+Now we can plot the snow depths for the months December to May for the two
+cities:
+
+```python
+alt.Chart(data).mark_bar().encode(
+    x="date",
+    y="snow depth",
+    column="name",
+)
+```
+
+```{figure} img/pandas/snow-depth.svg
+:alt: Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway.
+
+Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway.
+```
+
+What happens if we try to color the plot by the "max temperature" values?
+```{code-block} python
+---
+emphasize-lines: 4
+---
+alt.Chart(data).mark_bar().encode(
+    x="date",
+    y="snow depth",
+    color="max temperature",
+    column="name",
+)
+```
+
+The result looks neat:
+```{figure} img/pandas/snow-depth-color.svg
+:alt: Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature.
+
+Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature.
+```
+
+We can change the color scheme:
+```{code-block} python
+---
+emphasize-lines: 4
+---
+alt.Chart(data).mark_bar().encode(
+    x="date",
+    y="snow depth",
+    color=alt.Color("max temperature").scale(scheme="plasma"),
+    column="name",
+)
+```
+
+With the following result:
+```{figure} img/pandas/snow-depth-plasma.svg
+:alt: Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature. Warmer days are often followed by reduced snow depth.
+
+Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature. Warmer days are often followed by reduced snow depth.
+```
+
+
+## Exercise: Anscombe's quartet
+
+Save the following data as `example.csv` (this is the [Anscombe's
+quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)):
 ```text
 dataset,x,y
 I,10.0,8.04
@@ -314,68 +342,48 @@ IV,8.0,7.91
 IV,8.0,6.89
 ```
 
-````{challenge} Exercise Pandas-1A: read a CSV file from disk and plot using Seaborn (15 min)
-- Save the above CSV file to disk as `example.csv` in the same folder where you run JupyterLab.
-- Then try this:
+`````{challenge} Exercise Pandas-2: read and plot a CSV file
+- Save the above CSV file to disk as `example.csv` in the same folder where
+  you run JupyterLab.
+- Plot the data but instead of `mark_bar`, use `mark_point`.
+- Your goal is to arrive at four plots for the four data sets, side by side.
+- If you have time, try to customize the plot.
+````{solution}
   ```python
+  # we don't need to import again but just in case you started here
   import pandas as pd
-  import seaborn as sns
 
   data = pd.read_csv("example.csv")
 
-  # try to change "talk" to "poster"
-  # try also to outcomment the following line
-  sns.set_context("talk")
-
-  plot = sns.relplot(x="x", y="y", hue="dataset",
-                     col="dataset", col_wrap=2,  # try to outcomment this line
-                     data=data)
-
-  # uncomment next line to save the figure
-  # plot.savefig("example.png")
+  alt.Chart(data).mark_point().encode(
+      x="x",
+      y="y",
+      color="dataset",
+      column="dataset",
+      )
   ```
-- If you have time, try to customize the plot.
 ````
+`````
 
-````{challenge} Exercise Pandas-1B: read a CSV file from disk and plot using Matplotlib (15 min)
-- Save the above CSV file to disk as `example.csv` in the same folder where you run JupyterLab.
-- Then try this:
-  ```python
-  # this line tells Jupyter to display matplotlib figures in the notebook
-  %matplotlib inline
 
-  import pandas as pd
-  import matplotlib.pyplot as plt
+## Where to learn more about pandas
 
-  data = pd.read_csv("example.csv")
+Pandas is extremely powerful and there is a lot that can be done and there are
+great resources to explore more:
+- [Getting started guide](https://pandas.pydata.org/getting_started.html)
+  (including tutorials and a 10 minute flash intro)
+- [10 minutes to pandas tutorial](https://pandas.pydata.org/docs/user_guide/10min.html)
+- [Pandas documentation](https://pandas.pydata.org/docs/)
+- [Cheatsheet](https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf)
+- [Cookbook](https://pandas.pydata.org/docs/user_guide/cookbook.html#cookbook)
+- [Data Carpentry lesson](https://datacarpentry.org/python-ecology-lesson/) "Data Analysis and Visualization in Python for Ecologists"
+  (useful not only for ecologists)
 
-  # for matplotlib we need to split the dataset up
-  # not sure this is the most elegant way
-  data1 = data[data["dataset"] == "I"]
-  data2 = data[data["dataset"] == "II"]
-  data3 = data[data["dataset"] == "III"]
-  data4 = data[data["dataset"] == "IV"]
-
-  fig, ax = plt.subplots()
-
-  ax.scatter(x=data1["x"], y=data1["y"], c="blue", label='I')
-  ax.scatter(x=data2["x"], y=data2["y"], c="orange", label='II')
-  ax.scatter(x=data3["x"], y=data3["y"], c="green", label='III')
-  ax.scatter(x=data4["x"], y=data4["y"], c="purple", label='IV')
-
-  ax.set_xlabel("we should label the x axis")
-  ax.set_ylabel("we should label the y axis")
-  ax.set_title("some title")
-  ax.legend()
-
-  # uncomment next line to save the figure
-  # fig.savefig("example.png")
-  ```
-- If you have time, try to customize the plot.
-````
+---
 
 ```{keypoints}
-- Pandas dataframes are a good data structure for tabular data
-- Dataframes allow both simple and advanced analysis in very compact form
-- Some visualization libraries interface very nicely with pandas dataframes
+- Pandas dataframes are a good data structure for tabular data.
+- Dataframes allow both simple and advanced analysis in very compact form.
+- Some visualization libraries (such as Vega-Altair) interface very nicely
+  with pandas dataframes.
 ```
