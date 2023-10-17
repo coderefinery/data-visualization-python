@@ -42,7 +42,8 @@ We can try this together in a notebook:
 ```python
 import pandas as pd
 
-data = pd.read_csv("data/tromso-daily.csv")
+url_prefix = "https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/"
+data = pd.read_csv(url_prefix + "tromso-daily.csv")
 
 data
 ```
@@ -62,7 +63,8 @@ Let us explore these together in the notebook (one command per cell):
 import pandas as pd
 
 # read the dataset
-data = pd.read_csv("data/tromso-daily.csv")
+url_prefix = "https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/"
+data = pd.read_csv(url_prefix + "tromso-daily.csv")
 
 # print an overview of the dataset
 data
@@ -102,13 +104,15 @@ Let us try to **concatenate** two dataframes: one for Tromsø weather data (we
 will now load monthly values) and one for Oslo:
 ```{code-block} python
 ---
-emphasize-lines: 7
+emphasize-lines: 9
 ---
 # we don't need to import again but just in case you started here
 import pandas as pd
 
-data_tromso = pd.read_csv("data/tromso-monthly.csv")
-data_oslo = pd.read_csv("data/oslo-monthly.csv")
+url_prefix = "https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/"
+
+data_tromso = pd.read_csv(url_prefix + "tromso-monthly.csv")
+data_oslo = pd.read_csv(url_prefix + "oslo-monthly.csv")
 
 data = pd.concat([data_tromso, data_oslo], axis=0)
 
@@ -217,8 +221,10 @@ Monthly temperature ranges for two cities in Norway.
 Now we will try to plot the daily data. We first read and concatenate two
 datasets:
 ```python
-data_tromso = pd.read_csv("data/tromso-daily.csv")
-data_oslo = pd.read_csv("data/oslo-daily.csv")
+url_prefix = "https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/"
+
+data_tromso = pd.read_csv(url_prefix + "tromso-daily.csv")
+data_oslo = pd.read_csv(url_prefix + "oslo-daily.csv")
 
 data = pd.concat([data_tromso, data_oslo], axis=0)
 ```
