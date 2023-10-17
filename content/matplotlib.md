@@ -8,7 +8,7 @@
 - Matplotlib is perhaps the most "standard" Python plotting library.
 - Many libraries build on top of Matplotlib.
 - MATLAB users will feel familiar.
-- Even if you choose to use another library (see above list), chances are high
+- Even if you choose to use another library, chances are high
   that you need to adapt a Matplotlib plot of somebody else.
 - Libraries that are built on top of Matplotlib may need knowledge of Matplotlib
   for custom adjustments.
@@ -21,7 +21,7 @@ Many other visualization libraries exist with their own strengths, it is also a
 matter of personal preferences.
 
 
-## Getting started with Matplotlib in the Jupyter notebook
+## Getting started with Matplotlib in the Jupyter Notebook
 
 Let us create our first plot:
 
@@ -127,7 +127,7 @@ ax.legend()
 This qualitative color palette is opimized for all color-vision
 deficiencies, see <https://clauswilke.com/dataviz/color-pitfalls.html> and
 [Okabe, M., and K. Ito. 2008. "Color Universal Design (CUD):
-How to Make Figures and Presentations That Are Friendly to Colorblind People."](http://jfly.iam.u-tokyo.ac.jp/color/).
+How to Make Figures and Presentations That Are Friendly to Colorblind People"](http://jfly.iam.u-tokyo.ac.jp/color/).
 ```
 
 
@@ -227,9 +227,9 @@ In this exercise we will learn how to use log scales.
 
   data_2007
   ```
-  - Try the above snippet in a notebook and it will give you an overview over the data.
+- Try the above snippet in a notebook and it will give you an overview over the data.
 
-  - Then we can plot the data, first using a linear scale:
+- Then we can plot the data, first using a linear scale:
   ```python
   import matplotlib.pyplot as plt
 
@@ -246,12 +246,12 @@ In this exercise we will learn how to use log scales.
   :alt: Gapminder data plotted using a linear scale
   ```
 
-  - Your task is to switch to a log scale and arrive at this result:
+- Your task is to switch to a log scale and arrive at this result:
   ```{figure} img/customizing/gapminder-log.png
   :alt: Gapminder data plotted using log scale
   ```
 
-  - What does ``alpha=0.5`` do?
+- What does ``alpha=0.5`` do?
 ````
 
 ````{solution}
