@@ -18,7 +18,7 @@ In this episode we will discuss strategies for how to work with these.
 ## Importing data from spreadsheets
 
 We will create a spreadsheet with the following content (only columns A and B;
-content does not matter, can be adapted):
+the actual content does not have to be exactly the same):
 ```{figure} img/tidy-data/coffees.png
 :alt: An example spreadsheet with weekdays in one column and number of coffees in the other
 
