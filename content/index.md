@@ -57,8 +57,7 @@ and share **reproducible plots** using
 45 min ; {doc}`pandas`
 25 min ; {doc}`tidy-data`
 50 min ; {doc}`customizing-plots`
-20 min ; {doc}`organizing-projects`
-20 min ; {doc}`binder`
+20 min ; {doc}`sharing`
 ```
 
 ```{toctree}
@@ -72,8 +71,7 @@ first-plot.md
 pandas.md
 tidy-data.md
 customizing-plots.md
-organizing-projects.md
-binder.md
+sharing.md
 ```
 
 ```{toctree}
