@@ -1,3 +1,5 @@
+(first-plot)=
+
 # Generating our first plot
 
 ```{objectives}
