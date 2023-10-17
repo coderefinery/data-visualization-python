@@ -73,8 +73,6 @@ Collections, University of Oklahoma Libraries (CC-BY).
 
 ## Use cases for notebooks
 
-[adapted from <https://coderefinery.github.io/jupyter/01-motivation/#common-use-cases>]
-
 - Really good for **linear workflows** (e.g. read data, filter data, do some statistics, plot the results)
 - Experimenting with new ideas, testing new libraries/databases
 - As an *interactive* development environment for code, data analysis, and visualization
