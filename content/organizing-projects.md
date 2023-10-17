@@ -155,35 +155,3 @@ Place either `requirements.txt` or `environment.yml` in the same folder as the n
 
 This is not only useful for people who will try to rerun this in future, it is also
 understood by some tools (e.g. [Binder](https://mybinder.org/)) which we will see later.
-
-
-## Recommendations for longer notebooks
-
-### Create a table of contents on top
-
-You can do that using Markdown. This produces a nice overview for longer notebooks.
-Example: [https://stackoverflow.com/a/39817243](https://stackoverflow.com/a/39817243)
-
-
-### How to make it possible to toggle showing code
-
-It is possible to hide all the code and only show the output. This can be nice
-for notebook readers who don't need/want to see the code:
-
-```
-from IPython.display import HTML
-
-HTML('''<script>
-code_show=true;
-function code_toggle() {
- if (code_show){
- $('div.input').hide();
- } else {
- $('div.input').show();
- }
- code_show = !code_show
-}
-$( document ).ready(code_toggle);
-</script>
-<form action="javascript:code_toggle()"><input type="submit" value="Click here to toggle on/off the raw code."></form>''')
-```
