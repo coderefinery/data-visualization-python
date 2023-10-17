@@ -301,7 +301,8 @@ Snow depth (in cm) for the months December 2022 to May 2023 for two cities in No
 
 ## Exercise: Anscombe's quartet
 
-Save the following data as `example.csv` (this is the [Anscombe's
+Save the following data as `example.csv` (you can do this directly from
+JupyterLab; this data is the [Anscombe's
 quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)):
 ```text
 dataset,x,y
@@ -353,7 +354,8 @@ IV,8.0,6.89
 
 `````{challenge} Exercise Pandas-2: read and plot a CSV file
 - Save the above CSV file to disk as `example.csv` in the same folder where
-  you run JupyterLab.
+  you run JupyterLab. We recommend to create the file in the JupyterLab
+  interface.
 - Plot the data but instead of `mark_bar`, use `mark_point`.
 - Your goal is to arrive at four plots for the four data sets, side by side.
 - If you have time, try to customize the plot.
