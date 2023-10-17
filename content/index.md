@@ -72,7 +72,7 @@ one). We will practice how to share these visualization pipelines using
 - Sharing reproducible plots
 
 
-## Timing
+## Episodes
 
 ```{csv-table}
 :widths: auto
@@ -92,6 +92,7 @@ one). We will practice how to share these visualization pipelines using
 ```{toctree}
 :maxdepth: 1
 :caption: Episodes
+:hidden:
 
 jupyter.md
 python-basics.md
