@@ -1,17 +1,18 @@
 # Data visualization using Python
 
-In this introductory-level workshop, we will learn to produce
-**reproducible data visualization pipelines using the Python programming language**.
+In this introductory-level workshop, we will learn to produce **reproducible
+data visualization pipelines using the Python programming language**.
+
+We will work in [Jupyter Notebooks](https://jupyter.org/) and start with
+**Python basics**, to be able to read data from Excel sheets and
+comma-separated values (CSV) files. We will introduce the
+[pandas](https://pandas.pydata.org/) library for "data wrangling" (reading,
+writing, sorting, and filtering of data).  We will learn how to produce and
+share **reproducible plots** using
+[Vega-Altair](https://altair-viz.github.io/).
 
 
 ## Who is the course for?
-
-This course is about reading data from a file, processing the data, plotting
-the result, and all of this in a reproducible way. This is something that many
-of us need to do in our research.  The content of this course is general and
-should be relevant for anyone working in the field of science.
-
-**Typical audience**:
 
 - Somebody starting with Python or curious about Python.
 - Somebody who needs
@@ -24,32 +25,15 @@ should be relevant for anyone working in the field of science.
 - No programming langauge experience needed, we will start from zero and learn the basics together
 - Computer with network access
 - Anaconda installation ({doc}`installation`)
-- Optional: [GitHub account](https://github.com/join)
+- Installing the package `altair`
 - Bring one of your recent plotting tasks or challenges
 ```
-
-
-## About the course
-
-We will work in [Jupyter notebooks](https://jupyter.org/) and start with **Python
-basics**, to be able to read data from Excel sheets and comma-separated values
-(CSV) files. We will introduce the [pandas](https://pandas.pydata.org/) library
-for "data wrangling" (reading, writing, sorting, and filtering of data).
-
-We will learn how to **process data** and compute simple statistics, error bars,
-and regression approximations with Python and the help of its libraries.
-
-And finally we will learn how to produce **reproducible plots** using the libraries
-[Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/),
-and [Altair](https://altair-viz.github.io/) (you can then choose your favorite
-one). We will practice how to share these visualization pipelines using
-[Binder](https://mybinder.org/) via [GitHub](https://github.com).
 
 
 ## What is not taught?
 
 - Version control. Although super useful it is outside of this workshop.
-- Python outside a Jupyter notebook.
+- Python outside a Jupyter Notebook.
 - Python sets and tuples are only mentioned.
 - File input/output is only used via libraries and doing "own" file-I/O is only part
   of optional material.
@@ -58,18 +42,6 @@ one). We will practice how to share these visualization pipelines using
 - Python packaging.
 - NumPy arrays.
 - Managing environments and installing Python packages.
-
-
-## Progression
-
-- Getting used to the Jupyter environment
-- Getting started with Python
-- Producing a first plot
-- Reading data from file and web
-- Dealing with "messy" data
-- Improving the plots
-- Organizing projects as they grow
-- Sharing reproducible plots
 
 
 ## Episodes
@@ -123,7 +95,7 @@ guide.md
 
 ## Credit
 
-When preparing this lesson, I have reused these resources:
+When preparing this lesson, we have reused these resources:
 
 - <https://aaltoscicomp.github.io/python-for-scicomp/>
 - <https://datacarpentry.org/python-ecology-lesson/>
