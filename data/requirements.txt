@@ -1,0 +1,6 @@
+altair
+vega_datasets
+jupyterlab
+jupyterlab-code-formatter
+black
+isort
