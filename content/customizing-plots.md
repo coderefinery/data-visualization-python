@@ -1,3 +1,5 @@
+(customizing-plots)=
+
 # Customizing plots
 
 ```{objectives}
@@ -19,6 +21,16 @@
   after the person who created them left the group.
 - All the plotting libraries in Python allow to customize almost every aspect
   of a plot.
+
+
+## Colors
+
+```{discussion} Why these colors?
+This qualitative color palette is opimized for all color-vision
+deficiencies, see <https://clauswilke.com/dataviz/color-pitfalls.html> and
+[Okabe, M., and K. Ito. 2008. "Color Universal Design (CUD):
+How to Make Figures and Presentations That Are Friendly to Colorblind People."](http://jfly.iam.u-tokyo.ac.jp/color/).
+```
 
 
 ## Exercises
@@ -146,4 +158,10 @@ Example "solution" for such an exploration below.
 ```{discussion}
 After the exercises, the group can discuss their findings and it is important to
 clarify questions at this point before moving on.
+```
+
+---
+
+```{keypoints}
+- Think about color-vision deficiencies when choosing colors. Use existing solutions for this problem.
 ```
