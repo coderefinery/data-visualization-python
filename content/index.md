@@ -90,7 +90,6 @@ matplotlib.md
 :caption: Reference
 
 installation.md
-guide.md
 ```
 
 
