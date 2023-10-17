@@ -106,6 +106,13 @@ binder.md
 
 ```{toctree}
 :maxdepth: 1
+:caption: Optional
+
+matplotlib.md
+```
+
+```{toctree}
+:maxdepth: 1
 :caption: Reference
 
 installation.md

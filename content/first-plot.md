@@ -24,17 +24,17 @@ From [Claus O. Wilke: "Fundamentals of Data Visualization"](https://clauswilke.c
 > (which should also be automated), and they should come out of the pipeline
 > ready to be sent to the printer, no manual post-processing needed.*
 
-- **No manual post-processing**. This will bite you when you need to regenerate 50
+- **Try to minimize manual post-processing**. This could bite you when you need to regenerate 50
   figures one day before submission deadline or regenerate a set of figures
   after the person who created them left the group.
 - There is not the one perfect language and **not the one perfect library** for everything.
 - Within Python, many libraries exist:
+  - [Vega-Altair](https://altair-viz.github.io/gallery/index.html):
+    declarative visualization, statistics built in
   - [Matplotlib](https://matplotlib.org/stable/gallery/index.html):
     probably the most standard and most widely used
   - [Seaborn](https://seaborn.pydata.org/examples/index.html):
     high-level interface to Matplotlib, statistical functions built in
-  - [Altair](https://altair-viz.github.io/gallery/index.html):
-    declarative visualization (R users will be more at home), statistics built in
   - [Plotly](https://plotly.com/python/):
     interactive graphs
   - [Bokeh](https://demo.bokeh.org/):
@@ -48,134 +48,13 @@ From [Claus O. Wilke: "Fundamentals of Data Visualization"](https://clauswilke.c
   - [K3D](https://k3d-jupyter.org/gallery/index.html):
     Jupyter notebook extension for 3D visualization
   - ...
-- Two main families of libraries: procedural (e.g. Matplotlib) and declarative
-  (using grammar of graphics).
+- Two main families of libraries: procedural (e.g. Matplotlib) and declarative.
 
 
-## Why are we starting with Matplotlib?
+## Why are we starting with [Vega-Altair](https://altair-viz.github.io/)?
 
-- Matplotlib is perhaps the most "standard" Python plotting library.
-- Many libraries build on top of Matplotlib.
-- MATLAB users will feel familiar.
-- Even if you choose to use another library (see above list), chances are high
-  that you need to adapt a Matplotlib plot of somebody else.
-- Libraries that are built on top of Matplotlib may need knowledge of Matplotlib
-  for custom adjustments.
+- (work in progress)
 
-However it is a relatively low-level interface for
-drawing (in terms of abstractions, not in terms of quality) and does not
-provide statistical functions. Some figures require typing and tweaking many lines of code.
-
-Many other visualization libraries exist with their own strengths, it is also a
-matter of personal preferences. **Later we will also try other libraries.**
-
-
-## Getting started with Matplotlib in the Jupyter notebook
-
-Let us create our first plot:
-
-```{code-block} python
-# this line tells Jupyter to display matplotlib figures in the notebook
-%matplotlib inline
-
-import matplotlib.pyplot as plt
-
-# this is dataset 1 from
-# https://en.wikipedia.org/wiki/Anscombe%27s_quartet
-data_x = [10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0]
-data_y = [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
-
-fig, ax = plt.subplots()
-
-ax.scatter(x=data_x, y=data_y, c="#E69F00")
-
-ax.set_xlabel("we should label the x axis")
-ax.set_ylabel("we should label the y axis")
-ax.set_title("some title")
-
-# uncomment the next line if you would like to save the figure to disk
-# fig.savefig("my-first-plot.png")
-```
-
-```{figure} img/first-plot/getting-started.png
-:alt: Result of our first plot
-
-This is the result of our first plot.
-```
-
-When running a Matplotlib script on a remote server without a
-"display" (e.g. compute cluster), you may need to add this line:
-
-```python
-import matplotlib.pyplot as plt
-matplotlib.use("Agg")
-
-# ... rest of the script
-```
-
-## Exercises
-
-````{challenge} Exercise Matplotlib-1: extend the previous example (15 min)
-- Extend the previous plot by also plotting this set of values but this time
-  using a different color (`#56B4E9`):
-  ```python
-  # this is dataset 2
-  data2_y = [9.14, 8.14, 8.74, 8.77, 9.26, 8.10, 6.13, 3.10, 9.13, 7.26, 4.74]
-  ```
-
-- Then add another color (`#009E73`) which plots the second dataset, scaled
-  by 2.0.
-  ```python
-  # here we multiply all elements of data2_y by 2.0
-  data2_y_scaled = [y*2.0 for y in data2_y]
-  ```
-
-- Try to add a legend to the plot with `ax.legend()` and searching the web for clues on
-  how to add labels to each dataset. You can also consult this great
-  [quick start guide](https://matplotlib.org/stable/tutorials/introductory/quick_start.html).
-
-- At the end it should look like this one:
-   ```{figure} img/first-plot/exercise.png
-   :alt: Result of the exercise
-   ```
-````
-
-````{solution}
-```{code-block} python
----
-emphasize-lines: 12, 15, 20-21, 26
----
-# this line tells Jupyter to display matplotlib figures in the notebook
-%matplotlib inline
-
-import matplotlib.pyplot as plt
-
-# this is dataset 1 from
-# https://en.wikipedia.org/wiki/Anscombe%27s_quartet
-data_x = [10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0]
-data_y = [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
-
-# this is dataset 2
-data2_y = [9.14, 8.14, 8.74, 8.77, 9.26, 8.10, 6.13, 3.10, 9.13, 7.26, 4.74]
-
-# here we multiply all elements of data2_y by 2.0
-data2_y_scaled = [y*2.0 for y in data2_y]
-
-fig, ax = plt.subplots()
-
-ax.scatter(x=data_x, y=data_y, c="#E69F00", label='set 1')
-ax.scatter(x=data_x, y=data2_y, c="#56B4E9", label='set 2')
-ax.scatter(x=data_x, y=data2_y_scaled, c="#009E73", label='set 2 (scaled)')
-
-ax.set_xlabel("we should label the x axis")
-ax.set_ylabel("we should label the y axis")
-ax.set_title("some title")
-ax.legend()
-
-# uncomment the next line if you would like to save the figure to disk
-# fig.savefig("exercise-plot.png")
-```
-````
 
 ```{discussion} Why these colors?
 This qualitative color palette is opimized for all color-vision
@@ -186,74 +65,8 @@ How to Make Figures and Presentations That Are Friendly to Colorblind People."](
 
 ---
 
-## Matplotlib has two different interfaces
-
-When plotting with Matplotlib, it is useful to know and understand that
-there are **two approaches** even though the reasons of this dual approach is
-outside the scope of this lesson.
-
-- The more modern option is an **object-oriented interface** (the ``fig`` and ``ax`` objects
-  can be configured separately and passed around to functions):
-   ```{code-block} python
-   ---
-   emphasize-lines: 8-14
-   ---
-   import matplotlib.pyplot as plt
-
-   # this is dataset 1 from
-   # https://en.wikipedia.org/wiki/Anscombe%27s_quartet
-   data_x = [10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0]
-   data_y = [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
-
-   fig, ax = plt.subplots()
-
-   ax.scatter(x=data_x, y=data_y, c="#E69F00")
-
-   ax.set_xlabel("we should label the x axis")
-   ax.set_ylabel("we should label the y axis")
-   ax.set_title("some title")
-   ```
-
-- The more traditional option mimics MATLAB plotting and uses the **pyplot interface** (``plt`` carries
-  the global settings):
-   ```{code-block} python
-   ---
-   emphasize-lines: 8-12
-   ---
-   import matplotlib.pyplot as plt
-
-   # this is dataset 1 from
-   # https://en.wikipedia.org/wiki/Anscombe%27s_quartet
-   data_x = [10.0, 8.0, 13.0, 9.0, 11.0, 14.0, 6.0, 4.0, 12.0, 7.0, 5.0]
-   data_y = [8.04, 6.95, 7.58, 8.81, 8.33, 9.96, 7.24, 4.26, 10.84, 4.82, 5.68]
-
-   plt.scatter(x=data_x, y=data_y, c="#E69F00")
-
-   plt.xlabel("we should label the x axis")
-   plt.ylabel("we should label the y axis")
-   plt.title("some title")
-   ```
-
-When searching for help on the internet, you will find both approaches, they
-can also be mixed. Although the pyplot interface looks more compact, **we
-recommend to learn and use the object oriented interface.**
-
-```{discussion} Why do we emphasize this?
-One day you may want to write functions which wrap
-around Matplotlib function calls and then you can send `fig` and `ax`
-into these functions and there is less risk that adjusting figures changes
-settings also for unrelated figures created in other functions.
-
-When using the pyplot interface, settings are modified for the entire
-`plt` package. The latter is acceptable for linear scripts but may yield
-surprising results when introducing functions to enhance/abstract Matplotlib
-calls.
-```
-
----
-
 ```{keypoints}
-- Avoid manual post-processing, script everything.
+- Avoid manual post-processing, try to script everything.
 - Browse a number of example galleries to help you choose the library that fits best your work/style.
 - Think about color-vision deficiencies when choosing colors. Use existing solutions for this problem.
 - Figures for presentation slides and figures for manuscripts have different requirements. More about that later.
