@@ -104,7 +104,7 @@ fancy_plot(other_x_values, other_y_values, "#fc9272")
 We need to learn how to share notebooks. At the minimum we need
 to share them with our future selves (backup and reproducibility).
 
-- You can enter a URL, GitHub repo or username, or GIST ID in [`nbviewer`](https://nbviewer.jupyter.org/) and view a rendered Jupyter notebook
+- You can enter a URL, GitHub repo or username, or GIST ID in [`nbviewer`](https://nbviewer.jupyter.org/) and view a rendered Jupyter Notebook
 - Read the Docs can render Jupyter Notebooks via the [nbsphinx package](https://nbsphinx.readthedocs.io/)
 - [Binder](https://mybinder.org/) creates live notebooks based on a GitHub repository
   (more about this later)

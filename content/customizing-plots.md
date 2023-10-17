@@ -57,11 +57,11 @@ to practice:
   - [PyNGL](https://www.pyngl.ucar.edu/Examples/gallery.shtml):
     used in the weather forecast community
   - [K3D](https://k3d-jupyter.org/gallery/index.html):
-    Jupyter notebook extension for 3D visualization
+    Jupyter Notebook extension for 3D visualization
 
 - Browse the various example galleries (links above).
 - Select one example that is close to your recent visualization project or simply interests you.
-- First try to reproduce this example in the Jupyter notebook.
+- First try to reproduce this example in the Jupyter Notebook.
 - Then try to print out the data that is used in this example just before the call of the plotting function
   to learn about its structure. Is it a pandas dataframe? Is it a NumPy array? Is it a dictionary? A list?
   a list of lists?

@@ -46,7 +46,7 @@ From [Claus O. Wilke: "Fundamentals of Data Visualization"](https://clauswilke.c
   - [PyNGL](https://www.pyngl.ucar.edu/Examples/gallery.shtml):
     used in the weather forecast community
   - [K3D](https://k3d-jupyter.org/gallery/index.html):
-    Jupyter notebook extension for 3D visualization
+    Jupyter Notebook extension for 3D visualization
   - ...
 - Two main families of libraries: procedural (e.g. Matplotlib) and declarative.
 

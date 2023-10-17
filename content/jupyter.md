@@ -1,11 +1,11 @@
-# Jupyter notebooks
+# Jupyter Notebooks
 
 ```{objectives}
 - Know what it is
 - Create a new notebook and save it
 - Open existing notebooks from the web
 - Be able to create text/markdown cells, code cells, images, and equations
-- Know when to use a Jupyter notebook for a Python project and when perhaps not to
+- Know when to use a Jupyter Notebook for a Python project and when perhaps not to
 ```
 
 ```{instructor-note}
@@ -17,7 +17,7 @@
 [this lesson is adapted from <https://coderefinery.github.io/jupyter/01-motivation/>]
 
 
-## Motivation for Jupyter notebooks
+## Motivation for Jupyter Notebooks
 
 ```{figure} img/jupyter/medicean-stars.png
 :alt: Galileo's drawings of Jupiter and its Medicean Stars from Sidereus Nuncius
