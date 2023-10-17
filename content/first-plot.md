@@ -216,14 +216,37 @@ alt.Chart(data).mark_point().encode(
 
 Guess what happens when you change `row="continent"` to `column="continent"`?
 
+
+## Changing from points to circles
+
+Let us add one more visual channel, mapping size of the circle to the
+population size of a country:
+```{code-block} python
+---
+emphasize-lines: 1,5
+---
+alt.Chart(data).mark_circle().encode(
+    x=alt.X("gdpPercap").scale(type="log").title("GDP per capita (PPP dollars)"),
+    y=alt.Y("lifeExp").title("Life expectancy (years)"),
+    color="continent",
+    size="pop",
+).transform_filter(alt.datum.year == 2007).interactive()
+```
+
+```{figure} img/first-plot/population-size.svg
+:alt: Circle sizes are proportional to population sizes.
+
+Circle sizes are proportional to population sizes.
+```
+
+---
+
 ```{discussion} Where to go from here?
 In few steps and few lines of code we have achieved a lot!
 
 These plots are perhaps not publication quality yet but we will learn how to
 customize and improve in {ref}`customizing-plots`.
 ```
-
----
 
 ```{keypoints}
 - Avoid manual post-processing, try to script all steps.
