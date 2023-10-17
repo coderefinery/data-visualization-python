@@ -242,7 +242,8 @@ chart.interactive()
 ## Interactive charts
 
 With not too many changes we can make the chart interactive and add a slider
-for the year (please try this in the notebook):
+for the year (please try this in [this
+notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/data/customizing.ipynb)):
 ```{code-block} python
 ---
 emphasize-lines: 1-2, 27-28
