@@ -57,7 +57,7 @@ data
 A pandas dataframe object is composed of rows and columns.
 ```
 
-Let us explore these together in the notebook (one command per cell):
+Let us explore these together in the notebook (run these in separate cells):
 ```python
 # import the pandas library
 import pandas as pd
@@ -127,7 +127,7 @@ data
 ## Data cleaning
 
 Before plotting the data, there is a problem which we may not see yet: Dates
-are not in a standard date format.  We can clean this up:
+are not in a standard date format (YYYY-MM-DD). We can fix this:
 ```python
 # replace mm.yyyy to date format
 data["date"] = pd.to_datetime(list(data["date"]), format="%m.%Y")
@@ -211,7 +211,7 @@ Monthly temperature ranges for two cities in Norway.
    plots one above the other.
 
 2. In the precitipation plot, instead of `column="name"` try `column="date"`
-   and compare the two results.  In this case don't worry too much about the
+   and compare the two results. Don't worry too much about the
    labels and annotations. They can be improved.
 
 3. Modify the temperature range plot to have the two cities side by side,
@@ -278,7 +278,7 @@ The result looks neat:
 Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature.
 ```
 
-We can change the color scheme:
+We can change the color scheme ([available color schemes](https://vega.github.io/vega/docs/schemes/)):
 ```{code-block} python
 ---
 emphasize-lines: 4
@@ -357,7 +357,7 @@ IV,8.0,6.89
   you run JupyterLab. We recommend to create the file in the JupyterLab
   interface.
 - Plot the data but instead of `mark_bar`, use `mark_point`.
-- Your goal is to arrive at four plots for the four data sets, side by side.
+- Your goal is to arrive at four plots for the four data sets, all side by side.
 - If you have time, try to customize the plot.
 ````{solution}
   ```python
