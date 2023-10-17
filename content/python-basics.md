@@ -50,10 +50,10 @@ print(1.0 - some_fraction)
 
 - Python is **dynamically typed**:
   We do not have to define that an integer is an {py:class}`int`, we can use it this way
-  and Python will infer it
+  and Python will infer it.
 - However, one can use [type annotations](https://docs.python.org/3/library/typing.html) in Python
-  (see also [mypy](http://mypy-lang.org/))
-- Now you also know that we can add `# comments` to our code
+  (see also [mypy](http://mypy-lang.org/)).
+- Now you also know that we can add `# comments` to our code.
 
 
 ## Data structures for collections: lists, dictionaries, sets, and tuples
@@ -119,7 +119,7 @@ for score in scores:
 ```
 
 We don't have to call the variable inside the for-loop "score". This is up to us.
-We can do this instead:
+We can do this instead (but is this more understandable for humans?):
 ```python
 scores = [13, 5, 2, 3, 4, 3]
 
@@ -218,12 +218,6 @@ Example error traceback. Can you explain the error?
 
 
 ## Exercises
-
-Choose one of these two:
-- **Python-1A**: compute standard deviation
-- **Python-1B**: working with a dictionary
-
-All other exercises are optional and for later.
 
 ````{challenge} Exercise Python-1A: create a function that computes the standard deviation (15 min)
 - Arithmetic mean: $\bar{x} = \frac{1}{N} \sum_{i=1}^N x_i$
