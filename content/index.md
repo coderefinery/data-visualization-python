@@ -1,14 +1,15 @@
 # Data visualization using Python
 
 In this introductory-level workshop, we will learn to produce **reproducible
-data visualization pipelines using the Python programming language**.
+data visualization pipelines using the Python programming language** and the
+[Vega-Altair](https://altair-viz.github.io/) declarative visualization library.
 
 We will work in [Jupyter Notebooks](https://jupyter.org/) and start with
 **Python basics**, to be able to read data from Excel sheets and
 comma-separated values (CSV) files. We will introduce the
 [pandas](https://pandas.pydata.org/) library for "data wrangling" (reading,
-writing, sorting, and filtering of data).  We will learn how to produce and
-share **reproducible plots** using
+writing, sorting, and filtering of data). Finally, will learn how to produce
+and share **reproducible plots** using
 [Vega-Altair](https://altair-viz.github.io/).
 
 
