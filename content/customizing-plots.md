@@ -7,6 +7,9 @@
 - Be able to prepare a plot for publication
 - Know how to tweak example plots from a gallery for your own purpose
 - Start with a relatively simple example and build up more and more features
+- We will build up
+  [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/data/customizing.ipynb)
+  (spoiler alert!)
 ```
 
 [this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/>]

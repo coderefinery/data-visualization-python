@@ -5,6 +5,9 @@
 - Learning some basic usage of pandas dataframes
 - Reading data with pandas from disk or a web resource
 - Get a feeling for when pandas is useful and know where to find more information
+- We will build up
+  [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/data/pandas.ipynb)
+  (spoiler alert!)
 ```
 
 ```{instructor-note}

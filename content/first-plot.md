@@ -6,6 +6,9 @@
 - Be able to create simple plots with Vega-Altair and tweak them
 - Know how to look for help
 - Know that other tools exist
+- We will build up
+  [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/data/first-plot.ipynb)
+  (spoiler alert!)
 ```
 
 ```{instructor-note}
