@@ -78,6 +78,9 @@ data.tail()
 # print all column titles - no parentheses here
 data.columns
 
+# show which data types were detected
+data.dtypes
+
 # print table dimensions - no parentheses here
 data.shape
 
