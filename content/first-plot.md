@@ -123,7 +123,10 @@ alt.Chart(data).mark_point().encode(x="gdpPercap", y="lifeExp")
 
 In [Vega-Altair](https://altair-viz.github.io) we can chain functions. Let us
 add two more:
-```python
+```{code-block} python
+---
+emphasize-lines: 4
+---
 alt.Chart(data).mark_point().encode(
     x="gdpPercap",
     y="lifeExp",
