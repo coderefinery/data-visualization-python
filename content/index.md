@@ -86,6 +86,7 @@ matplotlib.md
 :caption: Reference
 
 installation.md
+colab.md
 ```
 
 
