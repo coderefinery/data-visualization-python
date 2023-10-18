@@ -8,7 +8,7 @@
 - Know how to tweak example plots from a gallery for your own purpose
 - Start with a relatively simple example and build up more and more features
 - We will build up
-  [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/data/customizing.ipynb)
+  [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb)
   (spoiler alert!)
 ```
 
@@ -243,7 +243,7 @@ chart.interactive()
 
 With not too many changes we can make the chart interactive and add a slider
 for the year (please try this in [this
-notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/data/customizing.ipynb)):
+notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb)):
 ```{code-block} python
 ---
 emphasize-lines: 1-2, 27-28
