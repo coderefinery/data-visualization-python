@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+set -euf -o pipefail
+
+python -m pip install -r data/requirements.txt
