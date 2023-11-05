@@ -5,8 +5,8 @@
 
 ## Why Matplotlib?
 
-- Matplotlib is perhaps the most "standard" Python plotting library.
-- Many libraries build on top of Matplotlib.
+- Matplotlib is perhaps the most popular Python plotting library.
+- Many libraries build on top of Matplotlib (example: [Seaborn](https://seaborn.pydata.org/examples/index.html)).
 - MATLAB users will feel familiar.
 - Even if you choose to use another library, chances are high
   that you need to adapt a Matplotlib plot of somebody else.
