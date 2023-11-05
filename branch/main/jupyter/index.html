@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jupyter Notebooks &mdash; Data visualization using Python  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Python basics" href="../python-basics/" />
+    <link rel="prev" title="Data visualization using Python" href="../" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Jupyter Notebooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation-for-jupyter-notebooks">Motivation for Jupyter Notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#our-first-notebook">Our first notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#use-cases-for-notebooks">Use cases for notebooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#good-practices">Good practices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-plot/">Generating our first plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/">Reading and slicing data with pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Optional</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/">Introduction to Matplotlib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Jupyter Notebooks</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/jupyter.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="jupyter-notebooks">
+<h1>Jupyter Notebooks<a class="headerlink" href="#jupyter-notebooks" title="Permalink to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Know what it is</p></li>
+<li><p>Create a new notebook and save it</p></li>
+<li><p>Open existing notebooks from the web</p></li>
+<li><p>Be able to create text/markdown cells, code cells, images, and equations</p></li>
+<li><p>Know when to use a Jupyter Notebook for a Python project and when perhaps not to</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>15 min discussion/demo</p></li>
+<li><p>15 min exercise</p></li>
+<li><p>5 min summary</p></li>
+</ul>
+</div>
+<p>[this lesson is adapted from <a class="reference external" href="https://coderefinery.github.io/jupyter/motivation/">https://coderefinery.github.io/jupyter/motivation/</a>]</p>
+<section id="motivation-for-jupyter-notebooks">
+<h2>Motivation for Jupyter Notebooks<a class="headerlink" href="#motivation-for-jupyter-notebooks" title="Permalink to this heading"></a></h2>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/medicean-stars.png"><img alt="Galileo's drawings of Jupiter and its Medicean Stars from Sidereus Nuncius" src="../_images/medicean-stars.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text"><strong>One of the first notebooks: Galileo’s drawings of Jupiter and its Medicean
+Stars</strong> from Sidereus Nuncius. Image courtesy of the History of Science
+Collections, University of Oklahoma Libraries (CC-BY).</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p><strong>Code, text, equations, figures, plots</strong>, etc. are interleaved, creating a <em>computational narrative</em>.</p></li>
+<li><p><a class="reference external" href="https://www.nature.com/articles/d41586-018-07196-1"><em>“an environment in which users execute code, see what happens, modify and
+repeat in a kind of iterative conversation between researcher and
+data”</em></a></p></li>
+<li><p>The name “Jupyter” derives from Julia+Python+R, but today Jupyter kernels
+exist for <a class="reference external" href="https://github.com/jupyter/jupyter/wiki/Jupyter-kernels">dozens of programming languages</a>.</p></li>
+<li><p><a class="reference external" href="https://github.com/jupyter/jupyter/wiki">Gallery of interesting Jupyter Notebooks</a>.</p></li>
+</ul>
+</section>
+<section id="our-first-notebook">
+<h2>Our first notebook<a class="headerlink" href="#our-first-notebook" title="Permalink to this heading"></a></h2>
+<div class="admonition-exercise-jupyter-1-create-a-notebook-15-min exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise Jupyter-1: Create a notebook (15 min)</p>
+<ul>
+<li><p>Open a new notebook (on Windows: open Anaconda Navigator, then launch JupyterLab; on macOS/Linux: you can open JupyterLab from the terminal by typing <code class="docutils literal notranslate"><span class="pre">jupyter-lab</span></code>)</p></li>
+<li><p>Rename the notebook</p></li>
+<li><p>Create a <strong>markdown cell</strong> with a section title, a short text, an image, and an equation</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span><span class="gh"># Title of my notebook</span>
+
+Some text.
+
+![<span class="nt">Photo of Galilei&#39;s manuscript</span>](<span class="na">https://upload.wikimedia.org/wikipedia/commons/b/b3/Galileo_Galilei_%281564_-_1642%29_-_Serenissimo_Principe_-_manuscript_with_observations_of_Jupiter_and_four_of_its_moons%2C_1610.png</span>)
+
+$E = mc^2$
+</pre></div>
+</div>
+</li>
+<li><p>Most important shortcut: <strong>Shift + Enter</strong>, to run current cell and create a new one below.</p></li>
+<li><p>Create a <strong>code cell</strong> where you define the <code class="docutils literal notranslate"><span class="pre">arithmetic_mean</span></code> function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">element</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">/</span> <span class="n">n</span>
+</pre></div>
+</div>
+</li>
+<li><p>In a different cell, call the function:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">arithmetic_mean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</li>
+<li><p>Run all cells.</p></li>
+<li><p>Save the notebook.</p></li>
+</ul>
+</div>
+</section>
+<section id="use-cases-for-notebooks">
+<h2>Use cases for notebooks<a class="headerlink" href="#use-cases-for-notebooks" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Really good for <strong>linear workflows</strong> (e.g. read data, filter data, do some statistics, plot the results)</p></li>
+<li><p>Experimenting with new ideas, testing new libraries/databases</p></li>
+<li><p>As an <em>interactive</em> development environment for code, data analysis, and visualization</p></li>
+<li><p>Keeping track of interactive sessions, like a <strong>digital lab notebook</strong></p></li>
+<li><p><strong>Supplementary information with published articles</strong></p></li>
+</ul>
+</section>
+<section id="good-practices">
+<h2>Good practices<a class="headerlink" href="#good-practices" title="Permalink to this heading"></a></h2>
+<p>Run all cells before sharing/saving to verify that the results you see on your
+computer were not due to cells being run out of order.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../" class="btn btn-neutral float-left" title="Data visualization using Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../python-basics/" class="btn btn-neutral float-right" title="Python basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

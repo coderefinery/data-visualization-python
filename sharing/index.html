@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sharing notebooks &mdash; Data visualization using Python  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Introduction to Matplotlib" href="../matplotlib/" />
+    <link rel="prev" title="Customizing plots" href="../customizing-plots/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-plot/">Generating our first plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/">Reading and slicing data with pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Sharing notebooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#document-dependencies">Document dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#different-ways-to-share-a-notebook">Different ways to share a notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sharing-dynamic-notebooks-using-binder">Sharing dynamic notebooks using Binder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-get-a-digital-object-identifier-doi">How to get a digital object identifier (DOI)</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Optional</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/">Introduction to Matplotlib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Sharing notebooks</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/sharing.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="sharing-notebooks">
+<h1>Sharing notebooks<a class="headerlink" href="#sharing-notebooks" title="Permalink to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Know about good practices for notebooks to make them reusable</p></li>
+<li><p>Have a recipe to share a dynamic and reproducible visualization pipeline</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>20 min presentation and discussion</p></li>
+</ul>
+</div>
+<p>[this lesson is adapted from <a class="reference external" href="https://coderefinery.github.io/jupyter/sharing/">https://coderefinery.github.io/jupyter/sharing/</a>]</p>
+<section id="document-dependencies">
+<h2>Document dependencies<a class="headerlink" href="#document-dependencies" title="Permalink to this heading"></a></h2>
+<p>If you import libraries into your notebook, note down their versions.</p>
+<p>It is customary to do this either in a <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> file (example):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pandas==2.1.1
+altair==5.1.2
+</pre></div>
+</div>
+<p>… or in an <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file (example):</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example-environment</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas=2.1.1</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">altair=5.1.2</span>
+</pre></div>
+</div>
+<p>Place either <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> or <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> in the same folder as the notebook(s).</p>
+<p>This is not only useful for people who will try to rerun this in future, it is also
+understood by some tools (e.g. <a class="reference external" href="https://mybinder.org/">Binder</a>) which we will see later.</p>
+</section>
+<section id="different-ways-to-share-a-notebook">
+<h2>Different ways to share a notebook<a class="headerlink" href="#different-ways-to-share-a-notebook" title="Permalink to this heading"></a></h2>
+<p>We need to learn how to share notebooks. At the minimum we need
+to share them with our future selves (backup and reproducibility).</p>
+<ul class="simple">
+<li><p>You can enter a URL, GitHub repo or username, or GIST ID in <a class="reference external" href="https://nbviewer.jupyter.org/">nbviewer</a> and view a rendered Jupyter notebook</p></li>
+<li><p>Read the Docs can render Jupyter Notebooks via the <a class="reference external" href="https://nbsphinx.readthedocs.io/">nbsphinx package</a></p></li>
+<li><p><a class="reference external" href="https://mybinder.org/">Binder</a> creates live notebooks based on a GitHub repository</p></li>
+<li><p><a class="reference external" href="https://notebooks.egi.eu">EGI Notebooks</a> (see also https://egi-notebooks.readthedocs.io)</p></li>
+<li><p><a class="reference external" href="https://github.com/jupyterlab/jupyterlab">JupyterLab</a> supports sharing and collaborative editing of notebooks via Google Drive. Recently
+it also added support for <a class="reference external" href="https://github.com/jupyterlab/jupyterlab/pull/10118">Shared editing with collaborative notebook model</a>.</p></li>
+<li><p><a class="reference external" href="https://jupyterlite.readthedocs.io/en/latest/">JupyterLite</a> creates a Jupyterlab environment in the browser and can be hosted as a GitHub page.</p></li>
+<li><p><a class="reference external" href="https://github.com/aaren/notedown">Notedown</a>, <a class="reference external" href="https://github.com/QuantEcon/sphinxcontrib-jupyter">Jupinx</a> and <a class="reference external" href="https://github.com/hplgit/doconce">DocOnce</a> can take Markdown or Sphinx files and generate Jupyter Notebooks</p></li>
+<li><p><a class="reference external" href="https://voila.readthedocs.io/en/stable/">Voilà</a> allows you to convert a Jupyter Notebook into an interactive dashboard</p></li>
+<li><p>The <code class="docutils literal notranslate"><span class="pre">jupyter</span> <span class="pre">nbconvert</span></code> tool can convert a (<code class="docutils literal notranslate"><span class="pre">.ipynb</span></code>) notebook file to:</p>
+<ul>
+<li><p>python code (<code class="docutils literal notranslate"><span class="pre">.py</span></code> file)</p></li>
+<li><p>an HTML file</p></li>
+<li><p>a LaTeX file</p></li>
+<li><p>a PDF file</p></li>
+<li><p>a slide-show in the browser</p></li>
+</ul>
+</li>
+</ul>
+<p>These platforms can be used free of charge but have <strong>paid subscriptions</strong> for
+faster access to cloud resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cocalc.com/">CoCalc</a> (formerly SageMathCloud) allows collaborative editing of notebooks in the cloud</p></li>
+<li><p>Google’s <a class="reference external" href="https://colab.research.google.com/">Colaboratory</a> lets you work on notebooks in the cloud, and you can <a class="reference external" href="https://colab.research.google.com/notebooks/io.ipynb">read and write to notebook files on Drive</a></p></li>
+<li><p><a class="reference external" href="https://notebooks.azure.com/">Microsoft Azure Notebooks</a> also offers free notebooks in the cloud</p></li>
+<li><p><a class="reference external" href="https://deepnote.com/">Deepnote</a> allows real-time collaboration</p></li>
+</ul>
+</section>
+<section id="sharing-dynamic-notebooks-using-binder">
+<h2>Sharing dynamic notebooks using <a class="reference external" href="https://mybinder.org/">Binder</a><a class="headerlink" href="#sharing-dynamic-notebooks-using-binder" title="Permalink to this heading"></a></h2>
+<div class="admonition-exercise-demo-making-your-notebooks-reproducible-by-anyone-15-min exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise/demo: Making your notebooks reproducible by anyone (15 min)</p>
+<p>Instructor demonstrates this:</p>
+<ul>
+<li><p>Instructor creates a <a class="reference external" href="https://github.com/">GitHub</a> repository.</p></li>
+<li><p>Uploads a notebook file that we created in earlier episodes.</p></li>
+<li><p>Then we look at the statically rendered version of the notebook on GitHub and
+also <a class="reference external" href="https://nbviewer.jupyter.org/">nbviewer</a>.</p></li>
+<li><p>Add a file <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> which contains:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>pandas==2.1.1
+altair==5.1.2
+</pre></div>
+</div>
+</li>
+<li><p>Visit <a class="reference external" href="https://mybinder.org">https://mybinder.org</a>:</p>
+<figure class="align-default">
+<img alt="Screenshot from mybinder.org user interface" src="../_images/binder.jpg" />
+</figure>
+</li>
+<li><p>Check that your notebook repository now has a “launch binder”
+badge in your <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file on GitHub.</p></li>
+<li><p>Try clicking the button and see how your repository is launched
+on Binder (can take a minute or two). Your notebooks can now be expored and executed in the cloud.</p></li>
+<li><p>Enjoy being fully reproducible!</p></li>
+</ul>
+</div>
+</section>
+<section id="how-to-get-a-digital-object-identifier-doi">
+<h2>How to get a digital object identifier (DOI)<a class="headerlink" href="#how-to-get-a-digital-object-identifier-doi" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://zenodo.org/">Zenodo</a> is a great service to get a
+<a class="reference external" href="https://en.wikipedia.org/wiki/Digital_object_identifier">DOI</a> for a notebook
+(but <strong>first practice</strong> with the <a class="reference external" href="https://sandbox.zenodo.org/">Zenodo sandbox</a>).</p></li>
+<li><p><a class="reference external" href="https://mybinder.org/">Binder</a> can also run notebooks from Zenodo.</p></li>
+<li><p>In the supporting information of your paper you can refer to its DOI.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../customizing-plots/" class="btn btn-neutral float-left" title="Customizing plots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../matplotlib/" class="btn btn-neutral float-right" title="Introduction to Matplotlib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Generating our first plot &mdash; Data visualization using Python  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script src="../_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Reading and slicing data with pandas" href="../pandas/" />
+    <link rel="prev" title="Python basics" href="../python-basics/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Generating our first plot</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#repeatability-reproducibility">Repeatability/reproducibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-are-we-starting-with-vega-altair">Why are we starting with Vega-Altair?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-and-plotting-a-dataset">Loading and plotting a dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtering-data-directly-in-vega-altair">Filtering data directly in Vega-Altair</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-color-as-additional-channel">Using color as additional channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-to-log-scale">Changing to log scale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improving-axis-titles">Improving axis titles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faceted-charts">Faceted charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-from-points-to-circles">Changing from points to circles</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/">Reading and slicing data with pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Optional</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/">Introduction to Matplotlib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Generating our first plot</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/first-plot.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="generating-our-first-plot">
+<span id="first-plot"></span><h1>Generating our first plot<a class="headerlink" href="#generating-our-first-plot" title="Permalink to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Be able to create simple plots with Vega-Altair and tweak them</p></li>
+<li><p>Know how to look for help</p></li>
+<li><p>Know that other tools exist</p></li>
+<li><p>We will build up
+<a class="reference external" href="https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/first-plot.ipynb">this notebook</a>
+(spoiler alert!)</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>25 min talking/type-along</p></li>
+</ul>
+</div>
+<p>[this lesson is adapted from <a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/">https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/</a>]</p>
+<section id="repeatability-reproducibility">
+<h2>Repeatability/reproducibility<a class="headerlink" href="#repeatability-reproducibility" title="Permalink to this heading"></a></h2>
+<p>From <a class="reference external" href="https://clauswilke.com/dataviz/">Claus O. Wilke: “Fundamentals of Data Visualization”</a>:</p>
+<blockquote>
+<div><p><em>One thing I have learned over the years is that automation is your friend. I
+think figures should be autogenerated as part of the data analysis pipeline
+(which should also be automated), and they should come out of the pipeline
+ready to be sent to the printer, no manual post-processing needed.</em></p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Try to minimize manual post-processing</strong>. This could bite you when you need to regenerate 50
+figures one day before submission deadline or regenerate a set of figures
+after the person who created them left the group.</p></li>
+<li><p>There is not the one perfect language and <strong>not the one perfect library</strong> for everything.</p></li>
+<li><p>Within Python, many libraries exist:</p>
+<ul>
+<li><p><a class="reference external" href="https://altair-viz.github.io/gallery/index.html">Vega-Altair</a>:
+declarative visualization, statistics built in</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>:
+probably the most standard and most widely used</p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/examples/index.html">Seaborn</a>:
+high-level interface to Matplotlib, statistical functions built in</p></li>
+<li><p><a class="reference external" href="https://plotly.com/python/">Plotly</a>:
+interactive graphs</p></li>
+<li><p><a class="reference external" href="https://demo.bokeh.org/">Bokeh</a>:
+also here good for interactivity</p></li>
+<li><p><a class="reference external" href="https://plotnine.readthedocs.io/">plotnine</a>:
+implementation of a grammar of graphics in Python, it is based on <a class="reference external" href="https://ggplot2.tidyverse.org/">ggplot2</a></p></li>
+<li><p><a class="reference external" href="https://yhat.github.io/ggpy/">ggplot</a>:
+R users will be more at home</p></li>
+<li><p><a class="reference external" href="https://www.pyngl.ucar.edu/Examples/gallery.shtml">PyNGL</a>:
+used in the weather forecast community</p></li>
+<li><p><a class="reference external" href="https://k3d-jupyter.org/gallery/index.html">K3D</a>:
+Jupyter Notebook extension for 3D visualization</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p>Two main families of libraries: procedural (e.g. Matplotlib) and declarative.</p></li>
+</ul>
+</section>
+<section id="why-are-we-starting-with-vega-altair">
+<h2>Why are we starting with <a class="reference external" href="https://altair-viz.github.io/">Vega-Altair</a>?<a class="headerlink" href="#why-are-we-starting-with-vega-altair" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Concise and powerful</p></li>
+<li><p>Allows us to focus on the data visualization part and get started without too much Python knowledge</p></li>
+<li><p>The way it combines visual channels with data columns can feel intuitive</p></li>
+<li><p>Easy to change figures</p></li>
+<li><p>Good documentation</p></li>
+<li><p>Open source</p></li>
+<li><p>Makes it easy to save figures in a number of formats</p></li>
+<li><p>Interfaces very nicely with <a class="reference external" href="https://pandas.pydata.org/">pandas</a></p></li>
+<li><p>Easy to save interactive visualizations to be used in websites</p></li>
+</ul>
+</section>
+<section id="loading-and-plotting-a-dataset">
+<h2>Loading and plotting a dataset<a class="headerlink" href="#loading-and-plotting-a-dataset" title="Permalink to this heading"></a></h2>
+<p>In this lesson will work with one of the
+<a class="reference external" href="https://www.gapminder.org/tools/">Gapminder</a> datasets.</p>
+<p>Let us together read and plot the data and then we explain what is happening
+and we will improve the figure together.  First we read and inspect the data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># read the data</span>
+<span class="n">url_prefix</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/plotly/datasets/master/&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_prefix</span> <span class="o">+</span> <span class="s2">&quot;gapminder_with_codes.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># print overview of the dataset</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>With very few lines we can get the first plot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id1">
+<img alt="First raw plot with all countries and all years." src="../_images/all-data.svg" /><figcaption>
+<p><span class="caption-text">First raw plot with all countries and all years.</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Observe how we connect (encode) <strong>visual channels</strong> to data columns:</p>
+<ul class="simple">
+<li><p>x-coordinate with “gdpPercap”</p></li>
+<li><p>y-coordinate with “lifeExp”</p></li>
+</ul>
+<p>The following code would have the same effect but the above version might be
+easier to read:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-let-us-pause-and-explain-the-code discussion important admonition" id="discussion-0">
+<p class="admonition-title">Let us pause and explain the code</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alt</span></code> is a short-hand for <code class="docutils literal notranslate"><span class="pre">altair</span></code> which we imported on top of the notebook</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Chart()</span></code> is a function defined inside <code class="docutils literal notranslate"><span class="pre">altair</span></code> which takes the data as argument</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mark_point()</span></code> is a function that produces scatter plots</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encode()</span></code> is a function which encodes data columns to visual channels</p></li>
+</ul>
+</div>
+</section>
+<section id="filtering-data-directly-in-vega-altair">
+<h2>Filtering data directly in <a class="reference external" href="https://altair-viz.github.io">Vega-Altair</a><a class="headerlink" href="#filtering-data-directly-in-vega-altair" title="Permalink to this heading"></a></h2>
+<p>In <a class="reference external" href="https://altair-viz.github.io">Vega-Altair</a> we can chain functions. Let us
+add two more:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span>
+<span class="hll"><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<figure class="align-default" id="id2">
+<img alt="Now we only keep the year 2007." src="../_images/only-2007.svg" /><figcaption>
+<p><span class="caption-text">Now we only keep the year 2007.</span><a class="headerlink" href="#id2" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="using-color-as-additional-channel">
+<h2>Using color as additional channel<a class="headerlink" href="#using-color-as-additional-channel" title="Permalink to this heading"></a></h2>
+<p>A very neat feature of <a class="reference external" href="https://altair-viz.github.io">Vega-Altair</a> is that it
+is easy to add and modify visual channels. Let us try to add one more so that
+we do something with the “continent” data column:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id3">
+<img alt="Using different colors for different continents." src="../_images/color.svg" /><figcaption>
+<p><span class="caption-text">Using different colors for different continents.</span><a class="headerlink" href="#id3" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="changing-to-log-scale">
+<h2>Changing to log scale<a class="headerlink" href="#changing-to-log-scale" title="Permalink to this heading"></a></h2>
+<p>For this data set we will get a better insight when switching the x-axis from
+linear to log scale (we changed two lines to show both the “method syntax” and
+the “attribute syntax”):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="hll">    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">),</span>
+</span><span class="hll">    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">),</span>
+</span>    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id4">
+<img alt="Changing the x axis to log scale." src="../_images/log-scale.svg" /><figcaption>
+<p><span class="caption-text">Changing the x axis to log scale.</span><a class="headerlink" href="#id4" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="improving-axis-titles">
+<h2>Improving axis titles<a class="headerlink" href="#improving-axis-titles" title="Permalink to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="hll">    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+</span><span class="hll">    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">),</span>
+</span>    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id5">
+<img alt="Improving the axis titles." src="../_images/axis-titles.svg" /><figcaption>
+<p><span class="caption-text">Improving the axis titles.</span><a class="headerlink" href="#id5" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="faceted-charts">
+<h2>Faceted charts<a class="headerlink" href="#faceted-charts" title="Permalink to this heading"></a></h2>
+<p>To see what faceted charts are and how easy it is to do this, add the following
+line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">row</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Guess what happens when you change <code class="docutils literal notranslate"><span class="pre">row=&quot;continent&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">column=&quot;continent&quot;</span></code>?</p>
+</section>
+<section id="changing-from-points-to-circles">
+<h2>Changing from points to circles<a class="headerlink" href="#changing-from-points-to-circles" title="Permalink to this heading"></a></h2>
+<p>Let us add one more visual channel, mapping size of the circle to the
+population size of a country:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+</span>    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;pop&quot;</span><span class="p">,</span>
+</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id6">
+<img alt="Circle sizes are proportional to population sizes." src="../_images/population-size.svg" /><figcaption>
+<p><span class="caption-text">Circle sizes are proportional to population sizes.</span><a class="headerlink" href="#id6" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<hr class="docutils" />
+<div class="admonition-where-to-go-from-here discussion important admonition" id="discussion-1">
+<p class="admonition-title">Where to go from here?</p>
+<p>In few steps and few lines of code we have achieved a lot!</p>
+<p>These plots are perhaps not publication quality yet but we will learn how to
+customize and improve in <a class="reference internal" href="../customizing-plots/#customizing-plots"><span class="std std-ref">Customizing plots</span></a>.</p>
+</div>
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Avoid manual post-processing, try to script all steps.</p></li>
+<li><p>Browse a number of example galleries to help you choose the library that fits best your work/style.</p></li>
+<li><p>Figures for presentation slides and figures for manuscripts have different
+requirements. More about that later.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../python-basics/" class="btn btn-neutral float-left" title="Python basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../pandas/" class="btn btn-neutral float-right" title="Reading and slicing data with pandas" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

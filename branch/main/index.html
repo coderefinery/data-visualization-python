@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Data visualization using Python &mdash; Data visualization using Python  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_lesson.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx_rtd_theme_ext_color_contrast.css" type="text/css" />
+      <link rel="stylesheet" href="_static/style.css" type="text/css" />
+      <link rel="stylesheet" href="_static/tabs.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script src="_static/minipres.js"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex/" />
+    <link rel="search" title="Search" href="search/" />
+    <link rel="next" title="Jupyter Notebooks" href="jupyter/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            Data visualization using Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-plot/">Generating our first plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas/">Reading and slicing data with pandas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sharing/">Sharing notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Optional</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib/">Introduction to Matplotlib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab/">Going through the course using Google Colab</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Data visualization using Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Data visualization using Python</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/index.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="data-visualization-using-python">
+<h1>Data visualization using Python<a class="headerlink" href="#data-visualization-using-python" title="Permalink to this heading"></a></h1>
+<p>In this introductory-level workshop, we will learn to produce <strong>reproducible
+data visualization pipelines using the Python programming language</strong> and the
+<a class="reference external" href="https://altair-viz.github.io/">Vega-Altair</a> declarative visualization library.</p>
+<p>We will work in <a class="reference external" href="https://jupyter.org/">Jupyter Notebooks</a> and start with
+<strong>Python basics</strong>, to be able to read data from Excel sheets and
+comma-separated values (CSV) files. We will introduce the
+<a class="reference external" href="https://pandas.pydata.org/">pandas</a> library for “data wrangling” (reading,
+writing, sorting, and filtering of data). Finally, will learn how to produce
+and share <strong>reproducible plots</strong> using
+<a class="reference external" href="https://altair-viz.github.io/">Vega-Altair</a>.</p>
+<section id="who-is-the-course-for">
+<h2>Who is the course for?<a class="headerlink" href="#who-is-the-course-for" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Somebody starting with Python or curious about Python.</p></li>
+<li><p>Somebody who needs
+to read, process, and plot data for their work or studies and would like to
+try it out with Python.</p></li>
+<li><p>Persons who already use Python for this but want to learn about libraries
+to simplify common tasks and about how to share their workflow in a reproducible way.</p></li>
+</ul>
+<div class="admonition-preparations prerequisites admonition" id="prerequisites-0">
+<p class="admonition-title">Preparations</p>
+<ul class="simple">
+<li><p>No programming langauge experience needed, we will start from zero and learn the basics together</p></li>
+<li><p>Computer with network access</p></li>
+<li><p>Anaconda installation (<a class="reference internal" href="installation/"><span class="doc">Software install instructions</span></a>)</p></li>
+<li><p>Installing the package <code class="docutils literal notranslate"><span class="pre">altair</span></code></p></li>
+<li><p>Bring one of your recent plotting tasks or challenges</p></li>
+</ul>
+</div>
+</section>
+<section id="what-is-not-taught">
+<h2>What is not taught?<a class="headerlink" href="#what-is-not-taught" title="Permalink to this heading"></a></h2>
+<ul class="simple">
+<li><p>Version control. Although super useful it is outside of this workshop.</p></li>
+<li><p>Python outside a Jupyter Notebook.</p></li>
+<li><p>Python sets and tuples are only mentioned.</p></li>
+<li><p>File input/output is only used via libraries and doing “own” file-I/O is only part
+of optional material.</p></li>
+<li><p>How to choose the right visualization format for the data at hand.</p></li>
+<li><p>Python object oriented design.</p></li>
+<li><p>Python packaging.</p></li>
+<li><p>NumPy arrays.</p></li>
+<li><p>Managing environments and installing Python packages.</p></li>
+</ul>
+</section>
+<section id="episodes">
+<h2>Episodes<a class="headerlink" href="#episodes" title="Permalink to this heading"></a></h2>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p>35 min</p></td>
+<td><p><a class="reference internal" href="jupyter/"><span class="doc">Jupyter Notebooks</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>35 min</p></td>
+<td><p><a class="reference internal" href="python-basics/"><span class="doc">Python basics</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>35 min</p></td>
+<td><p><a class="reference internal" href="first-plot/"><span class="doc">Generating our first plot</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>45 min</p></td>
+<td><p><a class="reference internal" href="pandas/"><span class="doc">Reading and slicing data with pandas</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>25 min</p></td>
+<td><p><a class="reference internal" href="tidy-data/"><span class="doc">Tidy data and dealing with messy data</span></a></p></td>
+</tr>
+<tr class="row-even"><td><p>50 min</p></td>
+<td><p><a class="reference internal" href="customizing-plots/"><span class="doc">Customizing plots</span></a></p></td>
+</tr>
+<tr class="row-odd"><td><p>20 min</p></td>
+<td><p><a class="reference internal" href="sharing/"><span class="doc">Sharing notebooks</span></a></p></td>
+</tr>
+</tbody>
+</table>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Optional</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib/">Introduction to Matplotlib</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="colab/">Going through the course using Google Colab</a></li>
+</ul>
+</div>
+</section>
+<section id="example-notebooks">
+<h2>Example notebooks<a class="headerlink" href="#example-notebooks" title="Permalink to this heading"></a></h2>
+<p>Generating our first plot</p>
+<p><a class="reference external" href="https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/first-plot.ipynb"><img alt="nbviewer badge" src="https://img.shields.io/badge/view%20on-nbviewer-brightgreen.svg" /></a>
+<a class="reference external" href="https://colab.research.google.com/github/coderefinery/data-visualization-python/blob/main/notebooks/first-plot.ipynb"><img alt="colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>
+<a class="reference external" href="https://mybinder.org/v2/gh/coderefinery/data-visualization-python/HEAD?labpath=notebooks%2Ffirst-plot.ipynb"><img alt="binder badge" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<p>Reading and slicing data with pandas</p>
+<p><a class="reference external" href="https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/pandas.ipynb"><img alt="nbviewer badge" src="https://img.shields.io/badge/view%20on-nbviewer-brightgreen.svg" /></a>
+<a class="reference external" href="https://colab.research.google.com/github/coderefinery/data-visualization-python/blob/main/notebooks/pandas.ipynb"><img alt="colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>
+<a class="reference external" href="https://mybinder.org/v2/gh/coderefinery/data-visualization-python/HEAD?labpath=notebooks%2Fpandas.ipynb"><img alt="binder badge" src="https://mybinder.org/badge_logo.svg" /></a></p>
+<p>Customizing plots</p>
+<p><a class="reference external" href="https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb"><img alt="nbviewer badge" src="https://img.shields.io/badge/view%20on-nbviewer-brightgreen.svg" /></a>
+<a class="reference external" href="https://colab.research.google.com/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb"><img alt="colab badge" src="https://colab.research.google.com/assets/colab-badge.svg" /></a>
+<a class="reference external" href="https://mybinder.org/v2/gh/coderefinery/data-visualization-python/HEAD?labpath=notebooks%2Fcustomizing.ipynb"><img alt="binder badge" src="https://mybinder.org/badge_logo.svg" /></a></p>
+</section>
+<section id="credit">
+<h2>Credit<a class="headerlink" href="#credit" title="Permalink to this heading"></a></h2>
+<p>When preparing this lesson, we have reused these resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/">https://aaltoscicomp.github.io/python-for-scicomp/</a></p></li>
+<li><p><a class="reference external" href="https://datacarpentry.org/python-ecology-lesson/">https://datacarpentry.org/python-ecology-lesson/</a></p></li>
+<li><p><a class="reference external" href="https://swcarpentry.github.io/python-novice-inflammation/">https://swcarpentry.github.io/python-novice-inflammation/</a></p></li>
+<li><p><a class="reference external" href="https://coderefinery.github.io/jupyter/">https://coderefinery.github.io/jupyter/</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="jupyter/" class="btn btn-neutral float-right" title="Jupyter Notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
