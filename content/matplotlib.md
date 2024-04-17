@@ -234,7 +234,7 @@ calls.
 
 ## Exercises: Styling and customization with Matplotlib
 
-````{challenge} Exercise Customization-1: log scale in Matplotlib (15 min)
+````{challenge} Exercise Matplotlib-2: log scale in Matplotlib (15 min)
 In this exercise we will learn how to use log scales.
 
 - To demonstrate this we first fetch some data to plot:
@@ -295,7 +295,7 @@ ax.set_ylabel("Life expectancy (years)")
   of points.
 ````
 
-````{challenge} Exercise Customization-2: preparing a plot for publication (15 min)
+````{challenge} Exercise Matplotlib-3: preparing a plot for publication (15 min)
 Often we need to create figures for presentation slides and for publications
 but both have different requirements: for presentation slides you have the whole
 screen but for a figure in a publication you may only have few centimeters/inches.
