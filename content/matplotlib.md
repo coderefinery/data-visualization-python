@@ -71,7 +71,7 @@ matplotlib.use("Agg")
 ```
 
 
-## Exercise: First plot
+## Exercise: First plot with Matplotlib
 
 ````{challenge} Exercise Matplotlib-1: extend the previous example (15 min)
 - Extend the previous plot by also plotting this set of values but this time
@@ -136,7 +136,7 @@ ax.legend()
 ````
 
 ```{discussion} Why these colors?
-This qualitative color palette is opimized for all color-vision
+This qualitative color palette is optimized for all color-vision
 deficiencies, see <https://clauswilke.com/dataviz/color-pitfalls.html> and
 [Okabe, M., and K. Ito. 2008. "Color Universal Design (CUD):
 How to Make Figures and Presentations That Are Friendly to Colorblind People"](http://jfly.iam.u-tokyo.ac.jp/color/).
@@ -232,7 +232,7 @@ calls.
   ```
 
 
-## Exercises: Styling and customization
+## Exercises: Styling and customization with Matplotlib
 
 ````{challenge} Exercise Customization-1: log scale in Matplotlib (15 min)
 In this exercise we will learn how to use log scales.
