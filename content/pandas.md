@@ -209,14 +209,14 @@ Monthly temperature ranges for two cities in Norway.
 
 ## Exercise: Arranging plots in columns and rows
 
-```{exercise} Pandas-1: Columns and rows
-1. In the precitipation plot, instead of `column="name"` try `column="date"`
+:::{exercise} Pandas-1: Columns and rows
+1. In the precipitation plot, instead of `column="name"` try `column="date"`
    and compare the two results. Don't worry too much about the
    labels and annotations. They can be improved.
 
 2. Modify the temperature range plot to have the two cities side by side,
    instead of both in one plot.
-```
+:::
 
 
 ## Using visual channels
@@ -352,7 +352,7 @@ IV,8.0,7.91
 IV,8.0,6.89
 ```
 
-:::::{challenge} Exercise Pandas-2: read and plot a CSV file
+:::::{challenge} Exercise Pandas-2: Read and plot a CSV file
 - Save the above CSV file to disk as `example.csv` in the same folder where
   you run JupyterLab. We recommend to create the file in the JupyterLab
   interface.
