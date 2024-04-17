@@ -210,14 +210,11 @@ Monthly temperature ranges for two cities in Norway.
 ## Exercise: Arranging plots in columns and rows
 
 ```{exercise} Pandas-1: Columns and rows
-1. Instead of plotting the precipitations side by side, try to arrange the two
-   plots one above the other.
-
-2. In the precitipation plot, instead of `column="name"` try `column="date"`
+1. In the precitipation plot, instead of `column="name"` try `column="date"`
    and compare the two results. Don't worry too much about the
    labels and annotations. They can be improved.
 
-3. Modify the temperature range plot to have the two cities side by side,
+2. Modify the temperature range plot to have the two cities side by side,
    instead of both in one plot.
 ```
 
@@ -355,14 +352,14 @@ IV,8.0,7.91
 IV,8.0,6.89
 ```
 
-`````{challenge} Exercise Pandas-2: read and plot a CSV file
+:::::{challenge} Exercise Pandas-2: read and plot a CSV file
 - Save the above CSV file to disk as `example.csv` in the same folder where
   you run JupyterLab. We recommend to create the file in the JupyterLab
   interface.
 - Plot the data but instead of `mark_bar`, use `mark_point`.
 - Your goal is to arrive at four plots for the four data sets, all side by side.
 - If you have time, try to customize the plot.
-````{solution}
+::::{solution}
   ```python
   # we don't need to import again but just in case you started here
   import pandas as pd
@@ -376,8 +373,8 @@ IV,8.0,6.89
       column="dataset",
       )
   ```
-````
-`````
+::::
+:::::
 
 
 ## Where to learn more about pandas
@@ -395,9 +392,9 @@ great resources to explore more:
 
 ---
 
-```{keypoints}
+:::{keypoints}
 - Pandas dataframes are a good data structure for tabular data.
 - Dataframes allow both simple and advanced analysis in very compact form.
 - Some visualization libraries (such as Vega-Altair) interface very nicely
   with pandas dataframes.
-```
+:::
