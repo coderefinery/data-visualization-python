@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tidy data and dealing with messy data &mdash; Data visualization using Python  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=0c089442" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=e4194741" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=187304be"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+        <script src="../_static/minipres.js?v=a0d29692"></script>
+        <script>let toggleHintShow = 'Click to show';</script>
+        <script>let toggleHintHide = 'Click to hide';</script>
+        <script>let toggleOpenOnPrint = 'true';</script>
+        <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Customizing plots" href="../customizing-plots/" />
+    <link rel="prev" title="Reading and slicing data with pandas" href="../pandas/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-plot/">Generating our first plot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pandas/">Reading and slicing data with pandas</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tidy data and dealing with messy data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#importing-data-from-spreadsheets">Importing data from spreadsheets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tidy-data">Tidy data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#standard-formats">Standard formats</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-cleaning">Data cleaning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-data-that-is-not-in-csv-format">Reading data that is not in CSV format</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Optional</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../matplotlib/">Introduction to Matplotlib</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Tidy data and dealing with messy data</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/tidy-data.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tidy-data-and-dealing-with-messy-data">
+<h1>Tidy data and dealing with messy data<a class="headerlink" href="#tidy-data-and-dealing-with-messy-data" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Knowing about different storage formats</p></li>
+<li><p>Knowing about the tidy data format</p></li>
+<li><p>Be able to reformat tabular data into the tidy data format</p></li>
+</ul>
+</div>
+<div class="admonition-instructor-note instructor-note admonition" id="instructor-note-0">
+<p class="admonition-title">Instructor note</p>
+<ul class="simple">
+<li><p>25 min motivation/discussion/demo</p></li>
+</ul>
+</div>
+<p>In the previous episode we read data from nicely formatted “plain” text files.
+But sometimes the data is in a spreadsheet or in less nicely formatted text files.
+In this episode we will discuss strategies for how to work with these.</p>
+<section id="importing-data-from-spreadsheets">
+<h2>Importing data from spreadsheets<a class="headerlink" href="#importing-data-from-spreadsheets" title="Link to this heading"></a></h2>
+<p>We will create a spreadsheet with the following content (only columns A and B;
+the actual content does not have to be exactly the same):</p>
+<figure class="align-default" id="id1">
+<img alt="An example spreadsheet with weekdays in one column and number of coffees in the other" src="../_images/coffees.png" />
+<figcaption>
+<p><span class="caption-text">Example spreadsheet with a side note.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Copy this also to the second sheet and for demonstration purpose
+add some side-notes to the second sheet and also color
+one or two cells (some people like to give some meaning to cells using color).</p>
+<p>Save the spreadsheet as <code class="docutils literal notranslate"><span class="pre">experiment.xls</span></code>.</p>
+<p>Now we will together try to read and inspect both sheets in the Jupyter
+Notebook:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;experiment.xls&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Sheet1&quot;</span><span class="p">)</span>
+<span class="n">data</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;experiment.xls&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="s2">&quot;Sheet2&quot;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<ul class="simple">
+<li><p>We can import data from spreadsheets
+(<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.read_excel.html">more documentation</a>)!</p></li>
+<li><p>“Side notes” in spreadsheets can be annoying in this context.</p></li>
+<li><p>Also encoding data in cell colors is a problem now. We will avoid those in
+future.</p></li>
+</ul>
+</div>
+</section>
+<section id="tidy-data">
+<h2>Tidy data<a class="headerlink" href="#tidy-data" title="Link to this heading"></a></h2>
+<figure class="align-default" id="id2">
+<img alt="An example spreadsheet not in tidy data format" src="../_images/spreadsheet.png" />
+<figcaption>
+<p><span class="caption-text">Example spreadsheet (this is a phantasy dataset, apologies to biology
+students/researchers - this is not my domain).</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-what-is-the-problem-with-storing-data-like-this discussion important admonition" id="discussion-1">
+<p class="admonition-title">What is the problem with storing data like this?</p>
+<ul class="simple">
+<li><p>Format: Limited interoperability with other programs</p></li>
+<li><p>Error prone (see e.g. <a class="reference external" href="https://www.washingtonpost.com/news/wonk/wp/2013/04/16/is-the-best-evidence-for-austerity-based-on-an-excel-spreadsheet-error/">this famous example</a>)</p></li>
+<li><p>Difficult to parse (“understand”) by scripts: difficult to automate</p></li>
+<li><p>Not in <em>tidy format</em>: difficult to extend/modify</p></li>
+</ul>
+</div>
+<p>How should we arrange the data?</p>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/svalbard-compact.png"><img alt="Example data arranged in a compact representation" src="../_images/svalbard-compact.png" style="width: 30%;" /></a>
+<figcaption>
+<p><span class="caption-text">Attempt 1: Not great since we need to somehow divide at the comma. How should we deal with multiple sightings?</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/svalbard-wide.png"><img alt="Example data arranged in a wide format" src="../_images/svalbard-wide.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">Attempt 2: Adding observation sites will force us to add columns.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/svalbard-transposed.png"><img alt="Example data transposed" src="../_images/svalbard-transposed.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-text">Attempt 3: Adding species will force us to add columns.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id6">
+<a class="reference internal image-reference" href="../_images/svalbard-tidy.png"><img alt="Example data arranged in tidy data format" src="../_images/svalbard-tidy.png" style="width: 50%;" /></a>
+<figcaption>
+<p><span class="caption-text">Tidy data format: Columns are variables, rows are observations/measurements. Easy to add new species and sites.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-tidy-data-format keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Tidy data format</p>
+<ul class="simple">
+<li><p><a class="reference external" href="http://vita.had.co.nz/papers/tidy-data.pdf">Hadley Wickham: Tidy Data</a></p></li>
+<li><p>Columns are variables</p></li>
+<li><p>Rows are observations/measurements</p></li>
+<li><p>“Long form”</p></li>
+<li><p>Order does not matter</p></li>
+<li><p><strong>Easy to extend</strong> with more species and more sites
+without modifying the code</p></li>
+<li><p><strong>Structure for storing data</strong> - this does not mean that this is ideal
+for tables in presentations or publications</p></li>
+</ul>
+</div>
+</section>
+<section id="standard-formats">
+<h2>Standard formats<a class="headerlink" href="#standard-formats" title="Link to this heading"></a></h2>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Species,Observation site,Number of sightings
+arctic fox,A,3
+arctic fox,B,1
+walrus,B,1
+walrus,C,1
+reindeer,B,10
+reindeer,C,1
+polar bear,A,1
+polar bear,C,1
+seal,A,2
+seal,B,1
+seal,C,2
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>CSV is often a good choice</p></li>
+<li><p>Most visualization tools can read CSV data</p></li>
+<li><p>There are many more formats:</p>
+<ul>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/JSON">JSON</a></p></li>
+<li><p><a class="reference external" href="https://geojson.org/">GeoJSON</a></p></li>
+<li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.lib.format.html">NPY (NumPy arrays)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Hierarchical_Data_Format">HDF5</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/SQL">SQL</a></p></li>
+<li><p>Many domain-specific formats (such as <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/">NetCDF</a>)</p></li>
+</ul>
+</li>
+<li><p><strong>Use a format that is standard in your community, don’t invent your own</strong></p></li>
+</ul>
+</section>
+<section id="data-cleaning">
+<h2>Data cleaning<a class="headerlink" href="#data-cleaning" title="Link to this heading"></a></h2>
+<p>Often we want to visualize data sets with inconsistent or missing entries:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Date,Organization,Number of participants
+2020-09-27,UiT,20
+Oct 10 2020,UiT Norges arktiske universitet,15
+&quot;Nov. 11, 2020&quot;,UiT The Arctic University of Norway,40
+2020-12-12,UiT The Arctic University of Norway,-
+</pre></div>
+</div>
+<p>Data cleaning is a bit outside the scope of this course
+(although we have done some of this in the pandas episode) but still good to know:</p>
+<ul class="simple">
+<li><p>There are tools to clean and merge inconsistent data sets (e.g. <a class="reference external" href="https://openrefine.org/">OpenRefine</a>, see also
+<a class="reference external" href="https://datacarpentry.org/OpenRefine-ecology-lesson/">this Data Carpentry lesson</a>)</p></li>
+<li><p>This does not have to be done manually</p></li>
+</ul>
+</section>
+<section id="reading-data-that-is-not-in-csv-format">
+<h2>Reading data that is not in CSV format<a class="headerlink" href="#reading-data-that-is-not-in-csv-format" title="Link to this heading"></a></h2>
+<p>Now we know that storing data in standard formats can be convenient
+and we know about the tidy data format but <strong>sometimes we don’t have control over this</strong>:
+we may get a text file from another program or an instrument and now we are expected
+to deal with it.</p>
+<p>As an example, we got two text files from two different instruments. We wish
+to extract all frequencies and all intensities into two lists.</p>
+<p>This is one, <code class="docutils literal notranslate"><span class="pre">example1.txt</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>result from instrument: R2-D2
+------------------------------------------
+
+  measurement   frequency   intensity
+
+*     1           0.01       0.01
+*     2           0.02       0.02
+*     3           0.03       0.01
+*     4           0.04       0.10
+*     5           0.05       0.20
+*     6           0.06       0.12
+*     7           0.07       0.07
+*     8           0.08       0.02
+*     9           0.09       0.01
+*    10           0.10       0.01
+
+==========================================
+
+timestamp: Sat Mar 27 03:30:34 PM CET 2021
+</pre></div>
+</div>
+<p>And here is the other one, <code class="docutils literal notranslate"><span class="pre">example2.txt</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>result from instrument: C-3PO
+=============================
+
+  numbers we want: 10
+      0.01   0.01
+      0.02   0.02
+      0.03   0.01
+      0.04   0.10
+      0.05   0.20
+      0.06   0.12
+      0.07   0.07
+      0.08   0.02
+      0.09   0.01
+      0.10   0.01
+
+  unrelated numbers:
+      1.23   4.56
+      7.89   0.12
+</pre></div>
+</div>
+<p>At the end we want the code to produce these two lists:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frequencies</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="n">intensities</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-2">
+<p class="admonition-title">Discussion</p>
+<p>Before we discuss possible solutions, it can be a good exercise
+to <strong>describe in words</strong> what the code should do to extract the numbers.</p>
+</div>
+<p>Below you find possible solutions for these two examples. These are designed to
+be somehow understandable (which does not mean that the code is trivial) and are not as
+short and as elegant as they could be. One way to make them more elegant would
+be to use <a class="reference external" href="https://docs.python.org/3/howto/regex.html">regular expressions</a>.</p>
+<p>One solution for <code class="docutils literal notranslate"><span class="pre">example1.txt</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="c1"># we start with empty lists</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">intensities</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># open the file with read permissions</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># iterate over all lines in the file object &quot;f&quot;</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="c1"># we are only interested in lines that start with &quot;*&quot;</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">):</span>
+                <span class="c1"># we split the line on &quot;whitespace&quot;</span>
+                <span class="c1"># the &quot;_&quot; means we are not interested in the first two entries</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">intensity</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+                <span class="c1"># add the new numbers to the lists</span>
+                <span class="c1"># we convert from string to float</span>
+                <span class="n">frequencies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">frequency</span><span class="p">))</span>
+                <span class="n">intensities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">intensity</span><span class="p">))</span>
+
+    <span class="c1"># function returns the result</span>
+    <span class="k">return</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">intensities</span>
+
+
+<span class="c1"># here we are outside the function</span>
+<span class="n">frequencies</span><span class="p">,</span> <span class="n">intensities</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;example1.txt&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">frequencies</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intensities</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>One solution for <code class="docutils literal notranslate"><span class="pre">example2.txt</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="c1"># we start with empty lists</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">intensities</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># open the file with read permissions</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># iterate over all lines in the file object &quot;f&quot;</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="c1"># we are only interested in lines that start with &quot;*&quot;</span>
+            <span class="k">if</span> <span class="s2">&quot;numbers we want&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="c1"># we split the line on &quot;whitespace&quot;</span>
+                <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                <span class="c1"># we are only interested in the last element</span>
+                <span class="c1"># -1 means last element in that list</span>
+                <span class="n">last_element</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="c1"># convert from string to int</span>
+                <span class="n">num_measurements</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">last_element</span><span class="p">)</span>
+
+                <span class="c1"># now we know the next 10 lines are the interesting ones</span>
+                <span class="c1"># range(10) produces a list with 10 elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+                <span class="c1"># we use it to iterate exactly 10 times</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_measurements</span><span class="p">):</span>
+                    <span class="c1"># this advances f by one and we get one line at a time</span>
+                    <span class="n">next_line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                    <span class="n">words</span> <span class="o">=</span> <span class="n">next_line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">frequency</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">intensity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="c1"># add the new numbers to the lists</span>
+                    <span class="n">frequencies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
+                    <span class="n">intensities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">intensity</span><span class="p">)</span>
+
+    <span class="c1"># function returns the result</span>
+    <span class="k">return</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">intensities</span>
+
+
+<span class="c1"># here we are outside the function</span>
+<span class="n">frequencies</span><span class="p">,</span> <span class="n">intensities</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;example2.txt&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">frequencies</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intensities</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../pandas/" class="btn btn-neutral float-left" title="Reading and slicing data with pandas" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../customizing-plots/" class="btn btn-neutral float-right" title="Customizing plots" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
