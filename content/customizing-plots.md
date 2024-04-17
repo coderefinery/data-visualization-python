@@ -2,7 +2,7 @@
 
 # Customizing plots
 
-```{objectives}
+:::{objectives}
 - Know where to look to find out how to tweak plots
 - Be able to prepare a plot for publication
 - Know how to tweak example plots from a gallery for your own purpose
@@ -10,7 +10,7 @@
 - We will build up
   [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb)
   (spoiler alert!)
-```
+:::
 
 [this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/>]
 
@@ -47,11 +47,11 @@ alt.Chart(data).mark_point().encode(
 ).transform_filter(alt.datum.year == 2007).interactive()
 ```
 
-```{figure} img/first-plot/axis-titles.svg
+:::{figure} img/first-plot/axis-titles.svg
 :alt: Our example plot at the end of "Generating our first plot" episode.
 
 Our example plot at the end of {ref}`first-plot`.
-```
+:::
 
 
 ## Title and axis values
@@ -85,11 +85,11 @@ chart = (
 chart.interactive()
 ```
 
-```{figure} img/customizing/with-title.svg
+:::{figure} img/customizing/with-title.svg
 :alt: Plot after adding a figure title.
 
 The plot is starting to look better!
-```
+:::
 
 
 ## Colors
@@ -122,11 +122,11 @@ chart = (
 chart.interactive()
 ```
 
-```{figure} img/customizing/dark2.svg
+:::{figure} img/customizing/dark2.svg
 :alt: The plot after adjusting circles and colors.
 
 The plot after adjusting circles and colors.
-```
+:::
 
 We can also define own colors:
 ```{code-block} python
@@ -165,18 +165,18 @@ chart = (
 chart.interactive()
 ```
 
-```{figure} img/customizing/okabe-ito.svg
+:::{figure} img/customizing/okabe-ito.svg
 :alt: Adjusting colors to those recommended by Okabe and Ito.
 
 Adjusting colors to those recommended by Okabe and Ito.
-```
+:::
 
-```{discussion} Why these colors?
-This qualitative color palette is opimized for all color-vision
+:::{discussion} Why these colors?
+This qualitative color palette is optimized for all color-vision
 deficiencies, see <https://clauswilke.com/dataviz/color-pitfalls.html> and
 [Okabe, M., and K. Ito. 2008. "Color Universal Design (CUD):
 How to Make Figures and Presentations That Are Friendly to Colorblind People."](http://jfly.iam.u-tokyo.ac.jp/color/).
-```
+:::
 
 
 ## More tweaking towards a publication-ready figure
@@ -234,9 +234,9 @@ chart = chart.configure_legend(
 chart.interactive()
 ```
 
-```{figure} img/customizing/with-subtitle.svg
+:::{figure} img/customizing/with-subtitle.svg
 :alt: More tweaking towards a publication-ready figure.
-```
+:::
 
 
 ## Interactive charts
@@ -378,9 +378,9 @@ chart = chart.configure_legend(
 chart.interactive()
 ```
 
-```{figure} img/customizing/with-annotation.svg
+:::{figure} img/customizing/with-annotation.svg
 :alt: Chart with extra annotation.
-```
+:::
 
 
 ## Saving the chart as web page
@@ -420,7 +420,7 @@ remember everything so this strategy is useful to practice:
 - Being able to search for help
 - Being able to understand help request answers (not easy)
 
-```{challenge} Exercise Customization-1: Adapting a gallery example
+:::{challenge} Exercise Customization-1: Adapting a gallery example
 **This is a great exercise which is very close to real life.**
 
 - Browse the [Vega-Altair example gallery](https://altair-viz.github.io/gallery/index.html).
@@ -432,14 +432,14 @@ remember everything so this strategy is useful to practice:
 - Then try to modify the data a bit.
 - If you have time, try to feed it different, simplified data.
   This will be key for adapting the examples to your projects.
-```
+:::
 
-```{discussion}
+:::{discussion}
 After the exercises, the group can discuss their findings and it is important to
 clarify questions at this point before moving on.
-```
+:::
 
-```{keypoints}
+:::{keypoints}
 - Think about color-vision deficiencies when choosing colors. Use existing
   solutions for this problem.
-```
+:::
