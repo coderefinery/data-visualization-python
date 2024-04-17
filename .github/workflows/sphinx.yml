@@ -4,6 +4,7 @@
 # License: CC-0.  This is the canonical location of this file, which
 # you may want to link to anyway:
 #   https://github.com/coderefinery/sphinx-lesson-template/blob/main/.github/workflows/sphinx.yml
+#  https://raw.githubusercontent.com/coderefinery/sphinx-lesson-template/main/.github/workflows/sphinx.yml
 
 
 name: sphinx
@@ -128,7 +129,7 @@ jobs:
           touch _gh-pages/.nojekyll
 
       # Save artifact for the next step.
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v4
         if: ${{ github.event_name == 'push' }}
         with:
           name: gh-pages-build
@@ -146,7 +147,7 @@ jobs:
       contents: write
 
     steps:
-      - uses: actions/download-artifact@v3
+      - uses: actions/download-artifact@v4
         if: ${{ github.event_name == 'push' && ( env.MULTIBRANCH == 'true' || github.ref == format('refs/heads/{0}', env.DEFAULT_BRANCH )) }}
         with:
           name: gh-pages-build
