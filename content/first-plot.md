@@ -59,11 +59,11 @@ From [Claus O. Wilke: "Fundamentals of Data Visualization"](https://clauswilke.c
 - Concise and powerful
 - Allows us to focus on the data visualization part and get started without too much Python knowledge
 - The way it combines visual channels with data columns can feel intuitive
+- Interfaces very nicely with [pandas](https://pandas.pydata.org/)
 - Easy to change figures
 - Good documentation
 - Open source
 - Makes it easy to save figures in a number of formats
-- Interfaces very nicely with [pandas](https://pandas.pydata.org/)
 - Easy to save interactive visualizations to be used in websites
 
 
