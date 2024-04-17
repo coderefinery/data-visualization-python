@@ -18,8 +18,8 @@ If you import libraries into your notebook, note down their versions.
 
 It is customary to do this either in a `requirements.txt` file (example):
 ```text
-pandas==2.1.1
-altair==5.1.2
+pandas==2.2.2
+altair==5.3.0
 ```
 
 ... or in an `environment.yml` file (example):
@@ -28,8 +28,8 @@ name: example-environment
 channels:
   - conda-forge
 dependencies:
-  - pandas=2.1.1
-  - altair=5.1.2
+  - pandas=2.2.2
+  - altair=5.3.0
 ```
 
 Place either `requirements.txt` or `environment.yml` in the same folder as the notebook(s).
@@ -70,7 +70,7 @@ faster access to cloud resources:
 
 ## Sharing dynamic notebooks using [Binder](https://mybinder.org/)
 
-````{challenge} Exercise/demo: Making your notebooks reproducible by anyone (15 min)
+::::{challenge} Exercise/demo: Making your notebooks reproducible by anyone (15 min)
 Instructor demonstrates this:
 - Instructor creates a [GitHub](https://github.com/) repository.
 - Uploads a notebook file that we created in earlier episodes.
@@ -78,8 +78,8 @@ Instructor demonstrates this:
   also [nbviewer](https://nbviewer.jupyter.org/).
 - Add a file `requirements.txt` which contains:
   ```text
-  pandas==2.1.1
-  altair==5.1.2
+  pandas==2.2.2
+  altair==5.3.0
   ```
 - Visit [https://mybinder.org](https://mybinder.org):
   ```{figure} img/binder/binder.jpg
@@ -88,9 +88,13 @@ Instructor demonstrates this:
 - Check that your notebook repository now has a "launch binder"
   badge in your `README.md` file on GitHub.
 - Try clicking the button and see how your repository is launched
-  on Binder (can take a minute or two). Your notebooks can now be expored and executed in the cloud.
+  on Binder (can take a minute or two). Your notebooks can now be
+  explored and executed in the cloud.
 - Enjoy being fully reproducible!
-````
+::::
+
+Also please see how we share the notebooks from this lesson
+in the [repository README](https://github.com/coderefinery/data-visualization-python/blob/main/README.md?plain=1).
 
 
 ## How to get a digital object identifier (DOI)
