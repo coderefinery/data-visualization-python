@@ -1,14 +1,16 @@
-# Data visualization using Python
+# Data visualization using Python and Vega-Altair
 
 In this introductory-level workshop, we will learn to produce **reproducible
 data visualization pipelines using the Python programming language** and the
 [Vega-Altair](https://altair-viz.github.io/) declarative visualization library.
 
 We will work in [Jupyter Notebooks](https://jupyter.org/) and start with
-**Python basics**, to be able to read data from Excel sheets and
-comma-separated values (CSV) files. We will introduce the
-[pandas](https://pandas.pydata.org/) library for "data wrangling" (reading,
-writing, sorting, and filtering of data). Finally, will learn how to produce
+**Python basics**.  We will introduce the [pandas](https://pandas.pydata.org/)
+library for "data wrangling" (reading, writing, sorting, and filtering of
+data).  With pandas, we will be able to read data from Excel sheets and
+comma-separated values (CSV) files.
+
+Finally, will learn how to produce
 and share **reproducible plots** using
 [Vega-Altair](https://altair-viz.github.io/).
 
@@ -25,8 +27,7 @@ and share **reproducible plots** using
 ```{prereq} Preparations
 - No programming langauge experience needed, we will start from zero and learn the basics together
 - Computer with network access
-- Anaconda installation ({doc}`installation`)
-- Installing the package `altair`
+- {doc}`installation`
 - Bring one of your recent plotting tasks or challenges
 ```
 
@@ -35,6 +36,7 @@ and share **reproducible plots** using
 
 - Version control. Although super useful it is outside of this workshop.
 - Python outside a Jupyter Notebook.
+- **Running the examples in VS Code or Spyder might not be possible**. Please use Jupyter Notebooks for this course.
 - Python sets and tuples are only mentioned.
 - File input/output is only used via libraries and doing "own" file-I/O is only part
   of optional material.
