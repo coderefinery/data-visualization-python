@@ -99,7 +99,7 @@ Tidy data format: Columns are variables, rows are observations/measurements. Eas
 ```
 
 ```{keypoints} Tidy data format
-- [Hadley Wickham: Tidy Data](http://vita.had.co.nz/papers/tidy-data.pdf)
+- [Hadley Wickham: Tidy Data](https://vita.had.co.nz/papers/tidy-data.html)
 - Columns are variables
 - Rows are observations/measurements
 - "Long form"
