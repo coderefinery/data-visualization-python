@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'Data visualization using Python'
+project = 'Data visualization using Python and Vega-Altair'
 copyright = 'CodeRefinery project'
 author = 'Radovan Bast'
 github_user = 'coderefinery'
