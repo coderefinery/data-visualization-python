@@ -8,7 +8,7 @@ import altair as alt
 
 # this is here for google colab to update altair
 if not alt.__version__.startswith("5"):
-    %pip install altair==5.3.0
+    %pip install altair==5.5.0
 ```
 
 And then you may need to click on "Runtime" -> "Restart session and run all".
