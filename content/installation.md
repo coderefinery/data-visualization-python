@@ -9,7 +9,6 @@ In this course we will need **Python 3** and the following Python libraries/pack
 - pandas (comes with altair)
 - vega_datasets (optional)
 - numpy (optional)
-- matplotlib (optional)
 
 
 ## How to install Python and the packages
