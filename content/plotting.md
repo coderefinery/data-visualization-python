@@ -559,6 +559,32 @@ IV,8.0,6.89
       column="dataset",
       )
   ```
+
+  Here is a more advanced example where the four plots are arranged
+  in a 2 x 2 grid:
+  ```python
+  def create_chart(data, number):
+      chart = (
+          alt.Chart(data)
+          .transform_filter(alt.datum.dataset == number)
+          .mark_point()
+          .encode(x="x", y="y")
+      )
+      return chart
+
+
+  chart1 = create_chart(data_example, "I")
+  chart2 = create_chart(data_example, "II")
+  chart3 = create_chart(data_example, "III")
+  chart4 = create_chart(data_example, "IV")
+
+  chart = alt.vconcat(
+      alt.hconcat(chart1, chart2),
+      alt.hconcat(chart3, chart4),
+  )
+
+  chart.display()
+  ```
 ::::
 :::::
 
