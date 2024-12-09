@@ -50,6 +50,7 @@ and share **reproducible plots** using
 ## Episode overview
 
 Day 1 morning:
+- {doc}`installation`
 - {doc}`jupyter`
   [![nbviewer badge](https://img.shields.io/badge/view%20on-nbviewer-brightgreen.svg)](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/first-notebook.ipynb)
   [![colab badge](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/coderefinery/data-visualization-python/blob/main/notebooks/first-notebook.ipynb)
