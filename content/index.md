@@ -73,6 +73,7 @@ first-plot.md
 pandas.md
 tidy-data.md
 customizing-plots.md
+gallery.md
 sharing.md
 ```
 
