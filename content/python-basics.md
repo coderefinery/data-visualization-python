@@ -220,8 +220,14 @@ Example error traceback. Can you explain the error?
 ## Exercises
 
 ````{challenge} Exercise Python-1A: create a function that computes the standard deviation (15 min)
-- Arithmetic mean: $\bar{x} = \frac{1}{N} \sum_{i=1}^N x_i$
-- Standard deviation: $\sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2 }$
+- Arithmetic mean:
+  ```{math}
+  \bar{x} = \frac{1}{N} \sum_{i=1}^N x_i
+  ```
+- Standard deviation:
+  ```{math}
+  \sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2 }
+  ```
 - In other words the computation is similar but we need to sum over squares of differences and at the end take a square root.
 - Take this as a starting point:
   ```python
