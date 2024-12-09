@@ -84,6 +84,13 @@ installation.md
 colab.md
 ```
 
+```{toctree}
+:maxdepth: 1
+:caption: Optional/extra
+
+parsing-custom-format.md
+```
+
 
 ## Example notebooks
 
