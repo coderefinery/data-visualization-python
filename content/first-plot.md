@@ -2,20 +2,18 @@
 
 # Generating our first plot
 
-```{objectives}
+:::{objectives}
 - Be able to create simple plots with Vega-Altair and tweak them
 - Know how to look for help
 - Know that other tools exist
 - We will build up
   [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/first-plot.ipynb)
   (spoiler alert!)
-```
+:::
 
 ```{instructor-note}
 - 25 min talking/type-along
 ```
-
-[this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/>]
 
 
 ## Repeatability/reproducibility
@@ -50,20 +48,23 @@ From [Claus O. Wilke: "Fundamentals of Data Visualization"](https://clauswilke.c
     used in the weather forecast community
   - [K3D](https://k3d-jupyter.org/gallery/index.html):
     Jupyter Notebook extension for 3D visualization
+  - [Mayavi](https://docs.enthought.com/mayavi/mayavi/):
+    3D scientific data visualization and plotting in Python
   - ...
-- Two main families of libraries: procedural (e.g. Matplotlib) and declarative.
+- Two main families of libraries: procedural (e.g. Matplotlib) and declarative (e.g. Vega-Altair).
 
 
 ## Why are we starting with [Vega-Altair](https://altair-viz.github.io/)?
 
 - Concise and powerful
-- Allows us to focus on the data visualization part and get started without too much Python knowledge
-- The way it combines visual channels with data columns can feel intuitive
-- Interfaces very nicely with [pandas](https://pandas.pydata.org/)
+- "Simple, friendly and consistent API" allows us to focus on the data
+  visualization part and get started without too much Python knowledge
+- The way it **combines visual channels with data columns** can feel intuitive
+- Interfaces very nicely with [Pandas](https://pandas.pydata.org/) ({ref}`earlier episode <pandas>`)
 - Easy to change figures
 - Good documentation
 - Open source
-- Makes it easy to save figures in a number of formats
+- Makes it easy to save figures in a number of formats (svg, png, html)
 - Easy to save interactive visualizations to be used in websites
 
 
