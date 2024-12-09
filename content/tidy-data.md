@@ -113,7 +113,7 @@ Tidy data format: Columns are variables, rows are observations/measurements. Eas
 ```
 
 
-## Standard formats
+## Use a standard format
 
 ```text
 Species,Observation site,Number of sightings
@@ -130,16 +130,121 @@ seal,B,1
 seal,C,2
 ```
 
-- CSV is often a good choice
-- Most visualization tools can read CSV data
-- There are many more formats:
-  - [JSON](https://en.wikipedia.org/wiki/JSON)
-  - [GeoJSON](https://geojson.org/)
-  - [NPY (NumPy arrays)](https://numpy.org/doc/stable/reference/generated/numpy.lib.format.html)
-  - [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format)
-  - [SQL](https://en.wikipedia.org/wiki/SQL)
-  - Many domain-specific formats (such as [NetCDF](https://www.unidata.ucar.edu/software/netcdf/))
 - **Use a format that is standard in your community, don't invent your own**
+- CSV is often a good choice since most visualization tools can read CSV data
+
+There are many more formats (adapted after [Python for Scientific Computing](https://aaltoscicomp.github.io/python-for-scicomp/work-with-data/)):
+```{list-table}
+:header-rows: 1
+
+* - Name:
+  - Human<br>
+    readable:
+  - Space<br>
+    efficiency:
+  - Arbitrary<br>
+    data:
+  - Tidy<br>
+    data:
+  - Array<br>
+    data:
+  - Long term<br>
+    storage/sharing:
+
+* - [CSV](https://en.wikipedia.org/wiki/Comma-separated_values)
+  - ✅
+  - ❌
+  - ❌
+  - ✅
+  - 🟨
+  - ✅
+
+* - [Feather](https://arrow.apache.org/docs/python/feather.html)
+  - ❌
+  - ✅
+  - ❌
+  - ✅
+  - ❌
+  - ❌
+
+* - [Parquet](https://parquet.apache.org/)
+  - ❌
+  - ✅
+  - 🟨
+  - ✅
+  - 🟨
+  - ✅
+
+* - [NPY](https://numpy.org/doc/stable/reference/generated/numpy.lib.format.html)
+  - ❌
+  - 🟨
+  - ❌
+  - ❌
+  - ✅
+  - ❌
+
+* - [HDF5](https://en.wikipedia.org/wiki/Hierarchical_Data_Format)
+  - ❌
+  - ✅
+  - ❌
+  - ❌
+  - ✅
+  - ✅
+
+* - [NetCDF](https://www.unidata.ucar.edu/software/netcdf/)
+  - ❌
+  - ✅
+  - ❌
+  - ❌
+  - ✅
+  - ✅
+
+* - [JSON](https://en.wikipedia.org/wiki/JSON)
+  - ✅
+  - ❌
+  - 🟨
+  - ❌
+  - ❌
+  - ✅
+
+* - [GeoJSON](https://geojson.org/)
+  - ✅
+  - ❌
+  - 🟨
+  - ❌
+  - ❌
+  - ✅
+
+* - Excel
+  - ❌
+  - ❌
+  - ❌
+  - 🟨
+  - ❌
+  - 🟨
+
+* - Graph formats
+  - 🟨
+  - 🟨
+  - ❌
+  - ❌
+  - ❌
+  - ✅
+
+* - [SQL](https://en.wikipedia.org/wiki/SQL)
+  - ❌
+  - 🟨
+  - ❌
+  - ❌
+  - ❌
+  - ❌
+```
+
+```{note}
+- ✅ : Good
+- 🟨 : Ok / depends on a case
+- ❌ : Bad
+```
 
 
 ## Data cleaning
