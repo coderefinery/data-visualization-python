@@ -217,9 +217,45 @@ Example error traceback. Can you explain the error?
 ```
 
 
+## Libraries
+
+We can look at libraries as collections of functions. We can import the libraries/modules
+and then reuse the functions defined inside these libraries.
+
+Try this:
+```python
+import numpy
+
+measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+result = numpy.std(measurements)
+
+print(result)
+```
+
+This means `numpy` contains a function called `std` which apparently computes the standard deviation
+(check also its [documentation](https://numpy.org/doc/stable/reference/generated/numpy.std.html)).
+
+Often you see this in tutorials (the module is imported and renamed to a shortcut):
+```python
+import numpy as np
+
+result = np.std([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
+```
+
+It is possible to create own modules to collect own functions for reuse.
+
+
+## Great resources to learn more
+
+- [Real Python Tutorials](https://realpython.com/) (great for beginners)
+- [The Python Tutorial](https://docs.python.org/3/tutorial/index.html) (great for beginners)
+- [The Hitchhiker’s Guide to Python!](https://docs.python-guide.org/) (intermediate level)
+
+
 ## Exercises
 
-````{challenge} Exercise Python-1A: create a function that computes the standard deviation (15 min)
+````{challenge} Exercise: create a function that computes the standard deviation
 - Arithmetic mean:
   ```{math}
   \bar{x} = \frac{1}{N} \sum_{i=1}^N x_i
@@ -296,7 +332,7 @@ def standard_deviation(sequence):
 ```
 ````
 
-````{challenge} Exercise Python-1B: working with a dictionary
+````{challenge} Exercise: working with a dictionary
 - We have this dictionary as a starting point:
   ```python
   grades = {"Alice": 80, "Bob": 95}
@@ -357,42 +393,10 @@ dict_items([('Alice', 80), ('Bob', 95), ('Craig', 56), ('Dave', 28), ('Eve', 75)
 ```
 ````
 
-
-## Libraries
-
-We can look at libraries as collections of functions. We can import the libraries/modules
-and then reuse the functions defined inside these libraries.
-
-Try this:
-```python
-import numpy
-
-measurements = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-result = numpy.std(measurements)
-
-print(result)
-```
-
-This means `numpy` contains a function called `std` which apparently computes the standard deviation
-(check also its [documentation](https://numpy.org/doc/stable/reference/generated/numpy.std.html)).
-
-Often you see this in tutorials (the module is imported and renamed to a shortcut):
-```python
-import numpy as np
-
-result = np.std([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])
-```
-
-We will later learn how to create own modules to collect own functions for reuse.
-
-
-## Optional exercises
-
-These exercises use
+The exercises below use
 [if-statements](https://docs.python.org/3/tutorial/controlflow.html#if-statements).
 
-````{challenge} Optional exercise/ homework Python-2: removing duplicates
+````{challenge} Optional exercise/ homework: removing duplicates
 - This list contains duplicates:
   ```python
   measurements = [2, 2, 1, 17, 3, 3, 2, 1, 13, 14, 17, 14, 4]
@@ -431,7 +435,7 @@ def remove_duplicates_and_sort(sequence):
 ```
 ````
 
-````{challenge} Optional exercise/ homework Python-3: counting how often an item appears
+````{challenge} Optional exercise/ homework: counting how often an item appears
 - Back to our list with duplicates:
   ```python
   measurements = [2, 2, 1, 17, 3, 3, 2, 1, 13, 14, 17, 14, 4]
@@ -478,10 +482,3 @@ def how_often_alternative2(sequence):
     return dict(counts)
 ```
 ````
-
-
-## Great resources to learn more
-
-- [Real Python Tutorials](https://realpython.com/) (great for beginners)
-- [The Python Tutorial](https://docs.python.org/3/tutorial/index.html) (great for beginners)
-- [The Hitchhiker’s Guide to Python!](https://docs.python-guide.org/) (intermediate level)
