@@ -108,6 +108,8 @@ Tidy data format: Columns are variables, rows are observations/measurements. Eas
   without modifying the code
 - **Structure for storing data** - this does not mean that this is ideal
   for tables in presentations or publications
+- It is possible to convert between wide form and long form and back
+  (e.g. using `pandas.melt` or `pandas.pivot`), see [this example notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/tidy-data.ipynb)
 ```
 
 
