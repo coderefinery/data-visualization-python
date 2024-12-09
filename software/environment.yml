@@ -1,0 +1,9 @@
+name: data-viz
+channels:
+  - conda-forge
+dependencies:
+  - jupyterlab
+  - altair-all
+  - vega_datasets
+  - pandas
+  - numpy
