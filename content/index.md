@@ -47,19 +47,26 @@ and share **reproducible plots** using
 - Managing environments and installing Python packages.
 
 
-## Episodes
+## Episode overview
 
-```{csv-table}
-:widths: auto
-:delim: ;
+Day 1 morning:
+- {doc}`jupyter`
+- {doc}`python-basics`
+- {doc}`plotting`
 
-35 min ; {doc}`jupyter`
-35 min ; {doc}`python-basics`
-35 min ; {doc}`plotting`
-25 min ; {doc}`tidy-data`
-50 min ; {doc}`customizing-plots`
-20 min ; {doc}`sharing`
-```
+Day 1 afternoon:
+- More {doc}`plotting`
+- {doc}`tidy-data`
+
+Day 2 morning:
+- {doc}`gallery`
+- {doc}`customizing-plots`
+
+Day 3 morning:
+- Layering plots
+- Interactive plots
+- {doc}`sharing`
+
 
 ```{toctree}
 :maxdepth: 1

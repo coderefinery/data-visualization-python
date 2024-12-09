@@ -11,12 +11,6 @@
   (spoiler alert!)
 ```
 
-```{instructor-note}
-- 15 min discussion/demo
-- 15 min exercise
-- 5 min summary
-```
-
 [this lesson is adapted from <https://coderefinery.github.io/jupyter/motivation/>]
 
 

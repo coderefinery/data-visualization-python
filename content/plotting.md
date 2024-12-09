@@ -10,14 +10,6 @@
   (spoiler alert!)
 :::
 
-:::{instructor-note}
-- 10 min: Introduction
-- 10 min: Type-along (creating a first plot)
-- 20 min: Exercise (using visual channels)
-- 20 min: Exercise (adapting a gallery example and customizing)
-- 10 min: Key points, discussion, and Q&A
-:::
-
 
 ## Repeatability/reproducibility
 

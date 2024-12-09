@@ -6,10 +6,6 @@
 - Be able to reformat tabular data into the tidy data format
 ```
 
-```{instructor-note}
-- 25 min motivation/discussion/demo
-```
-
 In the previous episode we read data from nicely formatted "plain" text files.
 But sometimes the data is in a spreadsheet or in less nicely formatted text files.
 In this episode we will discuss strategies for how to work with these.

@@ -9,12 +9,6 @@
 - Being able to "read" an error
 ```
 
-```{instructor-note}
-- 20 min talking/type-along
-- 15 min exercise
-- there are optional exercises for later/ homework
-```
-
 
 ## Motivation for Python
 
