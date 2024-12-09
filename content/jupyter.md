@@ -6,6 +6,9 @@
 - Open existing notebooks from the web
 - Be able to create text/markdown cells, code cells, images, and equations
 - Know when to use a Jupyter Notebook for a Python project and when perhaps not to
+- We will build up
+  [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/first-notebook.ipynb)
+  (spoiler alert!)
 ```
 
 ```{instructor-note}
@@ -66,14 +69,45 @@ Collections, University of Oklahoma Libraries (CC-BY).
   ```python
   arithmetic_mean([1, 2, 3, 4, 5])
   ```
+- In a new cell, let us try to plot a layered histogram:
+  ```python
+  # this example is from https://altair-viz.github.io/gallery/layered_histogram.html
+
+  import pandas as pd
+  import altair as alt
+  import numpy as np
+  np.random.seed(42)
+
+  # Generating Data
+  source = pd.DataFrame({
+      'Trial A': np.random.normal(0, 0.8, 1000),
+      'Trial B': np.random.normal(-2, 1, 1000),
+      'Trial C': np.random.normal(3, 2, 1000)
+  })
+
+  alt.Chart(source).transform_fold(
+      ['Trial A', 'Trial B', 'Trial C'],
+      as_=['Experiment', 'Measurement']
+  ).mark_bar(
+      opacity=0.3,
+      binSpacing=0
+  ).encode(
+      alt.X('Measurement:Q').bin(maxbins=100),
+      alt.Y('count()').stack(None),
+      alt.Color('Experiment:N')
+  )
+  ```
 - Run all cells.
 - Save the notebook.
+- Observe that a "#" character has a different meaning in a code cell (code
+  comment) than in a markdown cell (heading).
+- Your notebook should look like [this one](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/first-notebook.ipynb).
 ````
 
 
 ## Use cases for notebooks
 
-- Really good for **linear workflows** (e.g. read data, filter data, do some statistics, plot the results)
+- Really good for step-by-step recipes (e.g. read data, filter data, do some statistics, plot the results)
 - Experimenting with new ideas, testing new libraries/databases
 - As an *interactive* development environment for code, data analysis, and visualization
 - Keeping track of interactive sessions, like a **digital lab notebook**
@@ -82,5 +116,15 @@ Collections, University of Oklahoma Libraries (CC-BY).
 
 ## Good practices
 
-Run all cells before sharing/saving to verify that the results you see on your
+**Run all cells** or even **Restart Kernel and Run All Cells**
+before sharing/saving to verify that the results you see on your
 computer were not due to cells being run out of order.
+
+This can be demonstrated with the following example:
+```python
+numbers = [1, 2, 3, 4, 5]
+arithmetic_mean(numbers)
+```
+We can first split this code into two cells and then re-define `numbers`
+further down in the notebook. If we run the cells out of order, the result will
+be different.
