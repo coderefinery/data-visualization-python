@@ -28,7 +28,7 @@
 
 ## Starting point
 
-This is where we left off at the end of {ref}`first-plot`:
+This is where we left off at the end of {ref}`gapminder`:
 
 ```python
 # import necessary libraries
@@ -47,10 +47,10 @@ alt.Chart(data).mark_point().encode(
 ).transform_filter(alt.datum.year == 2007).interactive()
 ```
 
-:::{figure} img/first-plot/axis-titles.svg
+:::{figure} img/gapminder/axis-titles.svg
 :alt: Our example plot at the end of "Generating our first plot" episode.
 
-Our example plot at the end of {ref}`first-plot`.
+Our example plot at the end of {ref}`gapminder`.
 :::
 
 

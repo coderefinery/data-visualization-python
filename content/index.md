@@ -55,8 +55,7 @@ and share **reproducible plots** using
 
 35 min ; {doc}`jupyter`
 35 min ; {doc}`python-basics`
-35 min ; {doc}`first-plot`
-45 min ; {doc}`pandas`
+35 min ; {doc}`plotting`
 25 min ; {doc}`tidy-data`
 50 min ; {doc}`customizing-plots`
 20 min ; {doc}`sharing`
@@ -69,9 +68,9 @@ and share **reproducible plots** using
 
 jupyter.md
 python-basics.md
-first-plot.md
-pandas.md
+plotting.md
 tidy-data.md
+gapminder.md
 customizing-plots.md
 gallery.md
 sharing.md
