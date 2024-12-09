@@ -1,6 +1,8 @@
+jupyterlab
 altair >4, <6
 vega_datasets
-jupyterlab
+pandas
+numpy
 jupyterlab-code-formatter
 black
 isort
