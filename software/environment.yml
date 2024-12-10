@@ -2,6 +2,7 @@ name: data-viz
 channels:
   - conda-forge
 dependencies:
+  - python <= 3.12
   - jupyterlab
   - altair-all
   - vega_datasets
