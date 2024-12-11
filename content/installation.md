@@ -110,7 +110,7 @@ You need to start Python in a way that activates conda/mamba.
       automatically initialize conda?", but then it will always be
       active).
       :::
-    ::::{tabs}
+    ::::
   :::::
 
   :::::{group-tab} Anaconda
@@ -163,7 +163,7 @@ software needed for this particular course.
       $ conda activate data-viz
       ```
       :::
-    ::::{tabs}
+    ::::
   :::::
 
   :::::{group-tab} Anaconda
@@ -202,7 +202,7 @@ most of the other tools we need).
       $ jupyter-lab
       ```
       :::
-    ::::{tabs}
+    ::::
   :::::
 
   :::::{group-tab} Anaconda
