@@ -84,9 +84,9 @@ jupyter.md
 python-basics.md
 plotting.md
 tidy-data.md
+gallery.md
 gapminder.md
 customizing-plots.md
-gallery.md
 sharing.md
 ```
 
