@@ -1,6 +1,13 @@
-(gapminder)=
+# Customizing plots
 
-# Plotting the Gapminder dataset
+:::{objectives}
+- Know where to look to find out how to tweak plots
+- Start with a relatively simple example and build up more and more features
+- See the process of going from a raw plot towards a publication-ready plot
+- We will build up
+  [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb)
+  (spoiler alert!)
+:::
 
 
 ## Loading and plotting a dataset
@@ -23,7 +30,7 @@ data = pd.read_csv(url_prefix + "gapminder_with_codes.csv")
 data
 ```
 
-With very few lines we can get the first plot:
+With very few lines we can get the first raw plot:
 ```python
 alt.Chart(data).mark_point().encode(
     x="gdpPercap",
@@ -31,11 +38,11 @@ alt.Chart(data).mark_point().encode(
 )
 ```
 
-```{figure} img/gapminder/all-data.svg
+:::{figure} img/gapminder/all-data.svg
 :alt: First raw plot with all countries and all years.
 
 First raw plot with all countries and all years.
-```
+:::
 
 Observe how we connect (encode) **visual channels** to data columns:
 - x-coordinate with "gdpPercap"
@@ -47,18 +54,19 @@ easier to read:
 alt.Chart(data).mark_point().encode(x="gdpPercap", y="lifeExp")
 ```
 
-```{discussion} Let us pause and explain the code
+:::{discussion} Let us pause and explain the code
 - `alt` is a short-hand for `altair` which we imported on top of the notebook
 - `Chart()` is a function defined inside `altair` which takes the data as argument
 - `mark_point()` is a function that produces scatter plots
 - `encode()` is a function which encodes data columns to visual channels
-```
+:::
 
 
-## Filtering data directly in [Vega-Altair](https://altair-viz.github.io)
+## Filtering data
 
-In [Vega-Altair](https://altair-viz.github.io) we can chain functions. Let us
-add two more:
+In [Vega-Altair](https://altair-viz.github.io) we can chain functions.  Let us
+add two more functions: The first will apply a filter, the second will make the
+plot interactive:
 ```{code-block} python
 ---
 emphasize-lines: 4
@@ -69,11 +77,13 @@ alt.Chart(data).mark_point().encode(
 ).transform_filter(alt.datum.year == 2007).interactive()
 ```
 
-```{figure} img/gapminder/only-2007.svg
+:::{figure} img/gapminder/only-2007.svg
 :alt: Now we only keep the year 2007.
 
 Now we only keep the year 2007.
-```
+:::
+
+Alternatively, we could have filtered the data before plotting using pandas.
 
 
 ## Using color as additional channel
@@ -92,18 +102,17 @@ alt.Chart(data).mark_point().encode(
 ).transform_filter(alt.datum.year == 2007).interactive()
 ```
 
-```{figure} img/gapminder/color.svg
+:::{figure} img/gapminder/color.svg
 :alt: Using different colors for different continents.
 
 Using different colors for different continents.
-```
+:::
 
 
 ## Changing to log scale
 
 For this data set we will get a better insight when switching the x-axis from
-linear to log scale (we changed two lines to show both the "method syntax" and
-the "attribute syntax"):
+linear to log scale:
 ```{code-block} python
 ---
 emphasize-lines: 2-3
@@ -115,11 +124,11 @@ alt.Chart(data).mark_point().encode(
 ).transform_filter(alt.datum.year == 2007).interactive()
 ```
 
-```{figure} img/gapminder/log-scale.svg
+:::{figure} img/gapminder/log-scale.svg
 :alt: Changing the x axis to log scale.
 
 Changing the x axis to log scale.
-```
+:::
 
 
 ## Improving axis titles
@@ -135,11 +144,11 @@ alt.Chart(data).mark_point().encode(
 ).transform_filter(alt.datum.year == 2007).interactive()
 ```
 
-```{figure} img/gapminder/axis-titles.svg
+:::{figure} img/gapminder/axis-titles.svg
 :alt: Improving the axis titles.
 
 Improving the axis titles.
-```
+:::
 
 
 ## Faceted charts
@@ -177,86 +186,17 @@ alt.Chart(data).mark_circle().encode(
 ).transform_filter(alt.datum.year == 2007).interactive()
 ```
 
-```{figure} img/gapminder/population-size.svg
+:::{figure} img/gapminder/population-size.svg
 :alt: Circle sizes are proportional to population sizes.
 
 Circle sizes are proportional to population sizes.
-```
-
----
-
-```{discussion} Where to go from here?
-In few steps and few lines of code we have achieved a lot!
-
-These plots are perhaps not publication quality yet but we will learn how to
-customize and improve in {ref}`customizing-plots`.
-```
-
-```{keypoints}
-- Avoid manual post-processing, try to script all steps.
-- Browse a number of example galleries to help you choose the library that fits best your work/style.
-- Figures for presentation slides and figures for manuscripts have different
-  requirements. More about that later.
-```
-(customizing-plots)=
-
-# Customizing plots
-
-:::{objectives}
-- Know where to look to find out how to tweak plots
-- Be able to prepare a plot for publication
-- Know how to tweak example plots from a gallery for your own purpose
-- Start with a relatively simple example and build up more and more features
-- We will build up
-  [this notebook](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb)
-  (spoiler alert!)
-:::
-
-[this lesson is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/data-visualization/>]
-
-
-## Styling and customizing plots
-
-- Before you customize plots "manually" using a graphical program, please
-  consider how this affects reproducibility.
-- **Try to minimize manual post-processing**. This might bite you when you
-  need to regenerate 50 figures one day before submission deadline or
-  regenerate a set of figures after the person who created them left the group.
-- All the plotting libraries in Python allow to customize almost every aspect
-  of a plot.
-
-
-## Starting point
-
-This is where we left off at the end of {ref}`gapminder`:
-
-```python
-# import necessary libraries
-import altair as alt
-import pandas as pd
-
-# read the data
-url_prefix = "https://raw.githubusercontent.com/plotly/datasets/master/"
-data = pd.read_csv(url_prefix + "gapminder_with_codes.csv")
-
-# generate an interactive plot
-alt.Chart(data).mark_point().encode(
-    x=alt.X("gdpPercap").scale(type="log").title("GDP per capita (PPP dollars)"),
-    y=alt.Y("lifeExp").title("Life expectancy (years)"),
-    color="continent",
-).transform_filter(alt.datum.year == 2007).interactive()
-```
-
-:::{figure} img/gapminder/axis-titles.svg
-:alt: Our example plot at the end of "Generating our first plot" episode.
-
-Our example plot at the end of {ref}`gapminder`.
 :::
 
 
 ## Title and axis values
 
 In the next step we modify a number of things:
+- We go back to the version where all circles have the same size
 - Add figure title
 - Modify axis domains to "zoom into" the interesting part of the plot
 - Set axis values
@@ -590,24 +530,3 @@ tab and put it on your home page or research group website:
 ```python
 chart.save("chart.html")
 ```
-
-
-## Themes
-
-In [Vega-Altair](https://altair-viz.github.io/) you can change the theme and
-select from a long [list of themes](https://github.com/vega/vega-themes).  On
-top of your notebook try to add:
-```python
-alt.themes.enable('dark')
-```
-Then re-run all cells. Later you can try some other themes such as:
-- `fivethirtyeight`
-- `latimes`
-- `urbaninstitute`
-
-You can even define your own themes!
-
-:::{keypoints}
-- Think about color-vision deficiencies when choosing colors. Use existing
-  solutions for this problem.
-:::
