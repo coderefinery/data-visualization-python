@@ -3,34 +3,50 @@
 [this page is adapted from <https://aaltoscicomp.github.io/python-for-scicomp/installation/>]
 
 
-## Packages that we will need
+## Choosing an installation method
 
-In this course we will need **Python 3** and the following Python libraries/packages:
-- **jupyterlab**
-- **altair**
-- pandas (comes with altair)
-- vega_datasets (optional)
-- numpy (optional)
+For this course we will install an isolated environment
+with following dependencies:
+```yaml
+name: data-viz
+channels:
+  - conda-forge
+dependencies:
+  - python <= 3.12
+  - jupyterlab
+  - altair-all
+  - vega_datasets
+  - pandas
+  - numpy
+```
 
+If you are used to installing packages in Python and know what to do with the
+above `environment.yml` file, please follow your own preferred installation
+method.
 
-## How to install Python
+**If you are new to Python or unsure** how to create isolated environments in
+Python from files like the `environment.yml` above, please follow the
+instructions below.
 
-We expect you to have a working Python installation with some common libraries.
-**We currently recommend Miniforge, which includes the base and packages
-through a different, freely usable channel.** You can explore the options in
-the tabs below.
+:::{discussion} There are many choices and we try to suggest a good compromise
+There are very many ways to install Python and packages with pros and cons and
+in addition there are several operating systems with their own quirks. This
+can be a huge challenge for beginners to navigate. It can also difficult for
+instructors to give recommendations for something which will work everywhere
+and which everybody will like.
 
-**If you are used to installing Python packages**, you can use your preferred
-installation method.  However, we recommend to not install the above packages
-system-wide and never to install using administrator privileges.
-Below we offer several options to install Python and the required packages
-from the [environment.yml file](https://github.com/coderefinery/data-visualization-python/blob/main/software/environment.yml).
+Below we will recommend **Miniforge** since it is free, open source, general,
+available on all operating systems, and provides a good basis for reproducible
+environments. However, it does not provide a graphical user interface during
+installation. This means that every time we want to start a JupyterLab session,
+we will have to go through the command line.
+:::
 
 :::{admonition} Python, conda, anaconda, miniforge, etc?
 :class: dropdown
 
-Unfortunately there's a lot of jargon.  We'll go over this in the
-course but here is a crash course:
+Unfortunately there are many options and a lot of jargon.
+Here is a crash course:
 
 * **Python** is a programming language very commonly used in
   science, it's the topic of this course.
@@ -55,165 +71,112 @@ course but here is a crash course:
   the Anaconda channels.
 :::
 
-::::{tabs}
-  :::{group-tab} Miniforge
-  This is our recommended method - it can be used for any purpose
-  and makes a strong base for the future.
 
-  Follow the [instructions on the miniforge web page](https://github.com/conda-forge/miniforge).  This installs
-  the base, and from here other packages can be installed.
+## Installing Python via Miniforge
 
-  Miniforge uses the command line - this gives you the most power
-  but can feel unfamiliar.
-  :::
-
-  :::{group-tab} Anaconda
-  Anaconda is easier to get started with, but may be more limiting
-  in the future.  The Anaconda Navigator provides a graphical
-  interface to most of what you would need.
-
-  The [Anaconda Python distribution](https://docs.continuum.io/anaconda/install/) conveniently packages
-  most popular libraries, but its license has does not allow large organizations to
-  use it for free (and has actually been enforced against
-  universities).
-
-  Note the license of Anaconda - there were recently issues with
-  it being used by large universities for free, and this is not
-  yet fully resolved.
-  :::
-::::
-
-
-## Starting Python
-
-You need to start Python in a way that activates conda/mamba.
-
-::::::{tabs}
-  :::::{group-tab} Miniforge
-    ::::{tabs}
-      :::{group-tab} Windows
-      Windows: Use the "Miniforge Prompt" to start Miniforge.  This
-      will set up everything so that ``conda`` and ``mamba`` are
-      available.
-      :::
-      :::{group-tab} Linux / MacOS
-      Each time you start a new command line terminal,
-      you can activate Miniforge by running:
-      ```
-      $ source ~/miniforge3/bin/activate
-      ```
-
-      This is needed so that
-      Miniforge is usable wherever you need, but doesn't affect any
-      other software on your computer (this is not needed if you
-      choose "Do you wish to update your shell profile to
-      automatically initialize conda?", but then it will always be
-      active).
-      :::
-    ::::
-  :::::
-
-  :::::{group-tab} Anaconda
-  The [Anaconda Navigator](https://docs.anaconda.com/navigator/) provides a convenient
-  way to access the software. It can be installed from that page.
-  :::::
-::::::
+Follow the [instructions on the miniforge web page](https://github.com/conda-forge/miniforge).  This installs
+the base, and from here other packages can be installed.
 
 
 ## Installing and activating the software environment
 
-Once Python and conda/mamba are installed, you can use it to install
-an environment.  An **environment** is a self-contained set of extra
-libraries - different projects can use different environments to not
-interfere with each other.  This environment will have all of the
-software needed for this particular course.
+First we will start Python in a way that activates conda/mamba.  Then we will
+install the software environment from [this environment.yml
+file](https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml).
 
-::::::{tabs}
-  :::::{group-tab} Miniforge
-    This [environment.yml file](https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml)
-    contains all packages needed for the course, and can be
-    installed with.  The following command will install an
-    environment named `data-viz`:
-    ::::{tabs}
-      :::{group-tab} Windows
-	  ```
-	  $ mamba env create -n data-viz -f https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml
-	  ```
-      :::
-      :::{group-tab} Linux / MacOS
-	  ```
-	  $ mamba env create -n data-viz -f https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml
-	  ```
-      :::
-    ::::{tabs}
+An **environment** is a self-contained set of extra libraries - different
+projects can use different environments to not interfere with each other.  This
+environment will have all of the software needed for this particular course.
 
-    Each time you start a new command line, you need to activate
-    miniforge and this environment:
-    ::::{tabs}
-      :::{group-tab} Windows
-      Start the Miniforge Prompt. Then run:
-      ```
-      $ conda activate data-viz
-      $ jupyter-lab
-      ```
-      :::
-      :::{group-tab} Linux / MacOS
-      ```
-      $ source ~/miniforge3/bin/activate
-      $ conda activate data-viz
-      ```
-      :::
-    ::::
-  :::::
+We will call the environment `data-viz`.
 
-  :::::{group-tab} Anaconda
-  Use the navigator to create a new environment from [this environment.yml
-  file](https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml).
-  You'll have to download it and then [import
-  it](https://docs.anaconda.com/navigator/tutorials/manage-environments/#importing-an-environment).
+::::{tabs}
+  :::{group-tab} Windows
+  Use the "Miniforge Prompt" to start Miniforge.  This
+  will set up everything so that ``conda`` and ``mamba`` are
+  available.
+  Then type
+  (without the `$`):
+  ```console
+  $ mamba env create -n data-viz -f https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml
+  ```
+  :::
 
-  When running this course's exercise, make sure the `data-viz` environment is
-  activated before starting JupyterLab or any code.  You need to start
-  terminals or JupyterLab from the Anaconda Navigator for the `data-viz`
-  environment to be used.
-  :::::
-::::::
+  :::{group-tab} Linux / MacOS
+  Each time you start a new command line terminal,
+  you can activate Miniforge by running
+  (without the `$`):
+  ```console
+  $ source ~/miniforge3/bin/activate
+  ```
+
+  This is needed so that
+  Miniforge is usable wherever you need, but doesn't affect any
+  other software on your computer (this is not needed if you
+  choose "Do you wish to update your shell profile to
+  automatically initialize conda?", but then it will always be
+  active).
+
+  In the second step, we will install the software environment:
+  ```console
+  $ mamba env create -n data-viz -f https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml
+  ```
+  :::
+::::
 
 
 ## Starting JupyterLab
 
-We do most of the lessons from JupyterLab (and JupyterLab provides
-most of the other tools we need).
+Every time we want to start a JupyterLab session,
+we will have to go through the command line and first
+activate the `data-viz` environment.
 
-::::::{tabs}
-  :::::{group-tab} Miniforge
-    ::::{tabs}
-      :::{group-tab} Windows
-      Start the Miniforge Prompt. Then run:
-      ```
-      $ conda activate data-viz
-      $ jupyter-lab
-      ```
-      :::
-      :::{group-tab} Linux / MacOS
-      ```
-      $ source ~/miniforge3/bin/activate
-      $ conda activate data-viz
-      $ jupyter-lab
-      ```
-      :::
-    ::::
-  :::::
+::::{tabs}
+  :::{group-tab} Windows
+  Start the Miniforge Prompt. Then type
+  (without the `$`):
+  ```console
+  $ conda activate data-viz
+  $ jupyter-lab
+  ```
+  :::
 
-  :::::{group-tab} Anaconda
-  If you install the full Anaconda distribution, this will be
-  available and can be started either through Anaconda Navigator
-  or command line.
+  :::{group-tab} Linux / MacOS
+  Start the terminal and in the terminal, type
+  (without the `$`):
+  ```console
+  $ source ~/miniforge3/bin/activate
+  $ conda activate data-viz
+  $ jupyter-lab
+  ```
+  :::
+::::
 
-  Make sure the `data-viz` environment is selected and
-  you can start JupyterLab.
-  :::::
-::::::
+
+## Removing the software environment
+
+::::{tabs}
+  :::{group-tab} Windows
+  In the Miniforge Prompt, type
+  (without the `$`):
+  ```console
+  $ conda env list
+  $ conda env remove --name data-viz
+  $ conda env list
+  ```
+  :::
+
+  :::{group-tab} Linux / MacOS
+  In the terminal, type
+  (without the `$`):
+  ```console
+  $ source ~/miniforge3/bin/activate
+  $ conda env list
+  $ conda env remove --name data-viz
+  $ conda env list
+  ```
+  :::
+::::
 
 
 ## How to verify your installation
