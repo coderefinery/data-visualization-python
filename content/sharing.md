@@ -1,4 +1,4 @@
-# Sharing notebooks
+# Sharing plots and notebooks
 
 :::{objectives}
 - Know about good practices for notebooks to make them reusable
@@ -42,6 +42,53 @@ Place either `requirements.txt` or `environment.yml` in the same folder as the n
 
 This is not only useful for people who will try to rerun this in future, it is also
 understood by some tools (e.g. [Binder](https://mybinder.org/)) which we will see later.
+
+
+## Different ways to share a Vega-Altair plot
+
+- Save it in SVG format (vector graphics, "maximum resolution")
+- Save it in PNG format (raster graphics)
+- Share it as notebook (more about it below)
+- Save it a web page with `chart.save("chart.html")` and share the HTML file
+- You can also get a shareable URL to a chart ([example](https://altair-viz.github.io/user_guide/saving_charts.html#sharable-url))
+- With **sensitive data**, you need to be careful with sharing (see next section)
+
+
+## Vega-Altair and notebooks containing sensitive data
+
+If you plot **sensitive data** in a notebook with Vega-Altair,
+you need to be careful.
+
+The author of Vega-Altair provided a good summary in this [GitHub comment](https://github.com/vega/altair/issues/1250#issuecomment-444269060):
+
+> "Standard Altair rendering requires the entire dataset to be accessible to
+> the viewer's browser: this is a fundamental design decision in
+> Vega/Vega-Lite, in which a chart is equivalent to a dataset plus a
+> specification of how to render it. In general, you should assume that the
+> entire contents of any dataframe you pass to the alt.Chart() object will be
+> saved in the notebook and be inspectable by the viewer."
+
+> "One way to get around this would be to render the chart server-side, export
+> a PNG, and display this png instead of the live chart. Incidentally, in the
+> Jupyter notebook you can do this by running:"
+
+> `alt.renderers.enable('png')`
+
+> "This sets up Altair such that charts will be
+> rendered to PNG within the kernel, and only that PNG rendering will be
+> embedded in the notebook. Note this requires some extra dependencies,
+> described [here](https://altair-viz.github.io/user_guide/saving_charts.html#png-and-svg-format)."
+
+> "But even here, I wouldn't call your data "private" (for example, if you
+> save a scatter plot to PNG, a user can straightforwardly read the data
+> values off the chart!) So this makes me think you're actually doing some
+> sort of aggregation of your data before plotting (e.g. showing a
+> histogram). If this is the case, I would suggest doing those aggregations
+> outside of Altair using e.g. pandas, and then passing the aggregated
+> dataset to the chart. Then you get the normal interactive display of the
+> Altair chart, and your data is just as private as it would have been in the
+> equivalent static rendering – the user can only see the aggregated values
+> you supplied to the chart."
 
 
 ## Different ways to share a notebook
