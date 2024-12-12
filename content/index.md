@@ -66,11 +66,11 @@ Day 1 afternoon:
 - {doc}`tidy-data`
 
 Day 2 morning:
-- {doc}`gallery`
 - {doc}`customizing-plots`
   [![nbviewer badge](https://img.shields.io/badge/view%20on-nbviewer-brightgreen.svg)](https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb)
   [![colab badge](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb)
   [![binder badge](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/coderefinery/data-visualization-python/HEAD?labpath=notebooks%2Fcustomizing.ipynb)
+- {doc}`gallery`
 
 Day 3 morning:
 - Layering plots
@@ -87,8 +87,8 @@ jupyter.md
 python-basics.md
 plotting.md
 tidy-data.md
-gallery.md
 customizing-plots.md
+gallery.md
 sharing.md
 ```
 
