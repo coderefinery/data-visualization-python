@@ -75,9 +75,8 @@ Day 2 morning:
 - {doc}`gallery`
 
 Day 3 morning:
-- Layering plots
-- Interactive plots
 - {doc}`sharing`
+- How to find help and how to navigate the documentation
 
 
 ```{toctree}
