@@ -1,8 +1,5 @@
 jupyterlab
-altair >4, <6
+altair == 5.5.0
 vega_datasets
-pandas
-numpy
-jupyterlab-code-formatter
-black
-isort
+pandas == 2.2.3
+numpy == 2.1.2

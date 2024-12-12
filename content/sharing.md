@@ -1,36 +1,42 @@
 # Sharing notebooks
 
-```{objectives}
+:::{objectives}
 - Know about good practices for notebooks to make them reusable
 - Have a recipe to share a dynamic and reproducible visualization pipeline
-```
+:::
 
-```{instructor-note}
-- 20 min presentation and discussion
-```
-
-[this lesson is adapted from <https://coderefinery.github.io/jupyter/sharing/>]
+[this lesson is adapted after <https://coderefinery.github.io/jupyter/sharing/>]
 
 
 ## Document dependencies
 
 If you import libraries into your notebook, note down their versions.
 
-It is customary to do this either in a `requirements.txt` file (example):
+In Python, it is customary to do this either in a `requirements.txt` file (example):
 ```text
-pandas==2.2.2
-altair==5.3.0
+jupyterlab
+altair == 5.5.0
+vega_datasets
+pandas == 2.2.3
+numpy == 2.1.2
 ```
 
 ... or in an `environment.yml` file (example):
 ```yaml
-name: example-environment
+name: data-viz
 channels:
   - conda-forge
 dependencies:
-  - pandas=2.2.2
-  - altair=5.3.0
+  - python <= 3.12
+  - jupyterlab
+  - altair-all = 5.5.0
+  - vega_datasets
+  - pandas = 2.2.3
+  - numpy = 2.1.2
 ```
+
+By the way, this is almost the same `environment.yml` file that we used to install the local software
+environment in the {ref}`installation` (the latter did not pin versions).
 
 Place either `requirements.txt` or `environment.yml` in the same folder as the notebook(s).
 
@@ -46,7 +52,7 @@ to share them with our future selves (backup and reproducibility).
 - You can enter a URL, GitHub repo or username, or GIST ID in [nbviewer](https://nbviewer.jupyter.org/) and view a rendered Jupyter notebook
 - Read the Docs can render Jupyter Notebooks via the [nbsphinx package](https://nbsphinx.readthedocs.io/)
 - [Binder](https://mybinder.org/) creates live notebooks based on a GitHub repository
-- [EGI Notebooks](https://notebooks.egi.eu) (see also https://egi-notebooks.readthedocs.io)
+- [EGI Notebooks](https://notebooks.egi.eu) (see also <https://egi-notebooks.readthedocs.io>)
 - [JupyterLab](https://github.com/jupyterlab/jupyterlab) supports sharing and collaborative editing of notebooks via Google Drive. Recently
   it also added support for [Shared editing with collaborative notebook model](https://github.com/jupyterlab/jupyterlab/pull/10118).
 - [JupyterLite](https://jupyterlite.readthedocs.io/en/latest/) creates a Jupyterlab environment in the browser and can be hosted as a GitHub page.
@@ -60,10 +66,10 @@ to share them with our future selves (backup and reproducibility).
     - a slide-show in the browser
 
 
-These platforms can be used free of charge but have **paid subscriptions** for
+The following platforms can be used free of charge but have **paid subscriptions** for
 faster access to cloud resources:
 - [CoCalc](https://cocalc.com/) (formerly SageMathCloud) allows collaborative editing of notebooks in the cloud
-- Google's [Colaboratory](https://colab.research.google.com/) lets you work on notebooks in the cloud, and you can [read and write to notebook files on Drive](https://colab.research.google.com/notebooks/io.ipynb)
+- [Google Colab](https://colab.research.google.com/) lets you work on notebooks in the cloud, and you can [read and write to notebook files on Drive](https://colab.research.google.com/notebooks/io.ipynb)
 - [Microsoft Azure Notebooks](https://notebooks.azure.com/) also offers free notebooks in the cloud
 - [Deepnote](https://deepnote.com/) allows real-time collaboration
 
@@ -78,8 +84,10 @@ Instructor demonstrates this:
   also [nbviewer](https://nbviewer.jupyter.org/).
 - Add a file `requirements.txt` which contains:
   ```text
-  pandas==2.2.2
-  altair==5.3.0
+  altair == 5.5.0
+  vega_datasets
+  pandas == 2.2.3
+  numpy == 2.1.2
   ```
 - Visit [https://mybinder.org](https://mybinder.org):
   ```{figure} img/binder/binder.jpg
@@ -94,7 +102,7 @@ Instructor demonstrates this:
 ::::
 
 Also please see how we share the notebooks from this lesson
-in the [repository README](https://github.com/coderefinery/data-visualization-python/blob/main/README.md?plain=1).
+in the {ref}`episode-overview`.
 
 
 ## How to get a digital object identifier (DOI)

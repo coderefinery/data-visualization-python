@@ -47,6 +47,8 @@ and share **reproducible plots** using
 - Managing environments and installing Python packages.
 
 
+(episode-overview)=
+
 ## Episode overview
 
 Day 1 morning:
