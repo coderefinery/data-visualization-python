@@ -1,0 +1,638 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Customizing plots &mdash; Data visualization using Python and Vega-Altair  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=e4194741" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Learning how to adapt existing gallery examples" href="../gallery/" />
+    <link rel="prev" title="Tidy data and dealing with messy data" href="../tidy-data/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python and Vega-Altair
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting/">Plotting with Vega-Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Customizing plots</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#loading-and-plotting-a-dataset">Loading and plotting a dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#filtering-data">Filtering data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-color-as-additional-channel">Using color as additional channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-to-log-scale">Changing to log scale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improving-axis-titles">Improving axis titles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#faceted-charts">Faceted charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#changing-from-points-to-circles">Changing from points to circles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#title-and-axis-values">Title and axis values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#colors">Colors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-tweaking-towards-a-publication-ready-figure">More tweaking towards a publication-ready figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#interactive-charts">Interactive charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-more-annotation">Adding more annotation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#saving-the-chart-as-web-page">Saving the chart as web page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/">Learning how to adapt existing gallery examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing plots and notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Leftover from previous versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../parsing-custom-format/">Reading data in custom format</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python and Vega-Altair</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Customizing plots</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/customizing-plots.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="customizing-plots">
+<h1>Customizing plots<a class="headerlink" href="#customizing-plots" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Know where to look to find out how to tweak plots</p></li>
+<li><p>Start with a relatively simple example and build up more and more features</p></li>
+<li><p>See the process of going from a raw plot towards a publication-ready plot</p></li>
+<li><p>We will build up
+<a class="reference external" href="https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb">this notebook</a>
+(spoiler alert!)</p></li>
+</ul>
+</div>
+<section id="loading-and-plotting-a-dataset">
+<h2>Loading and plotting a dataset<a class="headerlink" href="#loading-and-plotting-a-dataset" title="Link to this heading"></a></h2>
+<p>In this lesson will work with one of the
+<a class="reference external" href="https://www.gapminder.org/tools/">Gapminder</a> datasets.</p>
+<p>Let us together read and plot the data and then we explain what is happening
+and we will improve the figure together.  First we read and inspect the data:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># import necessary libraries</span>
+<span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="c1"># read the data</span>
+<span class="n">url_prefix</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/plotly/datasets/master/&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_prefix</span> <span class="o">+</span> <span class="s2">&quot;gapminder_with_codes.csv&quot;</span><span class="p">)</span>
+
+<span class="c1"># print overview of the dataset</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+<p>With very few lines we can get the first raw plot:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id1">
+<img alt="First raw plot with all countries and all years." src="../_images/all-data.svg" />
+<figcaption>
+<p><span class="caption-text">First raw plot with all countries and all years.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Observe how we connect (encode) <strong>visual channels</strong> to data columns:</p>
+<ul class="simple">
+<li><p>x-coordinate with “gdpPercap”</p></li>
+<li><p>y-coordinate with “lifeExp”</p></li>
+</ul>
+<p>The following code would have the same effect but the above version might be
+easier to read:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition-let-us-pause-and-explain-the-code discussion important admonition" id="discussion-0">
+<p class="admonition-title">Let us pause and explain the code</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alt</span></code> is a short-hand for <code class="docutils literal notranslate"><span class="pre">altair</span></code> which we imported on top of the notebook</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Chart()</span></code> is a function defined inside <code class="docutils literal notranslate"><span class="pre">altair</span></code> which takes the data as argument</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mark_point()</span></code> is a function that produces scatter plots</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encode()</span></code> is a function which encodes data columns to visual channels</p></li>
+</ul>
+</div>
+</section>
+<section id="filtering-data">
+<h2>Filtering data<a class="headerlink" href="#filtering-data" title="Link to this heading"></a></h2>
+<p>In <a class="reference external" href="https://altair-viz.github.io">Vega-Altair</a> we can chain functions.  Let us
+add two more functions: The first will apply a filter, the second will make the
+plot interactive:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span>
+<span class="hll"><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</span></pre></div>
+</div>
+<figure class="align-default" id="id2">
+<img alt="Now we only keep the year 2007." src="../_images/only-2007.svg" />
+<figcaption>
+<p><span class="caption-text">Now we only keep the year 2007.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Alternatively, we could have filtered the data before plotting using pandas.</p>
+</section>
+<section id="using-color-as-additional-channel">
+<h2>Using color as additional channel<a class="headerlink" href="#using-color-as-additional-channel" title="Link to this heading"></a></h2>
+<p>A very neat feature of <a class="reference external" href="https://altair-viz.github.io">Vega-Altair</a> is that it
+is easy to add and modify visual channels. Let us try to add one more so that
+we do something with the “continent” data column:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id3">
+<img alt="Using different colors for different continents." src="../_images/color.svg" />
+<figcaption>
+<p><span class="caption-text">Using different colors for different continents.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="changing-to-log-scale">
+<h2>Changing to log scale<a class="headerlink" href="#changing-to-log-scale" title="Link to this heading"></a></h2>
+<p>For this data set we will get a better insight when switching the x-axis from
+linear to log scale:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="hll">    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">),</span>
+</span><span class="hll">    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">),</span>
+</span>    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id4">
+<img alt="Changing the x axis to log scale." src="../_images/log-scale.svg" />
+<figcaption>
+<p><span class="caption-text">Changing the x axis to log scale.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="improving-axis-titles">
+<h2>Improving axis titles<a class="headerlink" href="#improving-axis-titles" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="hll">    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+</span><span class="hll">    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">),</span>
+</span>    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+<span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id5">
+<img alt="Improving the axis titles." src="../_images/axis-titles.svg" />
+<figcaption>
+<p><span class="caption-text">Improving the axis titles.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="faceted-charts">
+<h2>Faceted charts<a class="headerlink" href="#faceted-charts" title="Link to this heading"></a></h2>
+<p>To see what faceted charts are and how easy it is to do this, add the following
+line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">row</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Guess what happens when you change <code class="docutils literal notranslate"><span class="pre">row=&quot;continent&quot;</span></code> to <code class="docutils literal notranslate"><span class="pre">column=&quot;continent&quot;</span></code>?</p>
+</section>
+<section id="changing-from-points-to-circles">
+<h2>Changing from points to circles<a class="headerlink" href="#changing-from-points-to-circles" title="Link to this heading"></a></h2>
+<p>Let us add one more visual channel, mapping size of the circle to the
+population size of a country:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+</span>    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+    <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">),</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">size</span><span class="o">=</span><span class="s2">&quot;pop&quot;</span><span class="p">,</span>
+</span><span class="p">)</span><span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id6">
+<img alt="Circle sizes are proportional to population sizes." src="../_images/population-size.svg" />
+<figcaption>
+<p><span class="caption-text">Circle sizes are proportional to population sizes.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="title-and-axis-values">
+<h2>Title and axis values<a class="headerlink" href="#title-and-axis-values" title="Link to this heading"></a></h2>
+<p>In the next step we modify a number of things:</p>
+<ul class="simple">
+<li><p>We go back to the version where all circles have the same size</p></li>
+<li><p>Add figure title</p></li>
+<li><p>Modify axis domains to “zoom into” the interesting part of the plot</p></li>
+<li><p>Set axis values</p></li>
+<li><p>Change from <code class="docutils literal notranslate"><span class="pre">mark_point()</span></code> to <code class="docutils literal notranslate"><span class="pre">mark_circle()</span></code></p></li>
+<li><p>Invoke <code class="docutils literal notranslate"><span class="pre">interactive()</span></code> in a separate step</p></li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;Life expectancy as function of the gross domestic product&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100000</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">85</span><span class="p">)),</span>
+        <span class="n">color</span><span class="o">=</span><span class="s2">&quot;continent&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id7">
+<img alt="Plot after adding a figure title." src="../_images/with-title.svg" />
+<figcaption>
+<p><span class="caption-text">The plot is starting to look better!</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="colors">
+<h2>Colors<a class="headerlink" href="#colors" title="Link to this heading"></a></h2>
+<p>In the next step we change the color scheme (<a class="reference external" href="https://vega.github.io/vega/docs/schemes/">list of all
+schemes</a>), make the circles larger
+and slightly transparent:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;Life expectancy as function of the gross domestic product&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="hll">    <span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+</span>    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100000</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">85</span><span class="p">)),</span>
+<span class="hll">        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;dark2&quot;</span><span class="p">),</span>
+</span>    <span class="p">)</span>
+    <span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id8">
+<img alt="The plot after adjusting circles and colors." src="../_images/dark2.svg" />
+<figcaption>
+<p><span class="caption-text">The plot after adjusting circles and colors.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>We can also define own colors:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="n">okabe_ito</span> <span class="o">=</span> <span class="p">[</span>
+</span><span class="hll">    <span class="s2">&quot;#0072b2&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;#e69f00&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;#cc79a7&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;#009e73&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;#f0e442&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;#000000&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;#d55e00&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="s2">&quot;#56b4e9&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="p">]</span>
+</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span><span class="s2">&quot;Life expectancy as function of the gross domestic product&quot;</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100000</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">85</span><span class="p">)),</span>
+<span class="hll">        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">okabe_ito</span><span class="p">),</span>
+</span>    <span class="p">)</span>
+    <span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id9">
+<img alt="Adjusting colors to those recommended by Okabe and Ito." src="../_images/okabe-ito.svg" />
+<figcaption>
+<p><span class="caption-text">Adjusting colors to those recommended by Okabe and Ito.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-why-these-colors discussion important admonition" id="discussion-1">
+<p class="admonition-title">Why these colors?</p>
+<p>This qualitative color palette is optimized for all color-vision
+deficiencies, see <a class="reference external" href="https://clauswilke.com/dataviz/color-pitfalls.html">https://clauswilke.com/dataviz/color-pitfalls.html</a> and
+<a class="reference external" href="http://jfly.iam.u-tokyo.ac.jp/color/">Okabe, M., and K. Ito. 2008. “Color Universal Design (CUD):
+How to Make Figures and Presentations That Are Friendly to Colorblind People.”</a>.</p>
+</div>
+</section>
+<section id="more-tweaking-towards-a-publication-ready-figure">
+<h2>More tweaking towards a publication-ready figure<a class="headerlink" href="#more-tweaking-towards-a-publication-ready-figure" title="Link to this heading"></a></h2>
+<p>Let us add a subtitle and adjust sizing and positioning:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span>
+            <span class="s2">&quot;Life expectancy as function of the gross domestic product&quot;</span><span class="p">,</span>
+<span class="hll">            <span class="n">subtitle</span><span class="o">=</span><span class="p">[</span>
+</span><span class="hll">                <span class="s2">&quot;Gross domestic product (GDP) per capita measures the value of everything&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;produced in a country during a year, divided by the number of people.&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;The unit is in purchasing power parities (PPP dollars), fixed to 2017 prices.&quot;</span><span class="p">,</span>
+</span><span class="hll">                <span class="s2">&quot;Data is adjusted for inflation and differences in the cost of living between countries.&quot;</span><span class="p">,</span>
+</span><span class="hll">            <span class="p">],</span>
+</span>        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100000</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">85</span><span class="p">)),</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">okabe_ito</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">year</span> <span class="o">==</span> <span class="mi">2007</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="hll"><span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span><span class="n">labelFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">titleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+</span><span class="hll">    <span class="n">fontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">subtitleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">offset</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">subtitleColor</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+</span><span class="hll"><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_legend</span><span class="p">(</span>
+</span><span class="hll">    <span class="n">titleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">labelFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">padding</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+</span><span class="hll"><span class="p">)</span>
+</span>
+<span class="n">chart</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="More tweaking towards a publication-ready figure." src="../_images/with-subtitle.svg" />
+</figure>
+</section>
+<section id="interactive-charts">
+<h2>Interactive charts<a class="headerlink" href="#interactive-charts" title="Link to this heading"></a></h2>
+<p>With not too many changes we can make the chart interactive and add a slider
+for the year (please try this in <a class="reference external" href="https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/customizing.ipynb">this
+notebook</a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="n">year_slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1952</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2007</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="n">slider_selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_point</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">year_slider</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">2007</span><span class="p">)</span>
+</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span>
+            <span class="s2">&quot;How life expectancy and gross domestic product evolved over time&quot;</span><span class="p">,</span>
+            <span class="n">subtitle</span><span class="o">=</span><span class="p">[</span>
+                <span class="s2">&quot;Gross domestic product (GDP) per capita measures the value of everything&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;produced in a country during a year, divided by the number of people.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;The unit is in purchasing power parities (PPP dollars), fixed to 2017 prices.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Data is adjusted for inflation and differences in the cost of living between countries.&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100000</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">85</span><span class="p">)),</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">okabe_ito</span><span class="p">),</span>
+    <span class="p">)</span>
+<span class="hll">    <span class="o">.</span><span class="n">add_params</span><span class="p">(</span><span class="n">slider_selection</span><span class="p">)</span>
+</span><span class="hll">    <span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">slider_selection</span><span class="p">)</span>
+</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span><span class="n">labelFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">titleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">subtitleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">,</span>
+    <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+    <span class="n">offset</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">subtitleColor</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_legend</span><span class="p">(</span>
+    <span class="n">titleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">labelFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">padding</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="adding-more-annotation">
+<h2>Adding more annotation<a class="headerlink" href="#adding-more-annotation" title="Link to this heading"></a></h2>
+<p>With few more lines we can add extra annotation that can help to highlight
+certain aspects of the plot and to tell a story:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">year_slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">1952</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2007</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Year&quot;</span><span class="p">)</span>
+<span class="n">slider_selection</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">selection_point</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">year_slider</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;year&quot;</span><span class="p">],</span> <span class="n">value</span><span class="o">=</span><span class="mi">2007</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span>
+        <span class="n">data</span><span class="p">,</span>
+        <span class="n">title</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Title</span><span class="p">(</span>
+            <span class="s2">&quot;How life expectancy and gross domestic product evolved over time&quot;</span><span class="p">,</span>
+            <span class="n">subtitle</span><span class="o">=</span><span class="p">[</span>
+                <span class="s2">&quot;Gross domestic product (GDP) per capita measures the value of everything&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;produced in a country during a year, divided by the number of people.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;The unit is in purchasing power parities (PPP dollars), fixed to 2017 prices.&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;Data is adjusted for inflation and differences in the cost of living between countries.&quot;</span><span class="p">,</span>
+            <span class="p">],</span>
+        <span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">mark_circle</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">10000</span><span class="p">,</span> <span class="mi">100000</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">&quot;log&quot;</span><span class="p">,</span> <span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">100000</span><span class="p">))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;GDP per capita (PPP dollars)&quot;</span><span class="p">),</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Y</span><span class="p">(</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Axis</span><span class="p">(</span><span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">80</span><span class="p">]))</span>
+        <span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Life expectancy (years)&quot;</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">domain</span><span class="o">=</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">85</span><span class="p">)),</span>
+        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;continent&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="nb">range</span><span class="o">=</span><span class="n">okabe_ito</span><span class="p">),</span>
+    <span class="p">)</span>
+    <span class="o">.</span><span class="n">add_params</span><span class="p">(</span><span class="n">slider_selection</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">slider_selection</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="hll"><span class="n">annotation</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class="hll">    <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class="hll">    <span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+</span><span class="hll">        <span class="n">x</span><span class="o">=</span><span class="s2">&quot;gdpPercap&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">y</span><span class="o">=</span><span class="s2">&quot;lifeExp&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">text</span><span class="o">=</span><span class="s2">&quot;country&quot;</span><span class="p">,</span>
+</span><span class="hll">        <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s2">&quot;black&quot;</span><span class="p">),</span>
+</span><span class="hll">    <span class="p">)</span>
+</span><span class="hll">    <span class="o">.</span><span class="n">transform_filter</span><span class="p">((</span><span class="n">slider_selection</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">country</span> <span class="o">==</span> <span class="s2">&quot;Norway&quot;</span><span class="p">))</span>
+</span><span class="hll"><span class="p">)</span>
+</span><span class="hll">
+</span><span class="hll"><span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+</span><span class="hll">    <span class="n">chart</span>
+</span><span class="hll">    <span class="o">+</span> <span class="n">annotation</span><span class="o">.</span><span class="n">mark_point</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mf">100.0</span><span class="p">)</span>
+</span><span class="hll">    <span class="o">+</span> <span class="n">annotation</span><span class="o">.</span><span class="n">mark_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span> <span class="n">xOffset</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s2">&quot;left&quot;</span><span class="p">,</span> <span class="n">baseline</span><span class="o">=</span><span class="s2">&quot;middle&quot;</span><span class="p">)</span>
+</span><span class="hll"><span class="p">)</span>
+</span>
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_axis</span><span class="p">(</span><span class="n">labelFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">titleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">properties</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">500</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_title</span><span class="p">(</span>
+    <span class="n">fontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">subtitleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">anchor</span><span class="o">=</span><span class="s2">&quot;start&quot;</span><span class="p">,</span>
+    <span class="n">orient</span><span class="o">=</span><span class="s2">&quot;bottom&quot;</span><span class="p">,</span>
+    <span class="n">offset</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">subtitleColor</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">chart</span><span class="o">.</span><span class="n">configure_legend</span><span class="p">(</span>
+    <span class="n">titleFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">labelFontSize</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
+    <span class="n">padding</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">interactive</span><span class="p">()</span>
+</pre></div>
+</div>
+<figure class="align-default">
+<img alt="Chart with extra annotation." src="../_images/with-annotation.svg" />
+</figure>
+</section>
+<section id="saving-the-chart-as-web-page">
+<h2>Saving the chart as web page<a class="headerlink" href="#saving-the-chart-as-web-page" title="Link to this heading"></a></h2>
+<p>You can save the chart as a web site and try to open it in a separate browser
+tab and put it on your home page or research group website:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">chart</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">&quot;chart.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../tidy-data/" class="btn btn-neutral float-left" title="Tidy data and dealing with messy data" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../gallery/" class="btn btn-neutral float-right" title="Learning how to adapt existing gallery examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

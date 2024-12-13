@@ -1,0 +1,723 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Plotting with Vega-Altair &mdash; Data visualization using Python and Vega-Altair  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=e4194741" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Tidy data and dealing with messy data" href="../tidy-data/" />
+    <link rel="prev" title="Python basics" href="../python-basics/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python and Vega-Altair
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plotting with Vega-Altair</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#repeatability-reproducibility">Repeatability/reproducibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#why-are-we-starting-with-vega-altair">Why are we starting with Vega-Altair?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-data-weather-data-from-two-norwegian-cities">Example data: Weather data from two Norwegian cities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-data-into-a-dataframe">Reading data into a dataframe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-in-a-dataframe">What is in a dataframe?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#where-to-learn-more-about-pandas">Where to learn more about pandas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#plotting-the-data">Plotting the data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-using-visual-channels-to-re-arrange-plots">Exercise: Using visual channels to re-arrange plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-fun-with-visual-channels">More fun with visual channels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#themes">Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercise-anscombe-s-quartet">Exercise: Anscombe’s quartet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/">Learning how to adapt existing gallery examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing plots and notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Leftover from previous versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../parsing-custom-format/">Reading data in custom format</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python and Vega-Altair</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Plotting with Vega-Altair</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/plotting.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plotting-with-vega-altair">
+<h1>Plotting with <a class="reference external" href="https://altair-viz.github.io/">Vega-Altair</a><a class="headerlink" href="#plotting-with-vega-altair" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Be able to create simple plots with Vega-Altair and tweak them</p></li>
+<li><p>Know how to look for help</p></li>
+<li><p>Reading data with Pandas from disk or a web resource</p></li>
+<li><p>Know how to tweak example plots from a gallery for your own purpose</p></li>
+<li><p>We will build up
+<a class="reference external" href="https://nbviewer.org/github/coderefinery/data-visualization-python/blob/main/notebooks/plotting.ipynb">this notebook</a>
+(spoiler alert!)</p></li>
+</ul>
+</div>
+<section id="repeatability-reproducibility">
+<h2>Repeatability/reproducibility<a class="headerlink" href="#repeatability-reproducibility" title="Link to this heading"></a></h2>
+<p>From <a class="reference external" href="https://clauswilke.com/dataviz/">Claus O. Wilke: “Fundamentals of Data Visualization”</a>:</p>
+<blockquote>
+<div><p><em>One thing I have learned over the years is that automation is your friend. I
+think figures should be autogenerated as part of the data analysis pipeline
+(which should also be automated), and they should come out of the pipeline
+ready to be sent to the printer, no manual post-processing needed.</em></p>
+</div></blockquote>
+<ul class="simple">
+<li><p><strong>Try to minimize manual post-processing</strong>. This could bite you when you need to regenerate 50
+figures one day before submission deadline or regenerate a set of figures
+after the person who created them left the group.</p></li>
+<li><p>There is not the one perfect language and <strong>not the one perfect library</strong> for everything.</p></li>
+<li><p>Within Python, many libraries exist:</p>
+<ul>
+<li><p><a class="reference external" href="https://altair-viz.github.io/gallery/index.html">Vega-Altair</a>:
+declarative visualization, statistics built in</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/stable/gallery/index.html">Matplotlib</a>:
+probably the most standard and most widely used</p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/examples/index.html">Seaborn</a>:
+high-level interface to Matplotlib, statistical functions built in</p></li>
+<li><p><a class="reference external" href="https://plotly.com/python/">Plotly</a>:
+interactive graphs</p></li>
+<li><p><a class="reference external" href="https://demo.bokeh.org/">Bokeh</a>:
+also here good for interactivity</p></li>
+<li><p><a class="reference external" href="https://plotnine.readthedocs.io/">plotnine</a>:
+implementation of a grammar of graphics in Python, it is based on <a class="reference external" href="https://ggplot2.tidyverse.org/">ggplot2</a></p></li>
+<li><p><a class="reference external" href="https://yhat.github.io/ggpy/">ggplot</a>:
+R users will be more at home</p></li>
+<li><p><a class="reference external" href="https://www.pyngl.ucar.edu/Examples/gallery.shtml">PyNGL</a>:
+used in the weather forecast community</p></li>
+<li><p><a class="reference external" href="https://k3d-jupyter.org/gallery/index.html">K3D</a>:
+Jupyter Notebook extension for 3D visualization</p></li>
+<li><p><a class="reference external" href="https://docs.enthought.com/mayavi/mayavi/">Mayavi</a>:
+3D scientific data visualization and plotting in Python</p></li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p>Two main families of libraries: procedural (e.g. Matplotlib) and declarative (e.g. Vega-Altair).</p></li>
+</ul>
+</section>
+<section id="why-are-we-starting-with-vega-altair">
+<h2>Why are we starting with <a class="reference external" href="https://altair-viz.github.io/">Vega-Altair</a>?<a class="headerlink" href="#why-are-we-starting-with-vega-altair" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Concise and powerful</p></li>
+<li><p>“Simple, friendly and consistent API” allows us to focus on the data
+visualization part and get started without too much Python knowledge</p></li>
+<li><p>The way it <strong>combines visual channels with data columns</strong> can feel intuitive</p></li>
+<li><p>Interfaces very nicely with <a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p></li>
+<li><p>Easy to change figures</p></li>
+<li><p>Good documentation</p></li>
+<li><p>Open source</p></li>
+<li><p>Makes it easy to save figures in a number of formats (svg, png, html)</p></li>
+<li><p>Easy to save interactive visualizations to be used in websites</p></li>
+</ul>
+</section>
+<section id="example-data-weather-data-from-two-norwegian-cities">
+<h2>Example data: Weather data from two Norwegian cities<a class="headerlink" href="#example-data-weather-data-from-two-norwegian-cities" title="Link to this heading"></a></h2>
+<p>We will experiment with some example weather data obtained from <a class="reference external" href="https://seklima.met.no/observations/">Norsk
+KlimaServiceSenter</a>, Meteorologisk
+institutt (MET) (CC BY 4.0).  The data is in CSV format (comma-separated
+values) and contains daily and monthly weather data for two cities in Norway:
+Oslo and Tromsø. You can browse the data
+<a class="reference external" href="https://github.com/coderefinery/data-visualization-python/tree/main/data">here in the lesson repository</a>.</p>
+<p>We will use the Pandas library to read the data into a dataframe.</p>
+<p>Pandas can read from and write to a large set of formats
+(<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/io.html">overview of input/output functions and formats</a>).
+We will load a CSV file directly from the web. Instead of using a web URL we
+could use a local file name instead.</p>
+<p>Pandas dataframes are a great data structure for <strong>tabular data</strong> and tabular
+data turns out to be a great input format for data visualization libraries.
+Vega-Altair understands Pandas dataframes and can plot them directly.</p>
+</section>
+<section id="reading-data-into-a-dataframe">
+<h2>Reading data into a dataframe<a class="headerlink" href="#reading-data-into-a-dataframe" title="Link to this heading"></a></h2>
+<p>We can try this together in a notebook:
+Using Pandas we can <strong>merge, join, concatenate, and compare</strong>
+dataframes, see <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html">https://pandas.pydata.org/pandas-docs/stable/user_guide/merging.html</a>.</p>
+<p>Let us try to <strong>concatenate</strong> two dataframes: one for Tromsø weather data (we
+will now load monthly values) and one for Oslo:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">url_prefix</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/&quot;</span>
+
+<span class="n">data_tromso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_prefix</span> <span class="o">+</span> <span class="s2">&quot;tromso-monthly.csv&quot;</span><span class="p">)</span>
+<span class="n">data_oslo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_prefix</span> <span class="o">+</span> <span class="s2">&quot;oslo-monthly.csv&quot;</span><span class="p">)</span>
+
+<span class="hll"><span class="n">data_monthly</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_tromso</span><span class="p">,</span> <span class="n">data_oslo</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</span>
+<span class="c1"># let us print the combined result</span>
+<span class="n">data_monthly</span>
+</pre></div>
+</div>
+<p>Before plotting the data, there is a problem which we may not see yet: Dates
+are not in a standard date format (YYYY-MM-DD). We can fix this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace mm.yyyy to date format</span>
+<span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;%m.%Y&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With Pandas it is possible to do a lot more (adjusting missing values, fixing
+inconsistencies, changing format).</p>
+</section>
+<section id="what-is-in-a-dataframe">
+<h2>What is in a dataframe?<a class="headerlink" href="#what-is-in-a-dataframe" title="Link to this heading"></a></h2>
+<p>The name pandas is derived from the term “<strong>pan</strong>el <strong>da</strong>ta”.</p>
+<figure class="align-default" id="id1">
+<img alt="A pandas dataframe object is composed of rows and columns." src="../_images/dataframe.svg" />
+<figcaption>
+<p><span class="caption-text">A pandas dataframe object is composed of rows and columns.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Let us explore these together in the notebook (run these in separate cells):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># print an overview of the dataset</span>
+<span class="n">data_monthly</span>
+
+<span class="c1"># print the first 5 rows</span>
+<span class="n">data_monthly</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+
+<span class="c1"># print the last 5 rows</span>
+<span class="n">data_monthly</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+
+<span class="c1"># print all column titles - no parentheses here</span>
+<span class="n">data_monthly</span><span class="o">.</span><span class="n">columns</span>
+
+<span class="c1"># show which data types were detected</span>
+<span class="n">data_monthly</span><span class="o">.</span><span class="n">dtypes</span>
+
+<span class="c1"># print table dimensions - no parentheses here</span>
+<span class="n">data_monthly</span><span class="o">.</span><span class="n">shape</span>
+
+<span class="c1"># print one column</span>
+<span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span>
+
+<span class="c1"># get some statistics</span>
+<span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+<span class="c1"># what was the maximum temperature?</span>
+<span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+
+<span class="c1"># print all rows where max temperature was above 20</span>
+<span class="n">data_monthly</span><span class="p">[</span><span class="n">data_monthly</span><span class="p">[</span><span class="s2">&quot;max temperature&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">20.0</span><span class="p">]</span>
+</pre></div>
+</div>
+</section>
+<section id="where-to-learn-more-about-pandas">
+<h2>Where to learn more about pandas<a class="headerlink" href="#where-to-learn-more-about-pandas" title="Link to this heading"></a></h2>
+<p>Pandas is extremely powerful and there is a lot that can be done and there are
+great resources to explore more:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/getting_started.html">Getting started guide</a>
+(including tutorials and a 10 minute flash intro)</p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/10min.html">10 minutes to pandas tutorial</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/">Pandas documentation</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/Pandas_Cheat_Sheet.pdf">Cheatsheet</a></p></li>
+<li><p><a class="reference external" href="https://pandas.pydata.org/docs/user_guide/cookbook.html#cookbook">Cookbook</a></p></li>
+<li><p><a class="reference external" href="https://datacarpentry.org/python-ecology-lesson/">Data Carpentry lesson</a> “Data Analysis and Visualization in Python for Ecologists”
+(useful not only for ecologists)</p></li>
+</ul>
+</section>
+<section id="plotting-the-data">
+<h2>Plotting the data<a class="headerlink" href="#plotting-the-data" title="Link to this heading"></a></h2>
+<p>Now let’s plot the data. We will start with a plot that is not optimal and
+then we will explore and improve a bit as we go:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;precipitation&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id2">
+<img alt="Monthly precipitation for the cities Oslo and Tromsø over the course of a year." src="../_images/precipitation-on-top.svg" />
+<figcaption>
+<p><span class="caption-text">Monthly precipitation for the cities Oslo and Tromsø over the course of a year.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-let-us-pause-and-explain-the-code discussion important admonition" id="discussion-0">
+<p class="admonition-title">Let us pause and explain the code</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">alt</span></code> is a short-hand for <code class="docutils literal notranslate"><span class="pre">altair</span></code> which we imported on top of the notebook</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Chart()</span></code> is a function defined inside <code class="docutils literal notranslate"><span class="pre">altair</span></code> which takes the data as argument</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">mark_bar()</span></code> is a function that produces bar charts</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">encode()</span></code> is a function which encodes data columns to <strong>visual channels</strong></p></li>
+</ul>
+<p>Observe how we connect (encode) <strong>visual channels</strong> to data columns:</p>
+<ul class="simple">
+<li><p>x-coordinate with “date”</p></li>
+<li><p>y-coordinate with “precipitation”</p></li>
+<li><p>color with “name” (name of weather station; city)</p></li>
+</ul>
+</div>
+<p>We can improve the plot by giving Vega-Altair a bit more information that the
+x-axis is <strong>temporal</strong> (T) and that we would like to see the year and
+month (yearmonth):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="hll">    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;yearmonth(date):T&quot;</span><span class="p">,</span>
+</span>    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;precipitation&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Apart from T (temporal), there are other
+<a class="reference external" href="https://altair-viz.github.io/user_guide/encodings/index.html#encoding-data-types">encoding data types</a>:</p>
+<ul class="simple">
+<li><p>Q (quantitative)</p></li>
+<li><p>O (ordinal)</p></li>
+<li><p>N (nominal)</p></li>
+<li><p>T (temporal)</p></li>
+<li><p>G (geojson)</p></li>
+</ul>
+<figure class="align-default" id="id3">
+<img alt="Monthly precipitation for the cities Oslo and Tromsø over the course of a year." src="../_images/precipitation-on-top-yearmonth.svg" />
+<figcaption>
+<p><span class="caption-text">Monthly precipitation for the cities Oslo and Tromsø over the course of a year.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Let us improve the plot with another one-line change:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;yearmonth(date):T&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;precipitation&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id4">
+<img alt="Monthly precipitation for the cities Oslo and Tromsø over the course of a year with with both cities plotted side by side." src="../_images/precipitation-side.svg" />
+<figcaption>
+<p><span class="caption-text">Monthly precipitation for the cities Oslo and Tromsø over the course of a year with with both cities plotted side by side.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>With another one-line change we can make the bar chart stacked:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;yearmonth(date):T&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;precipitation&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">xOffset</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id5">
+<img alt="Monthly precipitation for the cities Oslo and Tromsø over the course of a year with with both cities plotted side by side." src="../_images/precipitation-stacked-x.svg" />
+<figcaption>
+<p><span class="caption-text">Monthly precipitation for the cities Oslo and Tromsø over the course of a year
+plotted as stacked bar chart.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>This is not publication-quality yet but a really good start!</p>
+<p>Let us try one more example where we can nicely see how Vega-Altair
+is able to map visual channels to data columns:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;yearmonth(date):T&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;max temperature&quot;</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="s2">&quot;min temperature&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id6">
+<img alt="Monthly temperature ranges for two cities in Norway." src="../_images/temperature-ranges-combined.svg" />
+<figcaption>
+<p><span class="caption-text">Monthly temperature ranges for two cities in Norway.</span><a class="headerlink" href="#id6" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<div class="admonition-what-other-marks-and-other-visual-channels-exist discussion important admonition" id="discussion-1">
+<p class="admonition-title">What other marks and other visual channels exist?</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://altair-viz.github.io/user_guide/marks/index.html">Overview of available marks</a></p></li>
+<li><p><a class="reference external" href="https://altair-viz.github.io/user_guide/encodings/channels.html">Overview of available visual channels</a></p></li>
+<li><p><a class="reference external" href="https://altair-viz.github.io/gallery/index.html">Gallery of examples</a></p></li>
+</ul>
+</div>
+</section>
+<section id="exercise-using-visual-channels-to-re-arrange-plots">
+<h2>Exercise: Using visual channels to re-arrange plots<a class="headerlink" href="#exercise-using-visual-channels-to-re-arrange-plots" title="Link to this heading"></a></h2>
+<div class="admonition-exercise-plotting-1-using-visual-channels-to-re-arrange-plots exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise Plotting-1: Using visual channels to re-arrange plots</p>
+<ol class="arabic">
+<li><p>Try to reproduce the above plots if they are not already in your notebook.</p></li>
+<li><p>Above we have plotted the monthly precipitation for two cities side by side
+using a stacked plot. Try to arrive at the following plot where months are
+along the y-axis and the precipitation amount is along the x-axis:</p>
+<figure class="align-default">
+<img alt="../_images/precipitation-stacked-y.svg" src="../_images/precipitation-stacked-y.svg" />
+</figure>
+</li>
+<li><p>Ask the Internet or AI how to change the axis title from “precipitation”
+to “Precipitation (mm)”.</p></li>
+<li><p>Modify the temperature range plot to show the temperature ranges for the
+two cities side by side like this:</p>
+<figure class="align-default">
+<img alt="../_images/temperature-ranges-side.svg" src="../_images/temperature-ranges-side.svg" />
+</figure>
+</li>
+</ol>
+<div class="admonition-solution solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution</p>
+<ol class="arabic">
+<li><p>Copy-paste code blocks from above.</p></li>
+<li><p>Basically we switched x and y:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+<span class="hll">    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;yearmonth(date):T&quot;</span><span class="p">,</span>
+</span><span class="hll">    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;precipitation&quot;</span><span class="p">,</span>
+</span>    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">yOffset</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>This can be done with the following modification:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;yearmonth(date):T&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">x</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">X</span><span class="p">(</span><span class="s2">&quot;precipitation&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Precipitation (mm)&quot;</span><span class="p">),</span>
+</span>    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+    <span class="n">yOffset</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>We added one line:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_monthly</span><span class="p">)</span><span class="o">.</span><span class="n">mark_area</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;yearmonth(date):T&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;max temperature&quot;</span><span class="p">,</span>
+    <span class="n">y2</span><span class="o">=</span><span class="s2">&quot;min temperature&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="more-fun-with-visual-channels">
+<h2>More fun with visual channels<a class="headerlink" href="#more-fun-with-visual-channels" title="Link to this heading"></a></h2>
+<p>Now we will try to <strong>plot the daily data and look at snow depths</strong>. We first
+read and concatenate two datasets:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">url_prefix</span> <span class="o">=</span> <span class="s2">&quot;https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/data/&quot;</span>
+
+<span class="n">data_tromso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_prefix</span> <span class="o">+</span> <span class="s2">&quot;tromso-daily.csv&quot;</span><span class="p">)</span>
+<span class="n">data_oslo</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url_prefix</span> <span class="o">+</span> <span class="s2">&quot;oslo-daily.csv&quot;</span><span class="p">)</span>
+
+<span class="n">data_daily</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">data_tromso</span><span class="p">,</span> <span class="n">data_oslo</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We adjust the data a bit:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># replace dd.mm.yyyy to date format</span>
+<span class="n">data_daily</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">data_daily</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">%d</span><span class="s2">.%m.%Y&quot;</span><span class="p">)</span>
+
+<span class="c1"># we are here only interested in the range december to may</span>
+<span class="n">data_daily</span> <span class="o">=</span> <span class="n">data_daily</span><span class="p">[</span>
+    <span class="p">(</span><span class="n">data_daily</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="s2">&quot;2022-12-01&quot;</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data_daily</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="s2">&quot;2023-05-01&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Now we can plot the snow depths for the months December to May for the two
+cities:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_daily</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;snow depth&quot;</span><span class="p">,</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id7">
+<img alt="Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway." src="../_images/snow-depth.svg" />
+<figcaption>
+<p><span class="caption-text">Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway.</span><a class="headerlink" href="#id7" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>What happens if we try to color the plot by the “max temperature” values?</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_daily</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;snow depth&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;max temperature&quot;</span><span class="p">,</span>
+</span>    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>The result looks neat:</p>
+<figure class="align-default" id="id8">
+<img alt="Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature." src="../_images/snow-depth-color.svg" />
+<figcaption>
+<p><span class="caption-text">Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature.</span><a class="headerlink" href="#id8" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>We can change the color scheme (<a class="reference external" href="https://vega.github.io/vega/docs/schemes/">available color schemes</a>):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_daily</span><span class="p">)</span><span class="o">.</span><span class="n">mark_bar</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;snow depth&quot;</span><span class="p">,</span>
+<span class="hll">    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;max temperature&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">),</span>
+</span>    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>With the following result:</p>
+<figure class="align-default" id="id9">
+<img alt="Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature. Warmer days are often followed by reduced snow depth." src="../_images/snow-depth-plasma.svg" />
+<figcaption>
+<p><span class="caption-text">Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature. Warmer days are often followed by reduced snow depth.</span><a class="headerlink" href="#id9" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Let’s try one more change to show that we can experiment with different
+plot types by changing <code class="docutils literal notranslate"><span class="pre">mark_bar()</span></code> to something else, in this case <code class="docutils literal notranslate"><span class="pre">mark_circle()</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll"><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data_daily</span><span class="p">)</span><span class="o">.</span><span class="n">mark_circle</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+</span>    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;date&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;snow depth&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">Color</span><span class="p">(</span><span class="s2">&quot;max temperature&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">scale</span><span class="p">(</span><span class="n">scheme</span><span class="o">=</span><span class="s2">&quot;plasma&quot;</span><span class="p">),</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;name&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id10">
+<img alt="Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature. Warmer days are often followed by reduced snow depth." src="../_images/snow-depth-circles.svg" />
+<figcaption>
+<p><span class="caption-text">Snow depth (in cm) for the months December 2022 to May 2023 for two cities in Norway. Colored by daily max temperature. Warmer days are often followed by reduced snow depth.</span><a class="headerlink" href="#id10" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="themes">
+<h2>Themes<a class="headerlink" href="#themes" title="Link to this heading"></a></h2>
+<p>In <a class="reference external" href="https://altair-viz.github.io/">Vega-Altair</a> you can change the theme and
+select from a long <a class="reference external" href="https://github.com/vega/vega-themes">list of themes</a>.  On
+top of your notebook try to add:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">alt</span><span class="o">.</span><span class="n">themes</span><span class="o">.</span><span class="n">enable</span><span class="p">(</span><span class="s1">&#39;dark&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Then re-run all cells. Later you can try some other themes such as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">fivethirtyeight</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">latimes</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">urbaninstitute</span></code></p></li>
+</ul>
+<p>You can even define your own themes!</p>
+</section>
+<section id="exercise-anscombe-s-quartet">
+<h2>Exercise: Anscombe’s quartet<a class="headerlink" href="#exercise-anscombe-s-quartet" title="Link to this heading"></a></h2>
+<p>Save the following data as <code class="docutils literal notranslate"><span class="pre">example.csv</span></code> (you can do this directly from
+JupyterLab; this data is the <a class="reference external" href="https://en.wikipedia.org/wiki/Anscombe%27s_quartet">Anscombe’s
+quartet</a>):</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>dataset,x,y
+I,10.0,8.04
+I,8.0,6.95
+I,13.0,7.58
+I,9.0,8.81
+I,11.0,8.33
+I,14.0,9.96
+I,6.0,7.24
+I,4.0,4.26
+I,12.0,10.84
+I,7.0,4.82
+I,5.0,5.68
+II,10.0,9.14
+II,8.0,8.14
+II,13.0,8.74
+II,9.0,8.77
+II,11.0,9.26
+II,14.0,8.1
+II,6.0,6.13
+II,4.0,3.1
+II,12.0,9.13
+II,7.0,7.26
+II,5.0,4.74
+III,10.0,7.46
+III,8.0,6.77
+III,13.0,12.74
+III,9.0,7.11
+III,11.0,7.81
+III,14.0,8.84
+III,6.0,6.08
+III,4.0,5.39
+III,12.0,8.15
+III,7.0,6.42
+III,5.0,5.73
+IV,8.0,6.58
+IV,8.0,5.76
+IV,8.0,7.71
+IV,8.0,8.84
+IV,8.0,8.47
+IV,8.0,7.04
+IV,8.0,5.25
+IV,19.0,12.5
+IV,8.0,5.56
+IV,8.0,7.91
+IV,8.0,6.89
+</pre></div>
+</div>
+<div class="admonition-exercise-plotting-2-read-and-plot-a-csv-file exercise important admonition" id="exercise-1">
+<p class="admonition-title">Exercise Plotting-2: Read and plot a CSV file</p>
+<ul class="simple">
+<li><p>Save the above CSV file to disk as <code class="docutils literal notranslate"><span class="pre">example.csv</span></code> in the same folder where
+you run JupyterLab. We recommend to create the file in the JupyterLab
+interface.</p></li>
+<li><p>Plot the data using <code class="docutils literal notranslate"><span class="pre">mark_point</span></code>.</p></li>
+<li><p>Your goal is to arrive at four plots for the four data sets, all side by side.</p></li>
+<li><p>If you have time, try to customize the plot.</p></li>
+</ul>
+<div class="admonition-solution solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># we don&#39;t need to import again but just in case you started here</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;example.csv&quot;</span><span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="n">column</span><span class="o">=</span><span class="s2">&quot;dataset&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Here is a more advanced example where the four plots are arranged
+in a 2 x 2 grid:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_chart</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">number</span><span class="p">):</span>
+    <span class="n">chart</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">transform_filter</span><span class="p">(</span><span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">dataset</span> <span class="o">==</span> <span class="n">number</span><span class="p">)</span>
+        <span class="o">.</span><span class="n">mark_point</span><span class="p">()</span>
+        <span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">chart</span>
+
+
+<span class="n">chart1</span> <span class="o">=</span> <span class="n">create_chart</span><span class="p">(</span><span class="n">data_example</span><span class="p">,</span> <span class="s2">&quot;I&quot;</span><span class="p">)</span>
+<span class="n">chart2</span> <span class="o">=</span> <span class="n">create_chart</span><span class="p">(</span><span class="n">data_example</span><span class="p">,</span> <span class="s2">&quot;II&quot;</span><span class="p">)</span>
+<span class="n">chart3</span> <span class="o">=</span> <span class="n">create_chart</span><span class="p">(</span><span class="n">data_example</span><span class="p">,</span> <span class="s2">&quot;III&quot;</span><span class="p">)</span>
+<span class="n">chart4</span> <span class="o">=</span> <span class="n">create_chart</span><span class="p">(</span><span class="n">data_example</span><span class="p">,</span> <span class="s2">&quot;IV&quot;</span><span class="p">)</span>
+
+<span class="n">chart</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">vconcat</span><span class="p">(</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">hconcat</span><span class="p">(</span><span class="n">chart1</span><span class="p">,</span> <span class="n">chart2</span><span class="p">),</span>
+    <span class="n">alt</span><span class="o">.</span><span class="n">hconcat</span><span class="p">(</span><span class="n">chart3</span><span class="p">,</span> <span class="n">chart4</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">chart</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="admonition-keypoints keypoints admonition" id="keypoints-0">
+<p class="admonition-title">Keypoints</p>
+<ul class="simple">
+<li><p>Browse a number of example galleries to help you choose the library
+that fits best your work/style.</p></li>
+<li><p>Minimize manual post-processing and try to script all steps.</p></li>
+<li><p>CSV (comma-separated values) files are often a good format to store the data
+that we wish to plot.</p></li>
+<li><p>Read the data into a Pandas dataframe and then plot it with Vega-Altair
+where you connect data columns to
+<a class="reference external" href="https://altair-viz.github.io/user_guide/encodings/channels.html">visual channels</a>.</p></li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../python-basics/" class="btn btn-neutral float-left" title="Python basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../tidy-data/" class="btn btn-neutral float-right" title="Tidy data and dealing with messy data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
