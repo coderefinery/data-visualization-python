@@ -75,8 +75,8 @@ Day 2 morning:
 - {doc}`gallery`
 
 Day 3 morning:
-- {doc}`sharing`
 - How to find help and how to navigate the documentation
+- {doc}`sharing`
 
 
 ```{toctree}
@@ -103,7 +103,7 @@ colab.md
 
 ```{toctree}
 :maxdepth: 1
-:caption: Optional/extra
+:caption: Leftover from previous versions
 
 parsing-custom-format.md
 ```
