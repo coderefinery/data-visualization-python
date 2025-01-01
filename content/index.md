@@ -24,12 +24,12 @@ and share **reproducible plots** using
 - Persons who already use Python for this but want to learn about libraries
   to simplify common tasks and about how to share their workflow in a reproducible way.
 
-```{prereq} Preparations
-- No programming langauge experience needed, we will start from zero and learn the basics together
+:::{prereq} Preparations
+- No programming language experience needed, we will start from zero and learn the basics together
 - Computer with network access
 - {doc}`installation`
 - Bring one of your recent plotting tasks or challenges
-```
+:::
 
 
 ## What is not taught?
