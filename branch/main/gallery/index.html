@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Learning how to adapt existing gallery examples &mdash; Data visualization using Python and Vega-Altair  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=e4194741" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Sharing plots and notebooks" href="../sharing/" />
+    <link rel="prev" title="Customizing plots" href="../customizing-plots/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python and Vega-Altair
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting/">Plotting with Vega-Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Learning how to adapt existing gallery examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing plots and notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Leftover from previous versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../parsing-custom-format/">Reading data in custom format</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python and Vega-Altair</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Learning how to adapt existing gallery examples</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/gallery.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="learning-how-to-adapt-existing-gallery-examples">
+<h1>Learning how to adapt existing gallery examples<a class="headerlink" href="#learning-how-to-adapt-existing-gallery-examples" title="Link to this heading"></a></h1>
+<p>In this exercise we can try to adapt existing scripts to either <strong>tweak how the
+plot looks</strong> or to <strong>modify the input data</strong>.  This is very close to real life:
+there are so many options and possibilities and it is almost impossible to
+remember everything so this strategy is useful to practice:</p>
+<ul class="simple">
+<li><p>Select an example that is close to what you have in mind</p></li>
+<li><p>Being able to adapt it to your needs</p></li>
+<li><p>Being able to search for help</p></li>
+</ul>
+<div class="admonition-exercise-adapting-a-gallery-example exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise: Adapting a gallery example</p>
+<p><strong>This is a great exercise which is very close to real life.</strong></p>
+<ul class="simple">
+<li><p>Browse the <a class="reference external" href="https://altair-viz.github.io/gallery/index.html">Vega-Altair example gallery</a>.</p></li>
+<li><p>Select one example that is close to your current/recent visualization project
+or simply interests you.</p></li>
+<li><p>First try to reproduce this example, as-is, in the Jupyter Notebook.</p></li>
+<li><p><strong>If you get the error “ModuleNotFoundError: No module named
+‘vega_datasets’”, then try one of these examples:</strong> (they do not need the “vega_datasets” module)</p>
+<ul>
+<li><p><a class="reference external" href="https://altair-viz.github.io/gallery/slider_cutoff.html">Slider cutoff</a>
+(<strong>below you can find a walk-through for this example</strong>)</p></li>
+<li><p><a class="reference external" href="https://altair-viz.github.io/gallery/multiline_tooltip_standard.html">Multi-Line tooltip</a></p></li>
+<li><p><a class="reference external" href="https://altair-viz.github.io/gallery/simple_heatmap.html">Heatmap</a></p></li>
+<li><p><a class="reference external" href="https://altair-viz.github.io/gallery/layered_histogram.html">Layered histogram</a></p></li>
+</ul>
+</li>
+<li><p>Then try to print out the data that is used in this example just before the call of the plotting function
+to learn about its structure. Consider writing the data to file before changing it.</p></li>
+<li><p>Then try to modify the data a bit.</p></li>
+<li><p>If you have time, try to feed it different, simplified data.
+<strong>This will be key for adapting the examples to your projects.</strong></p></li>
+</ul>
+<div class="admonition-example-walk-through-for-the-slider-cutoff-example solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Example walk-through for the slider cutoff example</p>
+<p>In this walk-through I imagine browsing: <a class="reference external" href="https://altair-viz.github.io/gallery/index.html">https://altair-viz.github.io/gallery/index.html</a></p>
+<p>Then this example caught my eye: <a class="reference external" href="https://altair-viz.github.io/gallery/slider_cutoff.html">https://altair-viz.github.io/gallery/slider_cutoff.html</a></p>
+<p>I then copy-paste the example code into a notebook and try to run it and I get
+the same result.</p>
+<p>Next, there is a lot of code that I don’t (need to) understand yet but my eyes are trying to find
+<code class="docutils literal notranslate"><span class="pre">alt.Chart</span></code> which tells me that the data must be the “df” in <code class="docutils literal notranslate"><span class="pre">alt.Chart(df)</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;xval&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;yval&#39;</span><span class="p">:</span> <span class="n">rand</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="n">slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cutoff</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">slider</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="hll"><span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+</span>    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;xval&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;yval&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">xval</span> <span class="o">&lt;</span> <span class="n">cutoff</span><span class="p">,</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span>
+    <span class="n">cutoff</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>My next step will be to print out the data <code class="docutils literal notranslate"><span class="pre">df</span></code> just before the call to <code class="docutils literal notranslate"><span class="pre">alt.Chart</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">rand</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;xval&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span>
+    <span class="s1">&#39;yval&#39;</span><span class="p">:</span> <span class="n">rand</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+<span class="p">})</span>
+
+<span class="n">slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cutoff</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">slider</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="hll"><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;xval&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;yval&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">xval</span> <span class="o">&lt;</span> <span class="n">cutoff</span><span class="p">,</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span>
+    <span class="n">cutoff</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>The print reveals that <code class="docutils literal notranslate"><span class="pre">df</span></code> is a dataframe which contains x and y values:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>    xval       yval
+0      0   0.496714
+1      1   0.358450
+2      2   1.006138
+3      3   2.529168
+4      4   2.295015
+..   ...        ...
+95    95 -10.712354
+96    96 -10.416233
+97    97 -10.155178
+98    98 -10.150065
+99    99 -10.384652
+
+[100 rows x 2 columns]
+</pre></div>
+</div>
+<p>The next thing that often helps me is to save the data to a comma-separated
+values (CSV) file:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;data.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>I then open the file in an editor and see that it contains 100 rows:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>xval,yval
+0,0.4967141530112327
+1,0.358449851840048
+2,1.0061383899407406
+3,2.5291682463487657
+4,2.2950148716254297
+5,2.060877914676249
+6,3.6400907301836405
+7,4.407525459336549
+8,3.938051073401597
+9,4.4806111169875615
+...
+</pre></div>
+</div>
+<p>Saving the data to file often helps me to see the structure of the data and now
+I am in a position to replace this with my own data. I create a file called
+“mydata.csv” and there I use the maximum temperatures for months 1-10 from the
+Tromso monthly data which we used further up:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>xval,yval
+01,7.7
+02,6.6
+03,4.5
+04,9.8
+05,17.7
+06,25.4
+07,26.7
+08,25.1
+09,19.3
+10,9.8
+</pre></div>
+</div>
+<p>In the notebook I then verify that the reading of the data works:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">mydata</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mydata.csv&quot;</span><span class="p">)</span>
+
+<span class="n">mydata</span>
+</pre></div>
+</div>
+<p>Now I can replace the example with my own data (note how I now can comment out
+some code that I don’t need any longer):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># import numpy as np</span>
+
+<span class="c1"># rand = np.random.RandomState(42)</span>
+
+<span class="c1"># df = pd.DataFrame({</span>
+<span class="c1">#     &#39;xval&#39;: range(100),</span>
+<span class="c1">#     &#39;yval&#39;: rand.randn(100).cumsum()</span>
+<span class="c1"># })</span>
+
+<span class="n">slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cutoff</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">slider</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">50</span><span class="p">)</span>
+
+<span class="c1"># print(df)</span>
+<span class="hll"><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mydata.csv&quot;</span><span class="p">)</span>
+</span>
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;xval&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;yval&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">xval</span> <span class="o">&lt;</span> <span class="n">cutoff</span><span class="p">,</span>
+        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span>
+    <span class="n">cutoff</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>Seems to work! I then make few more adjustments (I want the slider to work on
+the y-axis and have a more reasonable default):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span> <span class="k">as</span> <span class="nn">alt</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="hll"><span class="n">slider</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">binding_range</span><span class="p">(</span><span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</span><span class="hll"><span class="n">cutoff</span> <span class="o">=</span> <span class="n">alt</span><span class="o">.</span><span class="n">param</span><span class="p">(</span><span class="n">bind</span><span class="o">=</span><span class="n">slider</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;mydata.csv&quot;</span><span class="p">)</span>
+
+<span class="n">alt</span><span class="o">.</span><span class="n">Chart</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">.</span><span class="n">mark_point</span><span class="p">()</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="s1">&#39;xval&#39;</span><span class="p">,</span>
+    <span class="n">y</span><span class="o">=</span><span class="s1">&#39;yval&#39;</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="n">alt</span><span class="o">.</span><span class="n">condition</span><span class="p">(</span>
+<span class="hll">        <span class="n">alt</span><span class="o">.</span><span class="n">datum</span><span class="o">.</span><span class="n">yval</span> <span class="o">&lt;</span> <span class="n">cutoff</span><span class="p">,</span>
+</span>        <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;red&#39;</span><span class="p">),</span> <span class="n">alt</span><span class="o">.</span><span class="n">value</span><span class="p">(</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+    <span class="p">)</span>
+<span class="p">)</span><span class="o">.</span><span class="n">add_params</span><span class="p">(</span>
+    <span class="n">cutoff</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<p>My next steps would then be to change axis titles, display the month names, add
+a legend, and refine from here.</p>
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../customizing-plots/" class="btn btn-neutral float-left" title="Customizing plots" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../sharing/" class="btn btn-neutral float-right" title="Sharing plots and notebooks" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Software install instructions &mdash; Data visualization using Python and Vega-Altair  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=e4194741" />
+      <link rel="stylesheet" type="text/css" href="../_static/tabs.css?v=a5c4661c" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script src="../_static/tabs.js?v=3030b3cb"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Going through the course using Google Colab" href="../colab/" />
+    <link rel="prev" title="Sharing plots and notebooks" href="../sharing/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python and Vega-Altair
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting/">Plotting with Vega-Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/">Learning how to adapt existing gallery examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing plots and notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Software install instructions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#choosing-an-installation-method">Choosing an installation method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-python-via-miniforge">Installing Python via Miniforge</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-and-activating-the-software-environment">Installing and activating the software environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#starting-jupyterlab">Starting JupyterLab</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#removing-the-software-environment">Removing the software environment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-verify-your-installation">How to verify your installation</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Leftover from previous versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../parsing-custom-format/">Reading data in custom format</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python and Vega-Altair</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Software install instructions</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/installation.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="software-install-instructions">
+<span id="installation"></span><h1>Software install instructions<a class="headerlink" href="#software-install-instructions" title="Link to this heading"></a></h1>
+<p>[this page is adapted from <a class="reference external" href="https://aaltoscicomp.github.io/python-for-scicomp/installation/">https://aaltoscicomp.github.io/python-for-scicomp/installation/</a>]</p>
+<section id="choosing-an-installation-method">
+<h2>Choosing an installation method<a class="headerlink" href="#choosing-an-installation-method" title="Link to this heading"></a></h2>
+<p>For this course we will install an isolated environment
+with following dependencies:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">data-viz</span>
+<span class="nt">channels</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">conda-forge</span>
+<span class="nt">dependencies</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">python &lt;= 3.12</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jupyterlab</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">altair-all</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vega_datasets</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pandas</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">numpy</span>
+</pre></div>
+</div>
+<p>If you are used to installing packages in Python and know what to do with the
+above <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> file, please follow your own preferred installation
+method.</p>
+<p><strong>If you are new to Python or unsure</strong> how to create isolated environments in
+Python from files like the <code class="docutils literal notranslate"><span class="pre">environment.yml</span></code> above, please follow the
+instructions below.</p>
+<div class="admonition-there-are-many-choices-and-we-try-to-suggest-a-good-compromise discussion important admonition" id="discussion-0">
+<p class="admonition-title">There are many choices and we try to suggest a good compromise</p>
+<p>There are very many ways to install Python and packages with pros and cons and
+in addition there are several operating systems with their own quirks. This
+can be a huge challenge for beginners to navigate. It can also difficult for
+instructors to give recommendations for something which will work everywhere
+and which everybody will like.</p>
+<p>Below we will recommend <strong>Miniforge</strong> since it is free, open source, general,
+available on all operating systems, and provides a good basis for reproducible
+environments. However, it does not provide a graphical user interface during
+installation. This means that every time we want to start a JupyterLab session,
+we will have to go through the command line.</p>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Python, conda, anaconda, miniforge, etc?</p>
+<p>Unfortunately there are many options and a lot of jargon.
+Here is a crash course:</p>
+<ul class="simple">
+<li><p><strong>Python</strong> is a programming language very commonly used in
+science, it’s the topic of this course.</p></li>
+<li><p><strong>Conda</strong> is a package manager: it allows distributing and
+installing packages, and is designed for complex scientific
+code.</p></li>
+<li><p><strong>Mamba</strong> is a re-implementation of Conda to be much faster with
+resolving dependencies and installing things.</p></li>
+<li><p>An <strong>Environment</strong> is a self-contained collections of packages
+which can be installed separately from others.  They are used so
+each project can install what it needs without affecting others.</p></li>
+<li><p><strong>Anaconda</strong> is a commercial distribution of Python+Conda+many
+packages that all work together.  It used to be freely usable for
+research, but since ~2023-2024 it’s more limited.  Thus, we don’t
+recommend it (even though it has a nice graphical user interface).</p></li>
+<li><p><strong>conda-forge</strong> is another channel of distributing packages that
+is maintained by the community, and thus can be used by anyone.
+(Anaconda’s parent company also hosts conda-forge packages)</p></li>
+<li><p><strong>miniforge</strong> is a distribution of conda pre-configured for
+conda-forge.  It operates via the command line.</p></li>
+<li><p><strong>miniconda</strong> is a distribution of conda pre-configured to use
+the Anaconda channels.</p></li>
+</ul>
+</div>
+</section>
+<section id="installing-python-via-miniforge">
+<h2>Installing Python via Miniforge<a class="headerlink" href="#installing-python-via-miniforge" title="Link to this heading"></a></h2>
+<p>Follow the <a class="reference external" href="https://github.com/conda-forge/miniforge">instructions on the miniforge web page</a>.  This installs
+the base, and from here other packages can be installed.</p>
+</section>
+<section id="installing-and-activating-the-software-environment">
+<h2>Installing and activating the software environment<a class="headerlink" href="#installing-and-activating-the-software-environment" title="Link to this heading"></a></h2>
+<p>First we will start Python in a way that activates conda/mamba.  Then we will
+install the software environment from <a class="reference external" href="https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml">this environment.yml
+file</a>.</p>
+<p>An <strong>environment</strong> is a self-contained set of extra libraries - different
+projects can use different environments to not interfere with each other.  This
+environment will have all of the software needed for this particular course.</p>
+<p>We will call the environment <code class="docutils literal notranslate"><span class="pre">data-viz</span></code>.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-0-V2luZG93cw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-0-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="0">Windows</button><button aria-controls="panel-0-TGludXggLyBNYWNPUw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-0-TGludXggLyBNYWNPUw==" name="TGludXggLyBNYWNPUw==" role="tab" tabindex="-1">Linux / MacOS</button></div><div aria-labelledby="tab-0-V2luZG93cw==" class="sphinx-tabs-panel group-tab" id="panel-0-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><p>Use the “Miniforge Prompt” to start Miniforge.  This
+will set up everything so that <code class="docutils literal notranslate"><span class="pre">conda</span></code> and <code class="docutils literal notranslate"><span class="pre">mamba</span></code> are
+available.
+Then type
+(without the <code class="docutils literal notranslate"><span class="pre">$</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>data-viz<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-0-TGludXggLyBNYWNPUw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-0-TGludXggLyBNYWNPUw==" name="TGludXggLyBNYWNPUw==" role="tabpanel" tabindex="0"><p>Each time you start a new command line terminal,
+you can activate Miniforge by running
+(without the <code class="docutils literal notranslate"><span class="pre">$</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>~/miniforge3/bin/activate
+</pre></div>
+</div>
+<p>This is needed so that
+Miniforge is usable wherever you need, but doesn’t affect any
+other software on your computer (this is not needed if you
+choose “Do you wish to update your shell profile to
+automatically initialize conda?”, but then it will always be
+active).</p>
+<p>In the second step, we will install the software environment:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mamba<span class="w"> </span>env<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>data-viz<span class="w"> </span>-f<span class="w"> </span>https://raw.githubusercontent.com/coderefinery/data-visualization-python/main/software/environment.yml
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="starting-jupyterlab">
+<h2>Starting JupyterLab<a class="headerlink" href="#starting-jupyterlab" title="Link to this heading"></a></h2>
+<p>Every time we want to start a JupyterLab session,
+we will have to go through the command line and first
+activate the <code class="docutils literal notranslate"><span class="pre">data-viz</span></code> environment.</p>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-1-V2luZG93cw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-1-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="0">Windows</button><button aria-controls="panel-1-TGludXggLyBNYWNPUw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-1-TGludXggLyBNYWNPUw==" name="TGludXggLyBNYWNPUw==" role="tab" tabindex="-1">Linux / MacOS</button></div><div aria-labelledby="tab-1-V2luZG93cw==" class="sphinx-tabs-panel group-tab" id="panel-1-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><p>Start the Miniforge Prompt. Then type
+(without the <code class="docutils literal notranslate"><span class="pre">$</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>activate<span class="w"> </span>data-viz
+<span class="gp">$ </span>jupyter-lab
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-1-TGludXggLyBNYWNPUw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-1-TGludXggLyBNYWNPUw==" name="TGludXggLyBNYWNPUw==" role="tabpanel" tabindex="0"><p>Start the terminal and in the terminal, type
+(without the <code class="docutils literal notranslate"><span class="pre">$</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>~/miniforge3/bin/activate
+<span class="gp">$ </span>conda<span class="w"> </span>activate<span class="w"> </span>data-viz
+<span class="gp">$ </span>jupyter-lab
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="removing-the-software-environment">
+<h2>Removing the software environment<a class="headerlink" href="#removing-the-software-environment" title="Link to this heading"></a></h2>
+<div class="sphinx-tabs docutils container">
+<div aria-label="Tabbed content" class="closeable" role="tablist"><button aria-controls="panel-2-V2luZG93cw==" aria-selected="true" class="sphinx-tabs-tab group-tab" id="tab-2-V2luZG93cw==" name="V2luZG93cw==" role="tab" tabindex="0">Windows</button><button aria-controls="panel-2-TGludXggLyBNYWNPUw==" aria-selected="false" class="sphinx-tabs-tab group-tab" id="tab-2-TGludXggLyBNYWNPUw==" name="TGludXggLyBNYWNPUw==" role="tab" tabindex="-1">Linux / MacOS</button></div><div aria-labelledby="tab-2-V2luZG93cw==" class="sphinx-tabs-panel group-tab" id="panel-2-V2luZG93cw==" name="V2luZG93cw==" role="tabpanel" tabindex="0"><p>In the Miniforge Prompt, type
+(without the <code class="docutils literal notranslate"><span class="pre">$</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>list
+<span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> </span>--name<span class="w"> </span>data-viz
+<span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>list
+</pre></div>
+</div>
+</div><div aria-labelledby="tab-2-TGludXggLyBNYWNPUw==" class="sphinx-tabs-panel group-tab" hidden="true" id="panel-2-TGludXggLyBNYWNPUw==" name="TGludXggLyBNYWNPUw==" role="tabpanel" tabindex="0"><p>In the terminal, type
+(without the <code class="docutils literal notranslate"><span class="pre">$</span></code>):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>~/miniforge3/bin/activate
+<span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>list
+<span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>remove<span class="w"> </span>--name<span class="w"> </span>data-viz
+<span class="gp">$ </span>conda<span class="w"> </span>env<span class="w"> </span>list
+</pre></div>
+</div>
+</div></div>
+</section>
+<section id="how-to-verify-your-installation">
+<h2>How to verify your installation<a class="headerlink" href="#how-to-verify-your-installation" title="Link to this heading"></a></h2>
+<p><strong>Start JupyterLab</strong> (as described above).  It will hopefully open up your browser
+and look like this:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/testing-jupyter1.png"><img alt="JupyterLab opened in the browser" src="../_images/testing-jupyter1.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">JupyterLab opened in the browser. Click on the Python 3 tile.</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Once you clicked the Python 3 tile it should look like this:</p>
+<figure class="align-default" id="id2">
+<a class="reference internal image-reference" href="../_images/testing-jupyter2.png"><img alt="Python 3 notebook started" src="../_images/testing-jupyter2.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Python 3 notebook started.</span><a class="headerlink" href="#id2" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>Into that blue “cell” please type the following:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">altair</span>
+<span class="kn">import</span> <span class="nn">pandas</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;all good - ready for the course&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<figure class="align-default" id="id3">
+<a class="reference internal image-reference" href="../_images/testing-jupyter3.png"><img alt="Screenshot where we test to import required libraries." src="../_images/testing-jupyter3.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Please copy these lines and click on the “play”/”run” icon.</span><a class="headerlink" href="#id3" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>This is how it should look:</p>
+<figure class="align-default" id="id4">
+<a class="reference internal image-reference" href="../_images/testing-jupyter4.png"><img alt="Screenshot after successful import." src="../_images/testing-jupyter4.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Screenshot after successful import.</span><a class="headerlink" href="#id4" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+<p>If this worked, you are all set and can close JupyterLab (no need to save these
+changes).</p>
+<p>This is how it <strong>should not</strong> look:</p>
+<figure class="align-default" id="id5">
+<a class="reference internal image-reference" href="../_images/testing-jupyter5.png"><img alt="Required packages could not be found." src="../_images/testing-jupyter5.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Error: required packages could not be found.</span><a class="headerlink" href="#id5" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../sharing/" class="btn btn-neutral float-left" title="Sharing plots and notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../colab/" class="btn btn-neutral float-right" title="Going through the course using Google Colab" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

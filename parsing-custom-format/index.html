@@ -1,0 +1,277 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reading data in custom format &mdash; Data visualization using Python and Vega-Altair  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=e4194741" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="prev" title="Going through the course using Google Colab" href="../colab/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python and Vega-Altair
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python-basics/">Python basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting/">Plotting with Vega-Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/">Learning how to adapt existing gallery examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing plots and notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Leftover from previous versions</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reading data in custom format</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python and Vega-Altair</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Reading data in custom format</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/parsing-custom-format.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="reading-data-in-custom-format">
+<h1>Reading data in custom format<a class="headerlink" href="#reading-data-in-custom-format" title="Link to this heading"></a></h1>
+<p>From earlier episodes we know that storing data in standard formats can be
+convenient and we know about the tidy data format but <strong>sometimes we don’t have
+control over this</strong>: we may get a text file from another program or an
+instrument and now we are expected to deal with it.</p>
+<p>As an example, we got two text files from two different instruments. We wish to
+extract all frequencies and all intensities into two lists.</p>
+<p>This is one, <code class="docutils literal notranslate"><span class="pre">example1.txt</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>result from instrument: R2-D2
+------------------------------------------
+
+  measurement   frequency   intensity
+
+*     1           0.01       0.01
+*     2           0.02       0.02
+*     3           0.03       0.01
+*     4           0.04       0.10
+*     5           0.05       0.20
+*     6           0.06       0.12
+*     7           0.07       0.07
+*     8           0.08       0.02
+*     9           0.09       0.01
+*    10           0.10       0.01
+
+==========================================
+
+timestamp: Sat Mar 27 03:30:34 PM CET 2021
+</pre></div>
+</div>
+<p>And here is the other one, <code class="docutils literal notranslate"><span class="pre">example2.txt</span></code>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>result from instrument: C-3PO
+=============================
+
+  numbers we want: 10
+      0.01   0.01
+      0.02   0.02
+      0.03   0.01
+      0.04   0.10
+      0.05   0.20
+      0.06   0.12
+      0.07   0.07
+      0.08   0.02
+      0.09   0.01
+      0.10   0.01
+
+  unrelated numbers:
+      1.23   4.56
+      7.89   0.12
+</pre></div>
+</div>
+<p>At the end we want the code to produce these two lists:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">frequencies</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mf">0.04</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.09</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">]</span>
+<span class="n">intensities</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="admonition-discussion discussion important admonition" id="discussion-0">
+<p class="admonition-title">Discussion</p>
+<p>Before we discuss possible solutions, it can be a good exercise
+to <strong>describe in words</strong> what the code should do to extract the numbers.</p>
+</div>
+<p>Below you find possible solutions for these two examples. These are designed to
+be somehow understandable (which does not mean that the code is trivial) and are not as
+short and as elegant as they could be. One way to make them more elegant would
+be to use <a class="reference external" href="https://docs.python.org/3/howto/regex.html">regular expressions</a>.</p>
+<p>One solution for <code class="docutils literal notranslate"><span class="pre">example1.txt</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="c1"># we start with empty lists</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">intensities</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># open the file with read permissions</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># iterate over all lines in the file object &quot;f&quot;</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="c1"># we are only interested in lines that start with &quot;*&quot;</span>
+            <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;*&quot;</span><span class="p">):</span>
+                <span class="c1"># we split the line on &quot;whitespace&quot;</span>
+                <span class="c1"># the &quot;_&quot; means we are not interested in the first two entries</span>
+                <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">intensity</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+
+                <span class="c1"># add the new numbers to the lists</span>
+                <span class="c1"># we convert from string to float</span>
+                <span class="n">frequencies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">frequency</span><span class="p">))</span>
+                <span class="n">intensities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">intensity</span><span class="p">))</span>
+
+    <span class="c1"># function returns the result</span>
+    <span class="k">return</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">intensities</span>
+
+
+<span class="c1"># here we are outside the function</span>
+<span class="n">frequencies</span><span class="p">,</span> <span class="n">intensities</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;example1.txt&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">frequencies</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intensities</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>One solution for <code class="docutils literal notranslate"><span class="pre">example2.txt</span></code>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data</span><span class="p">(</span><span class="n">file_name</span><span class="p">):</span>
+    <span class="c1"># we start with empty lists</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">intensities</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># open the file with read permissions</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_name</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="c1"># iterate over all lines in the file object &quot;f&quot;</span>
+        <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+            <span class="c1"># we are only interested in lines that start with &quot;*&quot;</span>
+            <span class="k">if</span> <span class="s2">&quot;numbers we want&quot;</span> <span class="ow">in</span> <span class="n">line</span><span class="p">:</span>
+                <span class="c1"># we split the line on &quot;whitespace&quot;</span>
+                <span class="n">words</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                <span class="c1"># we are only interested in the last element</span>
+                <span class="c1"># -1 means last element in that list</span>
+                <span class="n">last_element</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+                <span class="c1"># convert from string to int</span>
+                <span class="n">num_measurements</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">last_element</span><span class="p">)</span>
+
+                <span class="c1"># now we know the next 10 lines are the interesting ones</span>
+                <span class="c1"># range(10) produces a list with 10 elements: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</span>
+                <span class="c1"># we use it to iterate exactly 10 times</span>
+                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_measurements</span><span class="p">):</span>
+                    <span class="c1"># this advances f by one and we get one line at a time</span>
+                    <span class="n">next_line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                    <span class="n">words</span> <span class="o">=</span> <span class="n">next_line</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="n">frequency</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">intensity</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">words</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                    <span class="c1"># add the new numbers to the lists</span>
+                    <span class="n">frequencies</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">frequency</span><span class="p">)</span>
+                    <span class="n">intensities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">intensity</span><span class="p">)</span>
+
+    <span class="c1"># function returns the result</span>
+    <span class="k">return</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">intensities</span>
+
+
+<span class="c1"># here we are outside the function</span>
+<span class="n">frequencies</span><span class="p">,</span> <span class="n">intensities</span> <span class="o">=</span> <span class="n">read_data</span><span class="p">(</span><span class="s2">&quot;example2.txt&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">frequencies</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">intensities</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../colab/" class="btn btn-neutral float-left" title="Going through the course using Google Colab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,624 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python basics &mdash; Data visualization using Python and Vega-Altair  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+      <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_lesson.css?v=e9df6548" />
+      <link rel="stylesheet" type="text/css" href="../_static/term_role_formatting.css?v=4194e21c" />
+      <link rel="stylesheet" type="text/css" href="../_static/sphinx_rtd_theme_ext_color_contrast.css?v=8e8ea19f" />
+      <link rel="stylesheet" type="text/css" href="../_static/style.css?v=e4194741" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=187304be"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+      <script src="../_static/minipres.js?v=a0d29692"></script>
+      <script>let toggleHintShow = 'Click to show';</script>
+      <script>let toggleHintHide = 'Click to hide';</script>
+      <script>let toggleOpenOnPrint = 'true';</script>
+      <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex/" />
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="next" title="Plotting with Vega-Altair" href="../plotting/" />
+    <link rel="prev" title="Jupyter Notebooks" href="../jupyter/" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../" class="icon icon-home">
+            Data visualization using Python and Vega-Altair
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search/" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Episodes</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../jupyter/">Jupyter Notebooks</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python basics</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#motivation-for-python">Motivation for Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-types">Basic types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-structures-for-collections-lists-dictionaries-sets-and-tuples">Data structures for collections: lists, dictionaries, sets, and tuples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iterating-over-collections">Iterating over collections</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reading-error-messages">Reading error messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#libraries">Libraries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#great-resources-to-learn-more">Great resources to learn more</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exercises">Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotting/">Plotting with Vega-Altair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tidy-data/">Tidy data and dealing with messy data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../customizing-plots/">Customizing plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gallery/">Learning how to adapt existing gallery examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sharing/">Sharing plots and notebooks</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Software install instructions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../colab/">Going through the course using Google Colab</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Leftover from previous versions</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../parsing-custom-format/">Reading data in custom format</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../">Data visualization using Python and Vega-Altair</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python basics</li>
+      <li class="wy-breadcrumbs-aside">
+              <a href="https://github.com/coderefinery/data-visualization-python/blob/main/content/python-basics.md" class="fa fa-github"> Edit on GitHub</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-basics">
+<h1>Python basics<a class="headerlink" href="#python-basics" title="Link to this heading"></a></h1>
+<div class="admonition-objectives objectives admonition" id="objectives-0">
+<p class="admonition-title">Objectives</p>
+<ul class="simple">
+<li><p>Knowing what types exist</p></li>
+<li><p>Knowing the most common data structures: lists, tuples, dictionaries, and sets</p></li>
+<li><p>Creating and using functions</p></li>
+<li><p>Knowing what a library is</p></li>
+<li><p>Knowing what <code class="docutils literal notranslate"><span class="pre">import</span></code> does</p></li>
+<li><p>Being able to “read” an error</p></li>
+</ul>
+</div>
+<section id="motivation-for-python">
+<h2>Motivation for Python<a class="headerlink" href="#motivation-for-python" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><strong>Free</strong></p></li>
+<li><p>Huge <strong>ecosystem of examples, libraries, and tools</strong></p></li>
+<li><p>Relatively easy to read and understand</p></li>
+<li><p>Similar in scope and use cases to R, Julia, and Matlab</p></li>
+</ul>
+</section>
+<section id="basic-types">
+<h2>Basic types<a class="headerlink" href="#basic-types" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># int</span>
+<span class="n">num_measurements</span> <span class="o">=</span> <span class="mi">13</span>
+
+<span class="c1"># float</span>
+<span class="n">some_fraction</span> <span class="o">=</span> <span class="mf">0.25</span>
+
+<span class="c1"># string</span>
+<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Bruce Wayne&quot;</span>
+
+<span class="c1"># bool</span>
+<span class="n">value_is_missing</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">skip_verification</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># we can print values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+
+<span class="c1"># and we can do arithmetics with ints and floats</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">*</span> <span class="n">num_measurements</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">some_fraction</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Python is <strong>dynamically typed</strong>:
+We do not have to define that an integer is an <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></a>, we can use it this way
+and Python will infer it.</p></li>
+<li><p>However, one can use <a class="reference external" href="https://docs.python.org/3/library/typing.html">type annotations</a> in Python
+(see also <a class="reference external" href="http://mypy-lang.org/">mypy</a>).</p></li>
+<li><p>Now you also know that we can add <code class="docutils literal notranslate"><span class="pre">#</span> <span class="pre">comments</span></code> to our code.</p></li>
+</ul>
+</section>
+<section id="data-structures-for-collections-lists-dictionaries-sets-and-tuples">
+<h2>Data structures for collections: lists, dictionaries, sets, and tuples<a class="headerlink" href="#data-structures-for-collections-lists-dictionaries-sets-and-tuples" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># lists are good when order is important</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="c1"># first element</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="c1"># we can add items to lists</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="c1"># lists can be sorted</span>
+<span class="n">scores</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span>
+
+<span class="c1"># dictionaries are useful if you want to look up</span>
+<span class="c1"># elements in a collection by something else than position</span>
+<span class="n">experiment</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Svalbard&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-03-23&quot;</span><span class="p">,</span> <span class="s2">&quot;num_measurements&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">experiment</span><span class="p">[</span><span class="s2">&quot;date&quot;</span><span class="p">])</span>
+
+<span class="c1"># we can add items to dictionaries</span>
+<span class="n">experiment</span><span class="p">[</span><span class="s2">&quot;instrument&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;a particular brand&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">experiment</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s2">&quot;instrument&quot;</span> <span class="ow">in</span> <span class="n">experiment</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;yes, the dictionary &#39;experiment&#39; contains the key &#39;instrument&#39;&quot;</span><span class="p">)</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no, it doesn&#39;t&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Lists</span></code></a> are good when order is important, and it
+needs to be changed</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dictionaries</span></code></a> are mappings key→value.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#set" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sets</span></code></a> are useful for unordered collections where you want to make sure that there are no repetitions.</p></li>
+<li><p>There are also <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.13)"><code class="xref py py-class docutils literal notranslate"><span class="pre">tuples</span></code></a> that are similar to lists but their items cannot be modified.</p></li>
+</ul>
+<p>You can put:</p>
+<ul class="simple">
+<li><p>dictionaries inside lists</p></li>
+<li><p>lists inside dictionaries</p></li>
+<li><p>dictionaries inside dictionaries</p></li>
+<li><p>lists inside lists</p></li>
+<li><p>tuples inside …</p></li>
+<li><p>…</p></li>
+</ul>
+</section>
+<section id="iterating-over-collections">
+<h2>Iterating over collections<a class="headerlink" href="#iterating-over-collections" title="Link to this heading"></a></h2>
+<p>Often we wish to iterate over collections.</p>
+<p>Iterating over a list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">score</span><span class="p">)</span>
+
+<span class="c1"># example with f-strings</span>
+<span class="k">for</span> <span class="n">score</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;the score is </span><span class="si">{</span><span class="n">score</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We don’t have to call the variable inside the for-loop “score”. This is up to us.
+We can do this instead (but is this more understandable for humans?):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scores</span> <span class="o">=</span> <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">scores</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Iterating over a dictionary:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">experiment</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;location&quot;</span><span class="p">:</span> <span class="s2">&quot;Svalbard&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">:</span> <span class="s2">&quot;2021-03-23&quot;</span><span class="p">,</span> <span class="s2">&quot;num_measurements&quot;</span><span class="p">:</span> <span class="mi">23</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">experiment</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">experiment</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+<span class="c1"># another way to iterate</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span> <span class="ow">in</span> <span class="n">experiment</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Link to this heading"></a></h2>
+<ul>
+<li><p>Functions are like <strong>reusable recipes</strong>. They receive ingredients (input arguments),
+then inside the function we do/compute something with these arguments,
+and they return a result.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</div>
+</li>
+<li><p>Together we write a function which sums all elements in a list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_all_elements</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function adds all elements.</span>
+<span class="sd">    This here is a docstring, a documentation string for a function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">element</span>
+    <span class="k">return</span> <span class="n">s</span>
+
+
+<span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">add_all_elements</span><span class="p">(</span><span class="n">measurements</span><span class="p">))</span>
+</pre></div>
+</div>
+</li>
+<li><p>We reuse this function to write a function which computes the mean:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="c1"># we are reusing add_all_elements written above</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="n">add_all_elements</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">/</span> <span class="n">n</span>
+
+
+<span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">mean</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+<li><p>Functions can call other functions. Functions can also get other functions as
+input arguments.</p></li>
+<li><p>Functions can return more than one thing:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">uppercase_and_lowercase</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">u</span><span class="p">,</span> <span class="n">l</span>
+
+
+<span class="n">some_text</span> <span class="o">=</span> <span class="s2">&quot;SequenceOfCharacters&quot;</span>
+<span class="n">uppercased_text</span><span class="p">,</span> <span class="n">lowercased_text</span> <span class="o">=</span> <span class="n">uppercase_and_lowercase</span><span class="p">(</span><span class="n">some_text</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">uppercased_text</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lowercased_text</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Why functions?</strong> Less repetition but also simplify reading and understanding code.</p>
+</section>
+<section id="reading-error-messages">
+<h2>Reading error messages<a class="headerlink" href="#reading-error-messages" title="Link to this heading"></a></h2>
+<p>Here we introduce a mistake and we together try to make sense of the traceback:</p>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="../_images/error.png"><img alt="Example error traceback" src="../_images/error.png" style="width: 100%;" />
+</a>
+<figcaption>
+<p><span class="caption-text">Example error traceback. Can you explain the error?</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Link to this heading"></a></h2>
+<p>We can look at libraries as collections of functions. We can import the libraries/modules
+and then reuse the functions defined inside these libraries.</p>
+<p>Try this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
+
+<span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">measurements</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>This means <code class="docutils literal notranslate"><span class="pre">numpy</span></code> contains a function called <code class="docutils literal notranslate"><span class="pre">std</span></code> which apparently computes the standard deviation
+(check also its <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.std.html">documentation</a>).</p>
+<p>Often you see this in tutorials (the module is imported and renamed to a shortcut):</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>It is possible to create own modules to collect own functions for reuse.</p>
+</section>
+<section id="great-resources-to-learn-more">
+<h2>Great resources to learn more<a class="headerlink" href="#great-resources-to-learn-more" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://realpython.com/">Real Python Tutorials</a> (great for beginners)</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/tutorial/index.html">The Python Tutorial</a> (great for beginners)</p></li>
+<li><p><a class="reference external" href="https://docs.python-guide.org/">The Hitchhiker’s Guide to Python!</a> (intermediate level)</p></li>
+</ul>
+</section>
+<section id="exercises">
+<h2>Exercises<a class="headerlink" href="#exercises" title="Link to this heading"></a></h2>
+<div class="admonition-exercise-create-a-function-that-computes-the-standard-deviation exercise important admonition" id="exercise-0">
+<p class="admonition-title">Exercise: create a function that computes the standard deviation</p>
+<ul>
+<li><p>Arithmetic mean:</p>
+<div class="math notranslate nohighlight">
+\[\bar{x} = \frac{1}{N} \sum_{i=1}^N x_i\]</div>
+</li>
+<li><p>Standard deviation:</p>
+<div class="math notranslate nohighlight">
+\[\sqrt{ \frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2 }\]</div>
+</li>
+<li><p>In other words the computation is similar but we need to sum over squares of differences and at the end take a square root.</p></li>
+<li><p>Take this as a starting point:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># we have written this one together previously</span>
+<span class="k">def</span> <span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">element</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">/</span> <span class="n">n</span>
+
+
+<span class="k">def</span> <span class="nf">standard_deviation</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="c1"># here we need to do some work:</span>
+    <span class="c1"># mean = ?</span>
+    <span class="c1"># s = ?</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</li>
+<li><p>If this is the input list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Then the result would be: 2.872…</p>
+</li>
+</ul>
+</div>
+<div class="admonition-solution-1-longer-but-hopefully-easier-to-understand solution important dropdown admonition" id="solution-0">
+<p class="admonition-title">Solution 1 (longer but hopefully easier to understand)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># we have written this one together previously</span>
+<span class="k">def</span> <span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">element</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s</span> <span class="o">/</span> <span class="n">n</span>
+
+
+<span class="c1"># notice how this function reuses the other</span>
+<span class="k">def</span> <span class="nf">standard_deviation</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+<span class="hll">    <span class="n">mean</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.0</span>
+</span><span class="hll">    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+</span><span class="hll">        <span class="n">s</span> <span class="o">+=</span> <span class="p">(</span><span class="n">element</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-solution-2-more-compact solution important dropdown admonition" id="solution-1">
+<p class="admonition-title">Solution 2 (more compact)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">arithmetic_mean</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">standard_deviation</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+<span class="hll">    <span class="n">mean</span> <span class="o">=</span> <span class="n">arithmetic_mean</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+</span><span class="hll">    <span class="n">s</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">x</span> <span class="o">-</span> <span class="n">mean</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">])</span>
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">sequence</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">s</span> <span class="o">/</span> <span class="n">n</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-exercise-working-with-a-dictionary exercise important admonition" id="exercise-1">
+<p class="admonition-title">Exercise: working with a dictionary</p>
+<ul>
+<li><p>We have this dictionary as a starting point:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grades</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Alice&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s2">&quot;Bob&quot;</span><span class="p">:</span> <span class="mi">95</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+<li><p>Add the grades of few more (fictious) persons to this dictionary.</p></li>
+<li><p>Print the entire dictionary.</p></li>
+<li><p>What happens when you add a name which already exists (with a different grade)?</p></li>
+<li><p>Print the grade for one particular person only.</p></li>
+<li><p>What happens when you try to print the result for a person that wasn’t there?</p></li>
+<li><p>Try also these:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonition-solution solution important dropdown admonition" id="solution-2">
+<p class="admonition-title">Solution</p>
+<p>We can add more people like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">grades</span><span class="p">[</span><span class="s2">&quot;Craig&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">56</span>
+<span class="n">grades</span><span class="p">[</span><span class="s2">&quot;Dave&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">28</span>
+<span class="n">grades</span><span class="p">[</span><span class="s2">&quot;Eve&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">75</span>
+</pre></div>
+</div>
+<p>Print the entire dictionary with:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We get:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;Alice&#39;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">:</span> <span class="mi">95</span><span class="p">,</span> <span class="s1">&#39;Craig&#39;</span><span class="p">:</span> <span class="mi">56</span><span class="p">,</span> <span class="s1">&#39;Dave&#39;</span><span class="p">:</span> <span class="mi">28</span><span class="p">,</span> <span class="s1">&#39;Eve&#39;</span><span class="p">:</span> <span class="mi">75</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>Adding an entry which already exists updates the entry (please try it).</p>
+<p>Printing the result for one particular person:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="p">[</span><span class="s2">&quot;Eve&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Printing the result for a person which does not exists, gives a <code class="docutils literal notranslate"><span class="pre">KeyError</span></code>.</p>
+<p>The outputs of these three:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">grades</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>… are either the only the keys or only the values, or in the case of <code class="docutils literal notranslate"><span class="pre">items()</span></code>,
+key-value pairs (tuples):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dict_keys</span><span class="p">([</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="s1">&#39;Craig&#39;</span><span class="p">,</span> <span class="s1">&#39;Dave&#39;</span><span class="p">,</span> <span class="s1">&#39;Eve&#39;</span><span class="p">])</span>
+<span class="n">dict_values</span><span class="p">([</span><span class="mi">80</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">75</span><span class="p">])</span>
+<span class="n">dict_items</span><span class="p">([(</span><span class="s1">&#39;Alice&#39;</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Bob&#39;</span><span class="p">,</span> <span class="mi">95</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Craig&#39;</span><span class="p">,</span> <span class="mi">56</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Dave&#39;</span><span class="p">,</span> <span class="mi">28</span><span class="p">),</span> <span class="p">(</span><span class="s1">&#39;Eve&#39;</span><span class="p">,</span> <span class="mi">75</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<p>The exercises below use
+<a class="reference external" href="https://docs.python.org/3/tutorial/controlflow.html#if-statements">if-statements</a>.</p>
+<div class="admonition-optional-exercise-homework-removing-duplicates exercise important admonition" id="exercise-2">
+<p class="admonition-title">Optional exercise/ homework: removing duplicates</p>
+<ul>
+<li><p>This list contains duplicates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Write a function which removes duplicates from the list and sorts the list.
+In this case it would produce:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonition-solution-1-longer-but-hopefully-easier-to-understand solution important dropdown admonition" id="solution-3">
+<p class="admonition-title">Solution 1 (longer but hopefully easier to understand)</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">sorted</span></code> sorts a sequence but it creates a new sequence.
+This is useful if you need a sorted result without changing the original sequence.</p>
+<p>We could have achieved the same result with <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list.sort" title="(in Python v3.13)"><code class="xref py py-meth docutils literal notranslate"><span class="pre">list.sort()</span></code></a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_duplicates_and_sort</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="n">new_sequence</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">new_sequence</span><span class="p">:</span>
+            <span class="n">new_sequence</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">new_sequence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-solution-2-more-compact solution important dropdown admonition" id="solution-4">
+<p class="admonition-title">Solution 2 (more compact)</p>
+<p>Converting to set removes duplicates.
+Then we convert back to list:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">remove_duplicates_and_sort</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="n">new_sequence</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">sequence</span><span class="p">))</span>
+    <span class="k">return</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">new_sequence</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-optional-exercise-homework-counting-how-often-an-item-appears exercise important admonition" id="exercise-3">
+<p class="admonition-title">Optional exercise/ homework: counting how often an item appears</p>
+<ul>
+<li><p>Back to our list with duplicates:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">measurements</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</li>
+<li><p>Your goal is to write a function which will return a dictionary mapping each
+number to how often it appears.
+In this case it would produce:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="mi">2</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">17</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">13</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">14</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">1</span><span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+<div class="admonition-solution-1-longer-but-hopefully-easier-to-understand solution important dropdown admonition" id="solution-5">
+<p class="admonition-title">Solution 1 (longer but hopefully easier to understand)</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">how_often</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">counts</span>
+</pre></div>
+</div>
+</div>
+<div class="admonition-solution-2-more-compact solution important dropdown admonition" id="solution-6">
+<p class="admonition-title">Solution 2 (more compact)</p>
+<p>The point of this solution is to show that
+for such common operations, ready-made functions and objects
+already exist and is is worth to check out the documentation
+about the <a class="reference external" href="https://docs.python.org/3/library/collections.html">collections module</a>.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span><span class="p">,</span> <span class="n">defaultdict</span>
+
+
+<span class="k">def</span> <span class="nf">how_often_alternative1</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">Counter</span><span class="p">(</span><span class="n">sequence</span><span class="p">))</span>
+
+
+<span class="k">def</span> <span class="nf">how_often_alternative2</span><span class="p">(</span><span class="n">sequence</span><span class="p">):</span>
+    <span class="n">counts</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">sequence</span><span class="p">:</span>
+        <span class="n">counts</span><span class="p">[</span><span class="n">element</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">counts</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../jupyter/" class="btn btn-neutral float-left" title="Jupyter Notebooks" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../plotting/" class="btn btn-neutral float-right" title="Plotting with Vega-Altair" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright CodeRefinery project.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
